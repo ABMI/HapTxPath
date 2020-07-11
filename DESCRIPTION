@@ -1,0 +1,11 @@
+Package: HapTxPath
+Type: Package
+Title: Treatment pathway of Hospital-acquired pneumonia (One Line, Title Case)
+Version: 0.0.0.9000
+Authors: Chungsoo Kim [aut, cre] 
+Maintainer: Chungsoo Kim <ted9219@ajou.ac.kr>
+Description: Investigating the treatment pathway of antibiotics for hospital-acquired pneumoina patients.
+License: Copyright to ABMI (Department of biomedical informatics, Ajou university school of medicine)
+Encoding: UTF-8
+LazyData: TRUE
+RoxygenNote: 7.0.2

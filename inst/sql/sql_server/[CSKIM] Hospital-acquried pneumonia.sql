@@ -119,6 +119,18 @@ SELECT 33 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
                                             ) I
 ) C;
 
+INSERT INTO #Codesets (codeset_id, concept_id)
+SELECT 99 as codeset_id, c.concept_id 
+FROM (
+	select distinct I.concept_id 
+	FROM (
+		select concept_id from @vocabulary_database_schema.CONCEPT c
+		where concept_id in (44814638,44814637,44814646, 44814639, 44814645, 44814644, 44814642, 44814641)
+        and c.invalid_reason is null
+        ) I
+) C;
+
+
 
 with primary_events (event_id, person_id, start_date, end_date, op_start_date, op_end_date, visit_occurrence_id) as
 (
@@ -530,6 +542,79 @@ FROM
 ) Results
 ;
 
+select 5 as inclusion_rule_id, person_id, event_id
+INTO #Inclusion_5
+FROM 
+(
+  select pe.person_id, pe.event_id
+  FROM #qualified_events pe
+  
+  JOIN (
+    -- Begin Criteria Group
+    select 0 as index_id, person_id, event_id
+    FROM
+    (
+      select E.person_id, E.event_id 
+      FROM #qualified_events E
+      INNER JOIN
+      (
+	      -- Begin Correlated Criteria
+        SELECT 0 as index_id, p.person_id, p.event_id
+        FROM #qualified_events P
+        LEFT JOIN
+        (
+          -- Begin Note Criteria
+          SELECT C.person_id, C.note_id as event_id, C.note_date as start_date, 
+          C.note_type_concept_id as TARGET_CONCEPT_ID, C.note_title as TARGET_TITLE, C.note_text as TARGET_TEXT, C.visit_occurrence_id,
+          C.note_date as sort_date
+          FROM 
+          (
+            SELECT n.* 
+              FROM (
+				select * from @cdm_database_schema.note where (note_title like '%Progress note%' or note_title like '%협의진료%' or note_title like '%퇴원%')		
+				and (note_text like '%Pneumonia%' or note_text like '%pneumonia%' or note_text like '%폐렴%' 
+					or note_text like 'HAP' or note_text like '%hospital%acquried%pneumonia%' or note_text like '%병원성%폐렴%'
+					or note_text like '%consolidation%')
+				) n 
+            JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))
+          ) C
+          
+          -- End Note Criteria
+        ) A on A.person_id = P.person_id and A.visit_occurrence_id = P.visit_occurrence_id 
+		AND A.START_DATE >= P.OP_START_DATE AND A.START_DATE <= P.OP_END_DATE AND A.START_DATE >= DATEADD(day,3,P.START_DATE) AND A.START_DATE <= DATEADD(day,0,P.END_DATE)
+		AND A.PERSON_ID NOT IN (
+		select distinct P.person_id
+		FROM #qualified_events P
+        LEFT JOIN
+        (
+          SELECT C.person_id, C.note_id as event_id, C.note_date as start_date, 
+          C.note_type_concept_id as TARGET_CONCEPT_ID, C.note_title as TARGET_TITLE, C.note_text as TARGET_TEXT, C.visit_occurrence_id,
+          C.note_date as sort_date
+          FROM 
+          (
+            SELECT n.* 
+              FROM (
+				select * from @cdm_database_schema.note where (note_title like '%Progress note%' or note_title like '%협의진료%' or note_title like '%퇴원%')		
+				and (note_text like '%Pneumonia%' or note_text like '%pneumonia%' or note_text like '%폐렴%' 
+					or note_text like 'HAP' or note_text like '%hospital%acquried%pneumonia%' or note_text like '%병원성%폐렴%'
+					or note_text like '%consolidation%')
+				) n 
+            JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))
+          ) C
+		) D on D.person_id = P.person_id and D.visit_occurrence_id = P.visit_occurrence_id where datediff(dd, P.start_date, D.start_date) < 3
+		)
+		GROUP BY p.person_id, p.event_id
+		HAVING COUNT(A.TARGET_CONCEPT_ID) >= 1
+        -- End Correlated Criteria 
+      ) CQ on E.person_id = CQ.person_id and E.event_id = CQ.event_id
+      GROUP BY E.person_id, E.event_id
+      HAVING COUNT(index_id) = 1
+    ) G
+    -- End Criteria Group
+  ) AC on AC.person_id = pe.person_id AND AC.event_id = pe.event_id
+) Results
+;
+
 SELECT inclusion_rule_id, person_id, event_id
 INTO #inclusion_events
 FROM (select inclusion_rule_id, person_id, event_id from #Inclusion_0
@@ -540,7 +625,9 @@ FROM (select inclusion_rule_id, person_id, event_id from #Inclusion_0
       UNION ALL
       select inclusion_rule_id, person_id, event_id from #Inclusion_3
       UNION ALL
-      select inclusion_rule_id, person_id, event_id from #Inclusion_4) I;
+      select inclusion_rule_id, person_id, event_id from #Inclusion_4
+	  UNION ALL
+      select inclusion_rule_id, person_id, event_id from #Inclusion_5) I;
       TRUNCATE TABLE #Inclusion_0;
       DROP TABLE #Inclusion_0;
       
@@ -555,6 +642,9 @@ FROM (select inclusion_rule_id, person_id, event_id from #Inclusion_0
       
       TRUNCATE TABLE #Inclusion_4;
       DROP TABLE #Inclusion_4;
+
+	  TRUNCATE TABLE #Inclusion_5;
+      DROP TABLE #Inclusion_5;
       
       
       with cteIncludedEvents(event_id, person_id, start_date, end_date, op_start_date, op_end_date, ordinal) as
@@ -569,7 +659,7 @@ FROM (select inclusion_rule_id, person_id, event_id from #Inclusion_0
         ) MG -- matching groups
         
         -- the matching group with all bits set ( POWER(2,# of inclusion rules) - 1 = inclusion_rule_mask
-                                                        WHERE (MG.inclusion_rule_mask = POWER(cast(2 as bigint),5)-1)
+                                                        WHERE (MG.inclusion_rule_mask = POWER(cast(2 as bigint),6)-1)
                                                         
         )
         select event_id, person_id, start_date, end_date, op_start_date, op_end_date
@@ -577,6 +667,7 @@ FROM (select inclusion_rule_id, person_id, event_id from #Inclusion_0
         FROM cteIncludedEvents Results
         
         ;
+		
         
         -- date offset strategy
         
@@ -665,11 +756,9 @@ FROM (select inclusion_rule_id, person_id, event_id from #Inclusion_0
         FROM #final_cohort CO
         ;
         
-        
-        
+      
         TRUNCATE TABLE #strategy_ends;
         DROP TABLE #strategy_ends;
-        
         
         TRUNCATE TABLE #cohort_rows;
         DROP TABLE #cohort_rows;

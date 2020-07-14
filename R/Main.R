@@ -21,8 +21,9 @@
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/)
 #' @param createCohorts        Whether to create the cohorts for the study
+#' @param runPathway           Whether to run the treatment pathway visualization
 #' @param packageResults       Whether to package the results (after removing sensitive details)
-#' @param minCellCount         The min count for the result to be included in the package results
+
 #' @export
 execute <- function(connectionDetails,
                     databaseName,
@@ -33,8 +34,7 @@ execute <- function(connectionDetails,
                     outputFolder,
                     createCohorts = T,
                     runPathway = T,
-                    packageResults = T,
-                    minCellCount = 5){
+                    packageResults = T){
   
   if (!file.exists(outputFolder))
     dir.create(outputFolder, recursive = TRUE)
@@ -52,7 +52,16 @@ execute <- function(connectionDetails,
   
   if(runPathway){
     ParallelLogger::logInfo("Run analysis of HAP medication pathway")
-    
+    runDrugPathway(connectionDetails,
+                   cdmDatabaseSchema,
+                   cohortDatabaseSchema,
+                   cohortTable,
+                   cohortId,
+                   outputFolder,
+                   savePlot,
+                   StartDays = 0,
+                   EndDays = 365,
+                   pathLevel)
   }
   
   if (packageResults) {

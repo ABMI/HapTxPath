@@ -1,29 +1,131 @@
-getDrugExposureData <- function(StartDays = -365,
-                                EndDays = 0){
+#' Run drugPathway package
+#'
+#' @details
+#' Run the drugPathway package, which implements the cohort pathway design.
+#'
+#' @param connectionDetails    An object of type \code{connectionDetails} as created using the
+#'                             \code{\link[DatabaseConnector]{createConnectionDetails}} function in the
+#'                             DatabaseConnector package.
+#' @param cdmDatabaseSchema    Schema name where your patient-level data in OMOP CDM format resides.
+#'                             Note that for SQL Server, this should include both the database and
+#'                             schema name, for example 'cdm_data.dbo'.
+#' @param cohortDatabaseSchema Schema name where intermediate data can be stored. You will need to have
+#'                             write priviliges in this schema. Note that for SQL Server, this should
+#'                             include both the database and schema name, for example 'cdm_data.dbo'.
+#' @param cohortTable          The name of the table that will be created in the work database schema.
+#'                             This table will hold the exposure and outcome cohorts used in this
+#'                             study.
+#' @param outputFolder         Name of local folder where the results were generated; make sure to use forward slashes
+#'                             (/). Do not use a folder on a network drive since this greatly impacts
+#'                             performance.
+#' @param savePlot
+#' @param StartDays
+#' @param EndDays
+#' @param pathLevel                             
+#'
+#'
+#' @export
+#' 
+
+runDrugPathway <- function(connectionDetails,
+                           cdmDatabaseSchema,
+                           cohortDatabaseSchema,
+                           cohortTable,
+                           cohortId,
+                           outputFolder,
+                           savePlot,
+                           StartDays = 0,
+                           EndDays = 365,
+                           pathLevel){
   
-  temporalSettings <- createTemporalCovariateSettings(useDrugExposure = TRUE,
-                                                      temporalStartDays = StartDays:EndDays,
-                                                      temporalEndDays = StartDays:EndDays)
   
-  covariateData <- getDbCovariateData(connectionDetails = connectionDetails,
-                                         cdmDatabaseSchema = cdmDatabaseSchema,
-                                         cohortDatabaseSchema = cohortDatabaseSchema,
-                                         cohortTable = cohortTable,
-                                         cohortId = cohortId,
-                                         rowIdField = "subject_id",
-                                         covariateSettings = temporalSettings)
+temporalSettings <- FeatureExtraction::createTemporalCovariateSettings(useDrugExposure = TRUE,
+                                                    temporalStartDays = StartDays:EndDays,
+                                                    temporalEndDays = StartDays:EndDays)
   
-  covariateData <- as.data.frame(covariateData$covariates)
+covariateData <- FeatureExtraction::getDbCovariateData(connectionDetails = connectionDetails,
+                                   cdmDatabaseSchema = cdmDatabaseSchema,
+                                   cohortDatabaseSchema = cohortDatabaseSchema,
+                                   cohortTable = cohortTable,
+                                   cohortId = cohortId,
+                                   rowIdField = "subject_id",
+                                   covariateSettings = temporalSettings)
+
+covariateData <- as.data.frame(covariateData$covariates)
   
-  colnames(covariateData) <- c("subjectId","covariateId","covariateValue","time")
+colnames(covariateData) <- c("subjectId","covariateId","covariateValue","time")
   
-  covariateData <- covariateData %>%
+drugExposureData <- covariateData %>%
     dplyr::mutate(cohortId = cohortId) %>%
     dplyr::mutate(conceptId = substr(covariateId, 1, nchar(covariateId)-3))
-  return(covariateData)
+
+# conceptIds from concept set json files
+conceptSets <- conceptIdfromJson(connectionDetails = connectionDetails, 
+                                 cdmDatabaseSchema = cdmDatabaseSchema)
+
+#drugExposure data to sequence data
+sequenceData <- getSequenceData(cohortDatabaseSchema = cohortDatabaseSchema,
+                             cohortTable = cohortTable,
+                             cohortId = cohortId,
+                             pathLevel = pathLevel)
+
+#Results
+totalN <- totalN(connectionDetails = connectionDetails, 
+                 cohortDatabaseSchema = cohortDatabaseSchema,
+                 cohortTable = cohortTable,
+                 cohortId = cohortId)
+
+drugTable1 <- drugTable1(cohortDatabaseSchema = cohortDatabaseSchema,
+                         cohortTable = cohortTable, 
+                         cohortId = cohortId,
+                         drugExposureData = drugExposureData,
+                         conceptSets = conceptSets)
+
+ParallelLogger::logInfo("Saving the table and pathway plots")
+
+#Save
+xlsx::write.xlsx(totalN, file = file.path(outputFolder, "table1.xlsx"), sheetName = "totalN", col.names = T, row.names = F, append = T)
+xlsx::write.xlsx(drugTable1, file = file.path(outputFolder, "table1.xlsx"), sheetName = "table1", col.names = T, row.names = F, append = T)
+
+if(savePlot == T) PlotTxPathway(cohortDatabaseSchema,
+                                cohortTable,
+                                cohortId,
+                                conceptSets,
+                                drugExposureData,
+                                sequenceData,
+                                outputFolder,
+                                StartDays = 0,
+                                EndDays = 365,
+                                pathLevel = 3)
+
 }
 
-conceptIdfromJson <- function(){ 
+
+#' conceptSet to conceptId
+#'
+#' @details
+#' Extract concept_id from the json file of concept set
+#'
+#' @param connectionDetails    An object of type \code{connectionDetails} as created using the
+#'                             \code{\link[DatabaseConnector]{createConnectionDetails}} function in the
+#'                             DatabaseConnector package.
+#' @param cdmDatabaseSchema    Schema name where your patient-level data in OMOP CDM format resides.
+#'                             Note that for SQL Server, this should include both the database and
+#'                             schema name, for example 'cdm_data.dbo'.
+#' @param cohortDatabaseSchema Schema name where intermediate data can be stored. You will need to have
+#'                             write priviliges in this schema. Note that for SQL Server, this should
+#'                             include both the database and schema name, for example 'cdm_data.dbo'.
+#' @param cohortTable          The name of the table that will be created in the work database schema.
+#'                             This table will hold the exposure and outcome cohorts used in this
+#'                             study.
+#' @param outputFolder         Name of local folder where the results were generated; make sure to use forward slashes
+#'                             (/). Do not use a folder on a network drive since this greatly impacts
+#'                             performance.
+#'
+#' @export
+#' 
+conceptIdfromJson <- function(connectionDetails, 
+                              cdmDatabaseSchema){ 
   
   #read json to R dataframe
   path <- system.file(package = "HapTxPath", "inst/json")
@@ -79,180 +181,7 @@ conceptIdfromJson <- function(){
   
 }
 
-drugExposureData <- getDrugExposureData(StartDays = StartDays, EndDays = EndDays)
-drugEraData <- getDrugEraData(StartDays = StartDays, EndDays = EndDays)
-
-# conceptIds from concept set json files
-conceptSets <- conceptIdfromJson()
-
-totalN <- function(cohortDatabaseSchema, cohortTable, cohortId){
-  sql <- "select count(*) as n from @cohortDatabaseSchema.@cohortTable where cohort_definition_id = @cohortId"
-  sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema, cohortTable = cohortTable, cohortId = cohortId)
-  sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
-  totalN <- DatabaseConnector::querySql(connection = connect(connectionDetails), sql)
-  totalN <- totalN[1,1]
-  
-  return(totalN)
-}
-
-drugTable1 <- function(drugExposureData){
-  
-  drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
-  
-  for(i in 1:length(conceptSets)){
-    if(i == 1){
-      conceptList <- data.frame(setNum = i,
-                                conceptconceptSetName = names(conceptSets[i]),
-                                conceptId = conceptSets[[i]])
-    }else{
-      conceptList <- rbind(conceptList, 
-                           data.frame(setNum = i,
-                                      conceptconceptSetName = names(conceptSets[i]),
-                                      conceptId = conceptSets[[i]]))
-    }
-  }
-  
-  drugExposure <- merge(drugExposureFiltered,
-                        conceptList,
-                        by = "conceptId",
-                        all.x = T)
-  N <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
-  drugTable1 <- drugExposure %>%
-    group_by(conceptconceptSetName) %>%
-    summarise(recordCount = n(), 
-              personCount = paste0(n_distinct(subjectId), " (", round(n_distinct(subjectId)/N*100,2),"%",")"))
-  
-  drugTable1 <- as.data.frame(drugTable1)
-  
-  return(drugTable1)
-}
-
-freqBarPlot <- function(drugExposureData){
-  
-  drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
-  
-  for(i in 1:length(conceptSets)){
-    if(i == 1){
-      conceptList <- data.frame(setNum = i,
-                                conceptSetName = names(conceptSets[i]),
-                                conceptId = conceptSets[[i]])
-    }else{
-      conceptList <- rbind(conceptList, 
-                           data.frame(setNum = i,
-                                      conceptSetName = names(conceptSets[i]),
-                                      conceptId = conceptSets[[i]]))
-    }
-  }
-  
-  drugExposure <- merge(drugExposureFiltered,
-                        conceptList,
-                        by = "conceptId",
-                        all.x = T)
-  N <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
-  drugTable1 <- drugExposure %>%
-    group_by(conceptSetName) %>%
-    summarise(records = n(), 
-              person = n_distinct(subjectId), 
-              percentile = round(person/N*100,2))
-  
-  drugTable1 <- as.data.frame(drugTable1)
-  
-  plot_ly(drugTable1, x = ~conceptSetName, y = ~percentile, 
-          hoverinfo = 'y', type = "bar", name = 'percentile', text = drugTable1$percentile, textposition = 'outside') %>%
-    layout(xaxis = list(title = "Concept Set"), yaxis = list(title = "Proportion of patient having concept sets (%)"))
-}
-
-longitudinalPlot <- function(drugExposureData){
-  
-  drugExposureDataT <- transform(drugExposureData,
-                                 timePeriod = cut(time, breaks = c(seq(StartDays,EndDays, by = 365)),
-                                                  right = T, 
-                                                  labels = c(1:(length(seq(StartDays, EndDays, by = 365))-1))-0.5))
-  
-  periodN <- drugExposureDataT %>% group_by(timePeriod) %>% summarise(n = n_distinct(subjectId))
-  
-  drugExposureFilteredT <- drugExposureDataT %>% filter(conceptId %in% unlist(conceptSets))
-  
-  for(i in 1:length(conceptSets)){
-    if(i == 1){
-      conceptList <- data.frame(setNum = i,
-                                conceptSetName = names(conceptSets[i]),
-                                conceptId = conceptSets[[i]])
-    }else{
-      conceptList <- rbind(conceptList, 
-                           data.frame(setNum = i,
-                                      conceptSetName = names(conceptSets[i]),
-                                      conceptId = conceptSets[[i]]))
-    }
-  }
-  
-  drugExposureT <- merge(drugExposureFilteredT,
-                         conceptList,
-                         by = "conceptId",
-                         all.x = T)
-  N <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
-  drugTable1 <- drugExposureT %>%
-    group_by(conceptSetName, timePeriod) %>%
-    summarise(records = n(), 
-              person = n_distinct(subjectId), 
-              percentile = round(person/N*100,2))
-  
-  drugTable1 <- as.data.frame(drugTable1)
-  drugTable1 <- merge(drugTable1, periodN, by = "timePeriod", all.x = T) %>%
-    mutate(period_percentile = round(person/n*100,2))
-  
-  plot_ly(drugTable1, x = ~timePeriod, y = ~period_percentile,
-          color = ~conceptSetName, type = 'scatter', mode = 'lines+markers') %>%
-    layout(xaxis = list(title = "Follow-up time",
-                        ticktext = seq(0, (EndDays-StartDays)/365)), 
-           yaxis = list(title = "Percentage", 
-                        ticktext = seq(0, 100, by = 20)))  
-}
-
-dailyPlot <-function(drugExposureData){
-  
-  periodN <- drugExposureData %>% group_by(time) %>% summarise(n = n_distinct(subjectId))
-  
-  drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
-  
-  for(i in 1:length(conceptSets)){
-    if(i == 1){
-      conceptList <- data.frame(setNum = i,
-                                conceptSetName = names(conceptSets[i]),
-                                conceptId = conceptSets[[i]])
-    }else{
-      conceptList <- rbind(conceptList, 
-                           data.frame(setNum = i,
-                                      conceptSetName = names(conceptSets[i]),
-                                      conceptId = conceptSets[[i]]))
-    }
-  }
-  
-  drugExposure <- merge(drugExposureFiltered,
-                        conceptList,
-                        by = "conceptId",
-                        all.x = T)
-  N <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
-  drugTable1 <- drugExposure %>%
-    group_by(conceptSetName, time) %>%
-    summarise(records = n(), 
-              person = n_distinct(subjectId), 
-              percentile = round(person/N*100,2))
-  
-  drugTable1 <- as.data.frame(drugTable1)
-  drugTable1 <- merge(drugTable1, periodN, by = "time", all.x = T) %>%
-    mutate(period_percentile = round(person/n*100,2))
-  
-  plot_ly(drugTable1, x = ~time, y = ~period_percentile,
-          color = ~conceptSetName, type = 'scatter', mode = 'lines+markers') %>%
-    layout(xaxis = list(title = "Follow-up time"), 
-           yaxis = list(title = "Percentage", 
-                        ticktext = seq(0, 100, by = 20)))  
-}
-
-sequenceData <- function(cohortDatabaseSchema, cohortTable, cohortId, pathLevel){
-  
-  if(pathLevel > 20 | pathLevel < 1) cat("pathLevel must be between 1 and 20")  
+getSequenceData <- function(cohortDatabaseSchema, cohortTable, cohortId){
   
   path <- file.path(getwd(),"inst", "conceptSets")  
   conceptSets <- lapply(list.files(path, full.names = T), function(x) jsonlite::fromJSON(x))
@@ -299,112 +228,49 @@ sequenceData <- function(cohortDatabaseSchema, cohortTable, cohortId, pathLevel)
   sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema)
   DatabaseConnector::executeSql(connection = connect(connectionDetails), sql)
   
-  # sequenceData for sunburstPlot
-  table2 <- table
-  table <- as.data.frame(table %>%
-                           group_by_at(vars(c(-INDEX_YEAR, -NUM_PERSONS))) %>%
-                           summarise(NUM_PERSONS = sum(NUM_PERSONS)) %>% group_by())
+  return(table)
+}
+ 
+
+totalN <- function(connectionDetails, cohortDatabaseSchema, cohortTable, cohortId){
+  sql <- "select count(*) as n from @cohortDatabaseSchema.@cohortTable where cohort_definition_id = @cohortId"
+  sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema, cohortTable = cohortTable, cohortId = cohortId)
+  sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
+  totalN <- DatabaseConnector::querySql(connection = connect(connectionDetails), sql)
+  totalN <- totalN[1,1]
   
-  sequenceData <- do.call(paste, c(table[,1:(1+pathLevel-1)], sep = "-"))
-  sequenceData <- data.frame(pathway = sequenceData, NUM_PERSONS = table$NUM_PERSONS)
-  sequenceData <- sequenceData %>%
-    group_by(pathway) %>%
-    summarise(sum = sum(NUM_PERSONS)) %>%
-    group_by()
+  return(totalN)
+}
+
+drugTable1 <- function(drugExposureData, conceptSets, cohortDatabaseSchema, cohortTable, cohortId){
   
-  sequenceData$pathway <- as.character(sequenceData$pathway)
-  sequenceData$pathway <- paste0(stringr::str_split(sequenceData$pathway,
-                                                    pattern = "-NA", simplify = T)[,1], "-end")
-  return(sequenceData)
+  drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
   
-  #nodeLink data for sankeyPlot
-  
-  label <- vector()
-  name <- vector()
-  
-  for (i in 1:pathLevel){
-    if(length(as.factor(table[,i][!is.na(table[,i])]))!= 0){
-      label <- c(label, paste0(levels(as.factor(table[,i][!is.na(table[,i])])), "_", i))
-      name <- c(name,levels(as.factor(table[,i][!is.na(table[,i])])))
-    }
-  }
-  
-  node <- data.frame(name = name, label = label)
-  node$label <- as.character(node$label)
-  
-  for (i in 1:pathLevel){
-    if(length(as.factor(table[,i][!is.na(table[,i])]))!=0){
-      pct <- data.frame(concept_name = paste0(table[,as.integer(i)], "_", i), NUM_PERSONS=table[,21])
-      
-      if(!"pctTable" %in% ls()){
-        pctTable<-as.data.frame(pct %>%
-                                  group_by(concept_name) %>%
-                                  summarise(personCount = sum(NUM_PERSONS),
-                                            percent = round(sum(NUM_PERSONS)/n*100,2)))
-      }else{pctTable <- rbind(pctTable,
-                              as.data.frame(pct %>%
-                                              group_by(concept_name) %>%
-                                              summarise(personCount = sum(NUM_PERSONS),
-                                                        percent = round(sum(NUM_PERSONS)/n*100,2))))}
-    }
-  }
-  
-  node <- merge(node, pctTable, by.x = "label", by.y = "concept_name", all.x = T)
-  node$label_2 <- as.factor(paste0(node$name, " (n=", node$personCount, ",", node$percent, "%)"))
-  color <- data.frame(name = levels(node$name), color = rainbow(length(levels(node$name))))
-  node <- merge(node, color, by = "name", all.x = T)
-  
-  
-  
-  
-  n <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
-  for (i in 1:pathLevel){
+  for(i in 1:length(conceptSets)){
     if(i == 1){
-      
-      link <- data.frame(source = paste0(table[,as.integer(i)], "_", i),
-                         target = paste0(table[,as.integer(1+i)], "_", i+1), NUM_PERSONS=table[,21])
-      link <- as.data.frame(link %>%
-                              group_by(source, target) %>%
-                              summarise(value = sum(NUM_PERSONS)) %>% group_by())
+      conceptList <- data.frame(setNum = i,
+                                conceptconceptSetName = names(conceptSets[i]),
+                                conceptId = conceptSets[[i]])
     }else{
-      link2 <- as.data.frame(data.frame(source = paste0(table[,as.integer(i)], "_", i),
-                                        target = paste0(table[,as.integer(1+i)], "_", i+1), NUM_PERSONS=table[,21]) %>%
-                               group_by(source, target) %>%
-                               summarise(value = sum(NUM_PERSONS)) %>% group_by())
-      link <- rbind(link, link2)
+      conceptList <- rbind(conceptList, 
+                           data.frame(setNum = i,
+                                      conceptconceptSetName = names(conceptSets[i]),
+                                      conceptId = conceptSets[[i]]))
     }
   }
   
-  link$source <- match(link$source, node$label) -1
-  link$target <- match(link$target, node$label) -1
+  drugExposure <- merge(drugExposureFiltered,
+                        conceptList,
+                        by = "conceptId",
+                        all.x = T)
+  N <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
+  drugTable1 <- drugExposure %>%
+    group_by(conceptconceptSetName) %>%
+    summarise(recordCount = n(), 
+              personCount = paste0(n_distinct(subjectId), " (", round(n_distinct(subjectId)/N*100,2),"%",")"))
   
+  drugTable1 <- as.data.frame(drugTable1)
   
+  return(drugTable1)
 }
 
-sunburstPlot <- function(sequenceData){
-  sunburstR::sund2b(sequenceData)
-  #sunburstR::sunburst(sequenceData)
-}
-
-sankeyPlot <- function(){
-  
-  plot_ly(type = "sankey",
-          orientation = "c",
-          alpha = 0.5,
-          node = list(label = node$label_2,
-                      pad = 15,
-                      thickness = 15,
-                      x = rep(0.2, length(node$label_2)),
-                      color = node$color), 
-          link = list(source = link$source, target = link$target, value = link$value)
-  )
-}
-
-NofPatient <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
-drugTable1(drugExposureData)
-freqBarPlot(drugExposureData)
-longitudinalPlot(drugExposureData)
-dailyPlot(drugExposureData)
-dailyPlot(drugEraData)
-sequenceData <- sunburstData(pathLevel = 3)
-sunburstPlot(sequenceData)

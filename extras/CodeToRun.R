@@ -43,9 +43,8 @@ execute(connectionDetails = connectionDetails,
         cohortTable = cohortTable,
         cohortId = cohortId,
         outputFolder = outputFolder,
-        createProtocol = F,
         createCohorts = T,
-        runAnalyses = F,
-        createResultsDoc = F,
-        packageResults = F,
-        minCellCount= 5)
+        runDrugPathway = F,
+        packageResults = F)
+
+# Please send the result zip file to ted9219@ajou.ac.kr

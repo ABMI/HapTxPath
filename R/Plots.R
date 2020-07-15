@@ -298,7 +298,7 @@ sankeyPlot <- function(sequenceData,
   
   for (i in 1:pathLevel){
     if(length(as.factor(sequenceData[,i+1][!is.na(sequenceData[,i+1])]))!=0){
-      pct <- data.frame(concept_name = paste0(sequenceData[,as.integer(i+1)], "_", i+1), NUM_PERSONS=sequenceData[,22])
+      pct <- data.frame(concept_name = paste0(sequenceData[,as.integer(i+1)], "_", i), NUM_PERSONS=sequenceData[,22])
       
       if(!"pctTable" %in% ls()){
         pctTable<-as.data.frame(pct %>%

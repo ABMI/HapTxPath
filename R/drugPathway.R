@@ -18,12 +18,12 @@
 #' @param outputFolder         Name of local folder where the results were generated; make sure to use forward slashes
 #'                             (/). Do not use a folder on a network drive since this greatly impacts
 #'                             performance.
-#' @param savePlot
-#' @param StartDays
-#' @param EndDays
-#' @param pathLevel                             
+#' @param savePlot             Whether run the savePlot function
+#' @param StartDays            The first date from index date (cohort start date) for investigating drug sequence 
+#' @param EndDays              The last date from index date (cohort start date) for investigating drug sequence
+#' @param pathLevel            Level of pathway depth                     
 #'
-#'
+#' @import dplyr
 #' @export
 #' 
 
@@ -33,71 +33,69 @@ runDrugPathway <- function(connectionDetails,
                            cohortTable,
                            cohortId,
                            outputFolder,
-                           savePlot,
+                           savePlot = T,
                            StartDays = 0,
-                           EndDays = 365,
-                           pathLevel){
+                           EndDays = 365){
   
   
-temporalSettings <- FeatureExtraction::createTemporalCovariateSettings(useDrugExposure = TRUE,
-                                                    temporalStartDays = StartDays:EndDays,
-                                                    temporalEndDays = StartDays:EndDays)
+  temporalSettings <- FeatureExtraction::createTemporalCovariateSettings(useDrugExposure = TRUE,
+                                                                         temporalStartDays = StartDays:EndDays,
+                                                                         temporalEndDays = StartDays:EndDays)
   
-covariateData <- FeatureExtraction::getDbCovariateData(connectionDetails = connectionDetails,
-                                   cdmDatabaseSchema = cdmDatabaseSchema,
-                                   cohortDatabaseSchema = cohortDatabaseSchema,
-                                   cohortTable = cohortTable,
-                                   cohortId = cohortId,
-                                   rowIdField = "subject_id",
-                                   covariateSettings = temporalSettings)
-
-covariateData <- as.data.frame(covariateData$covariates)
+  covariateData <- FeatureExtraction::getDbCovariateData(connectionDetails = connectionDetails,
+                                                         cdmDatabaseSchema = cdmDatabaseSchema,
+                                                         cohortDatabaseSchema = cohortDatabaseSchema,
+                                                         cohortTable = cohortTable,
+                                                         cohortId = cohortId,
+                                                         rowIdField = "subject_id",
+                                                         covariateSettings = temporalSettings)
   
-colnames(covariateData) <- c("subjectId","covariateId","covariateValue","time")
+  covariateData <- as.data.frame(covariateData$covariates)
   
-drugExposureData <- covariateData %>%
+  colnames(covariateData) <- c("subjectId","covariateId","covariateValue","time")
+  
+  drugExposureData <- covariateData %>%
     dplyr::mutate(cohortId = cohortId) %>%
     dplyr::mutate(conceptId = substr(covariateId, 1, nchar(covariateId)-3))
-
-# conceptIds from concept set json files
-conceptSets <- conceptIdfromJson(connectionDetails = connectionDetails, 
-                                 cdmDatabaseSchema = cdmDatabaseSchema)
-
-#drugExposure data to sequence data
-sequenceData <- getSequenceData(cohortDatabaseSchema = cohortDatabaseSchema,
-                             cohortTable = cohortTable,
-                             cohortId = cohortId,
-                             pathLevel = pathLevel)
-
-#Results
-totalN <- totalN(connectionDetails = connectionDetails, 
-                 cohortDatabaseSchema = cohortDatabaseSchema,
-                 cohortTable = cohortTable,
-                 cohortId = cohortId)
-
-drugTable1 <- drugTable1(cohortDatabaseSchema = cohortDatabaseSchema,
-                         cohortTable = cohortTable, 
-                         cohortId = cohortId,
-                         drugExposureData = drugExposureData,
-                         conceptSets = conceptSets)
-
-ParallelLogger::logInfo("Saving the table and pathway plots")
-
-#Save
-xlsx::write.xlsx(totalN, file = file.path(outputFolder, "table1.xlsx"), sheetName = "totalN", col.names = T, row.names = F, append = T)
-xlsx::write.xlsx(drugTable1, file = file.path(outputFolder, "table1.xlsx"), sheetName = "table1", col.names = T, row.names = F, append = T)
-
-if(savePlot == T) PlotTxPathway(cohortDatabaseSchema,
-                                cohortTable,
-                                cohortId,
-                                conceptSets,
-                                drugExposureData,
-                                sequenceData,
-                                outputFolder,
-                                StartDays = 0,
-                                EndDays = 365,
-                                pathLevel = 3)
-
+  
+  # conceptIds from concept set json files
+  conceptSets <- conceptIdfromJson(connectionDetails = connectionDetails, 
+                                   cdmDatabaseSchema = cdmDatabaseSchema)
+  
+  #drugExposure data to sequence data
+  sequenceData <- getSequenceData(cohortDatabaseSchema = cohortDatabaseSchema,
+                                  cohortTable = cohortTable,
+                                  cohortId = cohortId)
+  
+  #Results
+  n <- totalN(connectionDetails = connectionDetails, 
+              cohortDatabaseSchema = cohortDatabaseSchema,
+              cohortTable = cohortTable,
+              cohortId = cohortId)
+  
+  drugTable1 <- drugTable1(cohortDatabaseSchema = cohortDatabaseSchema,
+                           cohortTable = cohortTable, 
+                           cohortId = cohortId,
+                           drugExposureData = drugExposureData,
+                           conceptSets = conceptSets)
+  
+  ParallelLogger::logInfo("Saving the table and pathway plots")
+  
+  #Save
+  write.csv(n, file = file.path(outputFolder, "totalN.csv"))
+  write.csv(drugTable1, file = file.path(outputFolder, "table1.csv"))
+  
+  if(savePlot == T) PlotTxPathway(cohortDatabaseSchema,
+                                  cohortTable,
+                                  cohortId,
+                                  conceptSets,
+                                  drugExposureData,
+                                  sequenceData,
+                                  outputFolder,
+                                  StartDays = 0,
+                                  EndDays = 365,
+                                  pathLevel = 3)
+  
 }
 
 
@@ -124,11 +122,11 @@ if(savePlot == T) PlotTxPathway(cohortDatabaseSchema,
 #'
 #' @export
 #' 
-conceptIdfromJson <- function(connectionDetails, 
-                              cdmDatabaseSchema){ 
+conceptIdfromJson <- function(connectionDetails = connectionDetails, 
+                              cdmDatabaseSchema = cdmDatabaseSchema){ 
   
   #read json to R dataframe
-  path <- system.file(package = "HapTxPath", "inst/json")
+  path <- system.file(package = "HapTxPath", "json")
   conceptSets <- lapply(list.files(path, full.names = T), function(x) jsonlite::fromJSON(x))
   
   conceptList <- vector(mode = "list", length = length(list.files(path)))
@@ -141,12 +139,12 @@ conceptIdfromJson <- function(connectionDetails,
     
     if(length(descendant)!=0){
       sql <- "select distinct descendant_concept_id as conceptId 
-            from @vocabularyDatabaseSchema.concept_ancestor 
-            where ancestor_concept_id in (@conceptDescendant)"
+      from @vocabularyDatabaseSchema.concept_ancestor 
+      where ancestor_concept_id in (@conceptDescendant)"
       sql <- SqlRender::render(sql, vocabularyDatabaseSchema = cdmDatabaseSchema, conceptDescendant = descendant)
       sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
       
-      descendantConceptId <- DatabaseConnector::querySql(connection = connect(connectionDetails), sql)
+      descendantConceptId <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
       includedConceptId <- rbind(includedConceptId, descendantConceptId)
     }
     
@@ -156,12 +154,12 @@ conceptIdfromJson <- function(connectionDetails,
     excludedConceptId <- data.frame(CONCEPTID = excludedConcept)
     if(length(excludedDescendant)!=0){
       sql <- "select distinct descendant_concept_id as conceptId 
-            from @vocabularyDatabaseSchema.concept_ancestor 
-            where ancestor_concept_id in (@conceptDescendant)"
+      from @vocabularyDatabaseSchema.concept_ancestor 
+      where ancestor_concept_id in (@conceptDescendant)"
       sql <- SqlRender::render(sql, vocabularyDatabaseSchema = cdmDatabaseSchema, conceptDescendant = excludedDescendant)
       sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
       
-      excludedDescendantConceptId <- DatabaseConnector::querySql(connection = connect(connectionDetails), sql)
+      excludedDescendantConceptId <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
       excludedConceptId <- rbind(excludedConceptId, excludedDescendantConceptId)
     }
     
@@ -181,9 +179,11 @@ conceptIdfromJson <- function(connectionDetails,
   
 }
 
-getSequenceData <- function(cohortDatabaseSchema, cohortTable, cohortId){
+getSequenceData <- function(cohortDatabaseSchema = cohortDatabaseSchema,
+                            cohortTable = cohortTable,
+                            cohortId = cohortId){
   
-  path <- file.path(getwd(),"inst", "conceptSets")  
+  path <- system.file(package = "HapTxPath", "json")
   conceptSets <- lapply(list.files(path, full.names = T), function(x) jsonlite::fromJSON(x))
   
   includedConcept <- vector()
@@ -210,7 +210,7 @@ getSequenceData <- function(cohortDatabaseSchema, cohortTable, cohortId){
   if(length(excludedConcept) == 0) excludedConcept <- 'NULL'
   if(length(excludedDescendantConcept) == 0) excludedDescendantConcept <- 'NULL'
   
-  path <- file.path(getwd(), "inst","sql", "TxPath.sql")  
+  path <- system.file(package = "HapTxPath", "sql", "sql_server", "TxPath.sql")
   sql <- SqlRender::readSql(path)
   sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema, vocabularyDatabaseSchema = cdmDatabaseSchema,
                            cdmDatabaseSchema = cdmDatabaseSchema, 
@@ -218,54 +218,56 @@ getSequenceData <- function(cohortDatabaseSchema, cohortTable, cohortId){
                            excludedConcept = excludedConcept, excludedDescendantConcept = excludedDescendantConcept,
                            cohortTable = cohortTable, cohortId = cohortId, minCollapseDays = 2)
   sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
-  DatabaseConnector::executeSql(connection = connect(connectionDetails), sql)
+  DatabaseConnector::executeSql(connection = DatabaseConnector::connect(connectionDetails), sql)
   
   sql <- "select * from @cohortDatabaseSchema.event"
   sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema)
-  table <- DatabaseConnector::querySql(connection = connect(connectionDetails), sql)
+  table <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
   
   sql <- "drop table @cohortDatabaseSchema.event"
   sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema)
-  DatabaseConnector::executeSql(connection = connect(connectionDetails), sql)
+  DatabaseConnector::executeSql(connection = DatabaseConnector::connect(connectionDetails), sql)
   
   return(table)
 }
- 
+
 
 totalN <- function(connectionDetails, cohortDatabaseSchema, cohortTable, cohortId){
   sql <- "select count(*) as n from @cohortDatabaseSchema.@cohortTable where cohort_definition_id = @cohortId"
   sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema, cohortTable = cohortTable, cohortId = cohortId)
   sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
-  totalN <- DatabaseConnector::querySql(connection = connect(connectionDetails), sql)
+  totalN <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
   totalN <- totalN[1,1]
   
   return(totalN)
 }
 
-drugTable1 <- function(drugExposureData, conceptSets, cohortDatabaseSchema, cohortTable, cohortId){
+drugTable1 <- function(drugExposureData = drugExposureData,
+                       cohortDatabaseSchema = cohortDatabaseSchema,
+                       cohortTable = cohortTable,
+                       cohortId = cohortId,
+                       conceptSets = conceptSets){
   
   drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
   
+  conceptList <- data.frame(setNum = NULL, conceptSetName = NULL, conceptId = NULL)
+  
   for(i in 1:length(conceptSets)){
-    if(i == 1){
-      conceptList <- data.frame(setNum = i,
-                                conceptconceptSetName = names(conceptSets[i]),
-                                conceptId = conceptSets[[i]])
-    }else{
-      conceptList <- rbind(conceptList, 
-                           data.frame(setNum = i,
-                                      conceptconceptSetName = names(conceptSets[i]),
-                                      conceptId = conceptSets[[i]]))
-    }
+    conceptList <- rbind(conceptList, data.frame(data.frame(setNum = i,
+                                                            conceptSetName = names(conceptSets[i]),
+                                                            conceptId = conceptSets[[i]])))
   }
   
   drugExposure <- merge(drugExposureFiltered,
                         conceptList,
                         by = "conceptId",
                         all.x = T)
-  N <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
+  N <- totalN(connectionDetails = connectionDetails,
+              cohortDatabaseSchema = cohortDatabaseSchema,
+              cohortTable = cohortTable,
+              cohortId = cohortId)
   drugTable1 <- drugExposure %>%
-    group_by(conceptconceptSetName) %>%
+    group_by(conceptSetName) %>%
     summarise(recordCount = n(), 
               personCount = paste0(n_distinct(subjectId), " (", round(n_distinct(subjectId)/N*100,2),"%",")"))
   

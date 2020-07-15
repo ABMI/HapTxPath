@@ -18,25 +18,30 @@ PlotTxPathway(
 )
 }
 \arguments{
-\item{cohortDatabaseSchema}{The plpData object returned by running getPlpData()}
+\item{cohortDatabaseSchema}{Schema name where intermediate data can be stored. You will need to have
+write priviliges in this schema. Note that for SQL Server, this should
+include both the database and schema name, for example 'cdm_data.dbo'.}
 
-\item{cohortTable}{The cohort id corresponding to the outcome}
+\item{cohortTable}{The name of the table that will be created in the work database schema.
+This table will hold the exposure and outcome cohorts used in this
+study.}
 
-\item{cohortId}{Remove patients who have had the outcome before their target cohort index date from the plot}
+\item{cohortId}{The number of cohort id}
 
-\item{conceptSets}{(integer) The time-at-risk starts at target cohort index date plus this value}
+\item{conceptSets}{Concept set json files created from ATLAS}
 
-\item{drugExposureData}{(integer) The time-at-risk ends at target cohort index date plus this value}
+\item{drugExposureData}{The covariate data of drug exposure table obtaining by FeatureExtraction package}
 
-\item{sequenceData}{(binary) Whether to include a table at the bottom  of the plot showing the number of people at risk over time}
+\item{sequenceData}{The data reformatted by drug exposure date for visualization}
 
-\item{outputFolder}{(binary) Whether to include a confidence interval}
+\item{outputFolder}{Name of local folder to place results; make sure to use forward slashes
+(/)}
 
-\item{StartDays}{(string) The label for the y-axis}
+\item{StartDays}{The first date from index date (cohort start date) for investigating drug sequence}
 
-\item{EndDays}{(string) The label for the y-axis}
+\item{EndDays}{The last date from index date (cohort start date) for investigating drug sequence}
 
-\item{pathLevel}{(string) The label for the y-axis}
+\item{pathLevel}{Level of pathway depth}
 }
 \value{
 TRUE if it ran

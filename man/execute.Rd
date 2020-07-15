@@ -11,6 +11,7 @@ execute(
   cohortDatabaseSchema,
   oracleTempSchema,
   cohortTable,
+  cohortId,
   outputFolder,
   createCohorts = T,
   runPathway = T,
@@ -38,6 +39,8 @@ priviliges for storing temporary tables.}
 \item{cohortTable}{The name of the table that will be created in the work database schema.
 This table will hold the exposure and outcome cohorts used in this
 study.}
+
+\item{cohortId}{The number of cohort id}
 
 \item{outputFolder}{Name of local folder to place results; make sure to use forward slashes
 (/)}

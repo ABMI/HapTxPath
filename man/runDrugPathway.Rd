@@ -11,10 +11,9 @@ runDrugPathway(
   cohortTable,
   cohortId,
   outputFolder,
-  savePlot,
+  savePlot = T,
   StartDays = 0,
-  EndDays = 365,
-  pathLevel
+  EndDays = 365
 )
 }
 \arguments{
@@ -38,7 +37,13 @@ study.}
 (/). Do not use a folder on a network drive since this greatly impacts
 performance.}
 
-\item{pathLevel}{}
+\item{savePlot}{Whether run the savePlot function}
+
+\item{StartDays}{The first date from index date (cohort start date) for investigating drug sequence}
+
+\item{EndDays}{The last date from index date (cohort start date) for investigating drug sequence}
+
+\item{pathLevel}{Level of pathway depth}
 }
 \description{
 Run drugPathway package

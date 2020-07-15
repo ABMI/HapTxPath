@@ -4,7 +4,10 @@
 \alias{conceptIdfromJson}
 \title{conceptSet to conceptId}
 \usage{
-conceptIdfromJson(connectionDetails, cdmDatabaseSchema)
+conceptIdfromJson(
+  connectionDetails = connectionDetails,
+  cdmDatabaseSchema = cdmDatabaseSchema
+)
 }
 \arguments{
 \item{connectionDetails}{An object of type \code{connectionDetails} as created using the

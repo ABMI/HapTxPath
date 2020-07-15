@@ -18,6 +18,7 @@
 #' @param cohortTable          The name of the table that will be created in the work database schema.
 #'                             This table will hold the exposure and outcome cohorts used in this
 #'                             study.
+#' @param cohortId             The number of cohort id                             
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #'                             (/)
 #' @param createCohorts        Whether to create the cohorts for the study
@@ -31,6 +32,7 @@ execute <- function(connectionDetails,
                     cohortDatabaseSchema,
                     oracleTempSchema,
                     cohortTable,
+                    cohortId,
                     outputFolder,
                     createCohorts = T,
                     runPathway = T,
@@ -58,18 +60,13 @@ execute <- function(connectionDetails,
                    cohortTable,
                    cohortId,
                    outputFolder,
-                   savePlot,
+                   savePlot = T,
                    StartDays = 0,
-                   EndDays = 365,
-                   pathLevel)
+                   EndDays = 365)
   }
   
   if (packageResults) {
     ParallelLogger::logInfo("Packaging analysis results")
-    exportResults(outputFolder = outputFolder,
-                  databaseId = databaseId,
-                  databaseName = databaseName,
-                  databaseDescription = databaseDescription,
-                  minCellCount = minCellCount)
+    exportResults(outputFolder = outputFolder)
   }
 }

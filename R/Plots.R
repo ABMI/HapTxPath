@@ -22,17 +22,24 @@
 #' @details
 #' This creates a survival plot that can be used to pick a suitable time-at-risk period
 #'
-#' @param cohortDatabaseSchema               The plpData object returned by running getPlpData()
-#' @param cohortTable             The cohort id corresponding to the outcome 
-#' @param cohortId  Remove patients who have had the outcome before their target cohort index date from the plot
-#' @param conceptSets       (integer) The time-at-risk starts at target cohort index date plus this value
-#' @param drugExposureData       (integer) The time-at-risk ends at target cohort index date plus this value 
-#' @param sequenceData           (binary) Whether to include a table at the bottom  of the plot showing the number of people at risk over time
-#' @param outputFolder             (binary) Whether to include a confidence interval
-#' @param StartDays              (string) The label for the y-axis  
-#' @param EndDays              (string) The label for the y-axis          
-#' @param pathLevel              (string) The label for the y-axis   
-#' 
+#' @param cohortDatabaseSchema Schema name where intermediate data can be stored. You will need to have
+#'                             write priviliges in this schema. Note that for SQL Server, this should
+#'                             include both the database and schema name, for example 'cdm_data.dbo'.
+#' @param cohortTable          The name of the table that will be created in the work database schema.
+#'                             This table will hold the exposure and outcome cohorts used in this
+#'                             study.
+#' @param cohortId             The number of cohort id      
+#' @param conceptSets          Concept set json files created from ATLAS
+#' @param drugExposureData     The covariate data of drug exposure table obtaining by FeatureExtraction package
+#' @param sequenceData         The data reformatted by drug exposure date for visualization
+#' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
+#'                             (/)
+#' @param StartDays            The first date from index date (cohort start date) for investigating drug sequence 
+#' @param EndDays              The last date from index date (cohort start date) for investigating drug sequence
+#' @param pathLevel            Level of pathway depth  
+#'
+#' @import dplyr
+#' @import plotly
 #' @return
 #' TRUE if it ran 
 #'
@@ -50,18 +57,17 @@ PlotTxPathway <- function(cohortDatabaseSchema,
                           pathLevel = 3){
   
   saveFolder <- file.path(outputFolder, "plots")
-    
+  
   if (!file.exists(saveFolder))
     dir.create(saveFolder, recursive = TRUE)
   
-  freqBarPlot <- freqBarPlot(cohortDatabaseSchema,
-                             cohortTable,
-                             cohortId,
-                             conceptSets,
-                             drugExposureData)
+  freqBarPlot <- freqBarPlot(cohortDatabaseSchema = cohortDatabaseSchema,
+                             cohortTable = cohortTable,
+                             cohortId = cohortId,
+                             conceptSets = conceptSets,
+                             drugExposureData = drugExposureData)
   
-  export(freqBarPlot, file = file.path(saveFolder, "freqBarPlot.png"))
-  
+  htmlwidgets::saveWidget(freqBarPlot, file = file.path(saveFolder, "freqBarPlot.html"))
   # Not use in HAP cohort
   # longitudinalPlot <- longitudinalPlot(cohortDatabaseSchema,
   #                                      cohortTable,
@@ -72,21 +78,26 @@ PlotTxPathway <- function(cohortDatabaseSchema,
   #                                      EndDays = 365)
   # export(longitudinalPlot, file = file.path(saveFolder, "longitudinalPlot.png"))
   
-  dailyPlot <- dailyPlot(cohortDatabaseSchema,
-                         cohortTable,
-                         cohortId,
-                         conceptSets,
-                         drugExposureData)
+  dailyPlot <- dailyPlot(cohortDatabaseSchema = cohortDatabaseSchema,
+                         cohortTable = cohortTable,
+                         cohortId = cohortId,
+                         conceptSets = conceptSets,
+                         drugExposureData = drugExposureData)
   
-  export(dailyPlot, file = file.path(saveFolder, "dailyPlot.png"))
+  htmlwidgets::saveWidget(dailyPlot, file = file.path(saveFolder, "dailyPlot.html"))
   
-  sunburstPlot <- sunburstPlot(sequenceData)
-  if(saveAsHtml == T) htmlwidgets::saveWidget(sunburstPlot, file = file.path(outputFolder, "sunburst.html"))
-  htmlwidgets::saveWidget(sunburstPlot, file = file.path(outputFolder, "sunburst.png"))
+  sunburstPlot <- sunburstPlot(sequenceData = sequenceData,
+                               pathLevel = pathLevel)
+  htmlwidgets::saveWidget(sunburstPlot, file = file.path(saveFolder, "sunburst.html"))
   
-  sankeyPlot <- sankeyPlot(sequenceData, pathLevel)
-  if(saveAsHtml == T) htmlwidgets::saveWidget(sankeyPlot, file = file.path(outputFolder, "sankey.html"))
-  htmlwidgets::saveWidget(sankeyPlot, file = file.path(outputFolder, "sankey.png"))
+  
+  sankeyPlot <- sankeyPlot(sequenceData = sequenceData,
+                           cohortDatabaseSchema = cohortDatabaseSchema,
+                           cohortTable = cohortTable,
+                           cohortId = cohortId,
+                           pathLevel = pathLevel)
+  htmlwidgets::saveWidget(sankeyPlot, file = file.path(saveFolder, "sankey.html"))
+  
   
 }
 
@@ -115,21 +126,25 @@ freqBarPlot <- function(cohortDatabaseSchema,
                         conceptList,
                         by = "conceptId",
                         all.x = T)
-  N <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
+  N <- totalN(connectionDetails = connectionDetails,
+              cohortDatabaseSchema = cohortDatabaseSchema,
+              cohortTable = cohortTable,
+              cohortId = cohortId)
   drugTable1 <- drugExposure %>%
     group_by(conceptSetName) %>%
     summarise(records = n(), 
               person = n_distinct(subjectId), 
-              percentile = round(person/N*100,2))
+              percentile = round(person/N*100,2)) %>% group_by()
   
   drugTable1 <- as.data.frame(drugTable1)
+  xtitle <- list(title = "Antibiotics")
+  ytitle <- list(title = "Proportion of patient having prescription of antibiotics (%)")
+  Plot <- plotly::plot_ly(drugTable1, x = ~conceptSetName, y = ~percentile, 
+                          hoverinfo = 'y', type = "bar", name = 'percentile', text = drugTable1$percentile, textposition = 'outside') %>%
+    plotly::layout(xaxis = xtitle, yaxis = ytitle)
   
-  freqBarPlot <- plot_ly(drugTable1, x = ~conceptSetName, y = ~percentile, 
-          hoverinfo = 'y', type = "bar", name = 'percentile', text = drugTable1$percentile, textposition = 'outside') %>%
-    layout(xaxis = list(title = "Concept Set"), yaxis = list(title = "Proportion of patient having concept sets (%)"))
+  return(Plot)
   
-  return(freqBarPlot)
-
 }
 
 longitudinalPlot <- function(cohortDatabaseSchema,
@@ -145,21 +160,17 @@ longitudinalPlot <- function(cohortDatabaseSchema,
                                                   right = T, 
                                                   labels = c(1:(length(seq(StartDays, EndDays, by = 365))-1))-0.5))
   
-  periodN <- drugExposureDataT %>% group_by(timePeriod) %>% summarise(n = n_distinct(subjectId))
+  periodN <- drugExposureDataT %>% group_by(timePeriod) %>% summarise(n = n_distinct(subjectId)) %>% group_by()
   
   drugExposureFilteredT <- drugExposureDataT %>% filter(conceptId %in% unlist(conceptSets))
+  conceptList <- data.frame(setNum = NULL, conceptSetName = NULL, conceptId = NULL)
   
   for(i in 1:length(conceptSets)){
-    if(i == 1){
-      conceptList <- data.frame(setNum = i,
-                                conceptSetName = names(conceptSets[i]),
-                                conceptId = conceptSets[[i]])
-    }else{
-      conceptList <- rbind(conceptList, 
-                           data.frame(setNum = i,
-                                      conceptSetName = names(conceptSets[i]),
-                                      conceptId = conceptSets[[i]]))
-    }
+    
+    conceptList <- rbind(conceptList, 
+                         data.frame(setNum = i,
+                                    conceptSetName = names(conceptSets[i]),
+                                    conceptId = conceptSets[[i]]))
   }
   
   drugExposureT <- merge(drugExposureFilteredT,
@@ -171,72 +182,74 @@ longitudinalPlot <- function(cohortDatabaseSchema,
     group_by(conceptSetName, timePeriod) %>%
     summarise(records = n(), 
               person = n_distinct(subjectId), 
-              percentile = round(person/N*100,2))
+              percentile = round(person/N*100,2)) %>% group_by()
   
   drugTable1 <- as.data.frame(drugTable1)
   drugTable1 <- merge(drugTable1, periodN, by = "timePeriod", all.x = T) %>%
     mutate(period_percentile = round(person/n*100,2))
   
-  longitudinalPlot <- plot_ly(drugTable1, x = ~timePeriod, y = ~period_percentile,
-                              color = ~conceptSetName, type = 'scatter', mode = 'lines+markers') %>%
+  Plot <- plotly::plot_ly(drugTable1, x = ~timePeriod, y = ~period_percentile,
+                          color = ~conceptSetName, type = 'scatter', mode = 'lines+markers') %>%
     layout(xaxis = list(title = "Follow-up time",
                         ticktext = seq(0, (EndDays-StartDays)/365)), 
            yaxis = list(title = "Percentage", 
                         ticktext = seq(0, 100, by = 20)))  
   
-  return(longitudinalPlot)
+  return(Plot)
   
 }
 
-dailyPlot <-function(drugExposureData, conceptSets, cohortDatabaseSchema, cohortTable, cohortId){
+dailyPlot <-function(cohortDatabaseSchema,
+                     cohortTable,
+                     cohortId,
+                     conceptSets,
+                     drugExposureData){
   
-  periodN <- drugExposureData %>% group_by(time) %>% summarise(n = n_distinct(subjectId))
+  periodN <- drugExposureData %>% group_by(time) %>% summarise(n = n_distinct(subjectId)) %>% group_by()
   
   drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
   
+  conceptList <- data.frame(setNum = NULL, conceptSetName = NULL, conceptId = NULL)
+  
   for(i in 1:length(conceptSets)){
-    if(i == 1){
-      conceptList <- data.frame(setNum = i,
-                                conceptSetName = names(conceptSets[i]),
-                                conceptId = conceptSets[[i]])
-    }else{
-      conceptList <- rbind(conceptList, 
-                           data.frame(setNum = i,
-                                      conceptSetName = names(conceptSets[i]),
-                                      conceptId = conceptSets[[i]]))
-    }
+    
+    conceptList <- rbind(conceptList, 
+                         data.frame(setNum = i,
+                                    conceptSetName = names(conceptSets[i]),
+                                    conceptId = conceptSets[[i]]))
   }
+  
   
   drugExposure <- merge(drugExposureFiltered,
                         conceptList,
                         by = "conceptId",
                         all.x = T)
-  N <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
+  N <- totalN(connectionDetails, cohortDatabaseSchema, cohortTable, cohortId)
   drugTable1 <- drugExposure %>%
     group_by(conceptSetName, time) %>%
     summarise(records = n(), 
               person = n_distinct(subjectId), 
-              percentile = round(person/N*100,2))
+              percentile = round(person/N*100,2)) %>% group_by()
   
   drugTable1 <- as.data.frame(drugTable1)
   drugTable1 <- merge(drugTable1, periodN, by = "time", all.x = T) %>%
     mutate(period_percentile = round(person/n*100,2))
   
-  dailyPlot <- plot_ly(drugTable1, x = ~time, y = ~period_percentile,
-                       color = ~conceptSetName, type = 'scatter', mode = 'lines+markers') %>% 
-    layout(xaxis = list(title = "Follow-up time"), 
-           yaxis = list(title = "Percentage", 
-           ticktext = seq(0, 100, by = 20)))  
+  Plot <- plotly::plot_ly(drugTable1, x = ~time, y = ~period_percentile,
+                          color = ~conceptSetName, type = 'scatter', mode = 'lines+markers') %>% 
+    plotly::layout(xaxis = list(title = "Follow-up time"), 
+                   yaxis = list(title = "Percentage", 
+                                ticktext = seq(0, 100, by = 20)))  
   
-  return(dailyPlot)
+  return(Plot)
   
 }
 
-sunburstPlot <- function(sequenceData){
+sunburstPlot <- function(sequenceData, pathLevel){
   
   sequenceData <- as.data.frame(sequenceData %>%
-                           group_by_at(vars(c(-INDEX_YEAR, -NUM_PERSONS))) %>%
-                           summarise(NUM_PERSONS = sum(NUM_PERSONS)) %>% group_by())
+                                  group_by_at(vars(c(-INDEX_YEAR, -NUM_PERSONS))) %>%
+                                  summarise(NUM_PERSONS = sum(NUM_PERSONS)) %>% group_by())
   
   sequenceCollapse <- do.call(paste, c(sequenceData[,1:(1+pathLevel-1)], sep = "-"))
   sequenceCollapse <- data.frame(pathway = sequenceCollapse, NUM_PERSONS = sequenceData$NUM_PERSONS)
@@ -247,47 +260,56 @@ sunburstPlot <- function(sequenceData){
   
   sequenceCollapse$pathway <- as.character(sequenceCollapse$pathway)
   sequenceCollapse$pathway <- paste0(stringr::str_split(sequenceCollapse$pathway,
-                                                    pattern = "-NA", simplify = T)[,1], "-end")
+                                                        pattern = "-NA", simplify = T)[,1], "-end")
   
-  sunburstPlot <- sunburstR::sund2b(sequenceCollapse)
+  Plot <- sunburstR::sund2b(sequenceCollapse)
   
-  return(sunburstPlot)
+  return(Plot)
 }
 
-sankeyPlot <- function(sequenceData, cohortDatabaseSchema, cohortTable, cohortId, pathLevel){
+sankeyPlot <- function(sequenceData,
+                       cohortDatabaseSchema,
+                       cohortTable,
+                       cohortId,
+                       pathLevel){
   
   #nodeLink data for sankeyPlot
   
   if(pathLevel > 20 | pathLevel < 1) cat("pathLevel must be between 1 and 20")  
-
+  
   
   label <- vector()
   name <- vector()
   
   for (i in 1:pathLevel){
-    if(length(as.factor(sequenceData[,i][!is.na(sequenceData[,i])]))!= 0){
-      label <- c(label, paste0(levels(as.factor(sequenceData[,i][!is.na(sequenceData[,i])])), "_", i))
-      name <- c(name,levels(as.factor(sequenceData[,i][!is.na(sequenceData[,i])])))
+    if(length(as.factor(sequenceData[,i+1][!is.na(sequenceData[,i+1])]))!= 0){
+      label <- c(label, paste0(levels(as.factor(sequenceData[,i+1][!is.na(sequenceData[,i+1])])), "_", i))
+      name <- c(name,levels(as.factor(sequenceData[,i+1][!is.na(sequenceData[,i+1])])))
     }
   }
+  
+  n <- totalN(connectionDetails = connectionDetails,
+              cohortDatabaseSchema = cohortDatabaseSchema,
+              cohortTable = cohortTable,
+              cohortId = cohortId)
   
   node <- data.frame(name = name, label = label)
   node$label <- as.character(node$label)
   
   for (i in 1:pathLevel){
-    if(length(as.factor(sequenceData[,i][!is.na(sequenceData[,i])]))!=0){
-      pct <- data.frame(concept_name = paste0(sequenceData[,as.integer(i)], "_", i), NUM_PERSONS=sequenceData[,21])
+    if(length(as.factor(sequenceData[,i+1][!is.na(sequenceData[,i+1])]))!=0){
+      pct <- data.frame(concept_name = paste0(sequenceData[,as.integer(i+1)], "_", i+1), NUM_PERSONS=sequenceData[,22])
       
       if(!"pctTable" %in% ls()){
         pctTable<-as.data.frame(pct %>%
                                   group_by(concept_name) %>%
                                   summarise(personCount = sum(NUM_PERSONS),
-                                            percent = round(sum(NUM_PERSONS)/n*100,2)))
+                                            percent = round(sum(NUM_PERSONS)/n*100,2)) %>% group_by() ) 
       }else{pctTable <- rbind(pctTable,
                               as.data.frame(pct %>%
                                               group_by(concept_name) %>%
                                               summarise(personCount = sum(NUM_PERSONS),
-                                                        percent = round(sum(NUM_PERSONS)/n*100,2))))}
+                                                        percent = round(sum(NUM_PERSONS)/n*100,2)) %>% group_by()))}
     }
   }
   
@@ -296,18 +318,17 @@ sankeyPlot <- function(sequenceData, cohortDatabaseSchema, cohortTable, cohortId
   color <- data.frame(name = levels(node$name), color = rainbow(length(levels(node$name))))
   node <- merge(node, color, by = "name", all.x = T)
   
-  n <- totalN(cohortDatabaseSchema, cohortTable, cohortId)
   for (i in 1:pathLevel){
     if(i == 1){
       
-      link <- data.frame(source = paste0(table[,as.integer(i)], "_", i),
-                         target = paste0(table[,as.integer(1+i)], "_", i+1), NUM_PERSONS=table[,21])
+      link <- data.frame(source = paste0(sequenceData[,as.integer(i+1)], "_", i),
+                         target = paste0(sequenceData[,as.integer(i+2)], "_", i+1), NUM_PERSONS=sequenceData[,22])
       link <- as.data.frame(link %>%
                               group_by(source, target) %>%
                               summarise(value = sum(NUM_PERSONS)) %>% group_by())
     }else{
-      link2 <- as.data.frame(data.frame(source = paste0(table[,as.integer(i)], "_", i),
-                                        target = paste0(table[,as.integer(1+i)], "_", i+1), NUM_PERSONS=table[,21]) %>%
+      link2 <- as.data.frame(data.frame(source = paste0(sequenceData[,as.integer(i+1)], "_", i),
+                                        target = paste0(sequenceData[,as.integer(i+2)], "_", i+1), NUM_PERSONS=sequenceData[,22]) %>%
                                group_by(source, target) %>%
                                summarise(value = sum(NUM_PERSONS)) %>% group_by())
       link <- rbind(link, link2)
@@ -318,16 +339,16 @@ sankeyPlot <- function(sequenceData, cohortDatabaseSchema, cohortTable, cohortId
   link$target <- match(link$target, node$label) -1
   
   
-  sankeyPlot <- plot_ly(type = "sankey",
-          orientation = "c",
-          alpha = 0.5,
-          node = list(label = node$label_2,
-                      pad = 15,
-                      thickness = 15,
-                      x = rep(0.2, length(node$label_2)),
-                      color = node$color), 
-          link = list(source = link$source, target = link$target, value = link$value)
+  Plot <- plotly::plot_ly(type = "sankey",
+                          orientation = "c",
+                          alpha = 0.5,
+                          node = list(label = node$label_2,
+                                      pad = 15,
+                                      thickness = 15,
+                                      x = rep(0.2, length(node$label_2)),
+                                      color = node$color), 
+                          link = list(source = link$source, target = link$target, value = link$value)
   )
   
-  return(sankeyPlot)
+  return(Plot)
 }

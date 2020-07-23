@@ -55,7 +55,6 @@ oracleTempSchema <- NULL
 cohortTable <- 'cohortTable'
 cohortId <- 'cohortId'
 
-
 #=======================
 
 execute(connectionDetails = connectionDetails,
@@ -65,8 +64,8 @@ execute(connectionDetails = connectionDetails,
         cohortId = cohortId,
         outputFolder = outputFolder,
         createCohorts = T,
-        runDrugPathway = F,
-        packageResults = F)
+        runDrugPathway = T,
+        packageResults = T)
 
 # Please send the result zip file to ted9219@ajou.ac.kr
 ```

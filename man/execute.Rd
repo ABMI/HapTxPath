@@ -13,6 +13,8 @@ execute(
   cohortTable,
   cohortId,
   outputFolder,
+  noteTitle,
+  noteKeyword,
   createCohorts = T,
   runPathway = T,
   packageResults = T
@@ -42,7 +44,11 @@ study.}
 
 \item{cohortId}{The number of cohort id}
 
-\item{outputFolder}{Name of local folder to place results; make sure to use forward slashes
+\item{outputFolder}{Name of local folder to place results; make sure to use forward slashes}
+
+\item{noteTitle}{Name of note}
+
+\item{noteKeyword}{Specific keyword in note table for cohort extraction
 (/)}
 
 \item{createCohorts}{Whether to create the cohorts for the study}

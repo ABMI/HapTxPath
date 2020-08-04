@@ -10,7 +10,9 @@ createCohorts(
   cohortDatabaseSchema,
   cohortTable = "cohort",
   oracleTempSchema,
-  outputFolder
+  outputFolder,
+  noteTitle,
+  noteKeyword
 )
 }
 \arguments{
@@ -33,7 +35,11 @@ study.}
 \item{oracleTempSchema}{Should be used in Oracle to specify a schema where the user has write
 priviliges for storing temporary tables.}
 
-\item{outputFolder}{Name of local folder to place results; make sure to use forward slashes
+\item{outputFolder}{Name of local folder to place results; make sure to use forward slashes}
+
+\item{noteTitle}{Name of note}
+
+\item{noteKeyword}{Specific keyword in note for cohort extraction
 (/)}
 }
 \description{

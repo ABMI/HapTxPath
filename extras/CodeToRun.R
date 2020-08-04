@@ -34,6 +34,9 @@ oracleTempSchema <- NULL
 cohortTable <- 'cohortTable'
 cohortId <- 'cohortId'
 
+# Use note table for searching right people
+noteTitle <- 'note title that you want to search keyword'
+noteKeyword <- 'Specific keyword in note_text column'
 
 #=======================
 
@@ -43,6 +46,8 @@ execute(connectionDetails = connectionDetails,
         cohortTable = cohortTable,
         cohortId = cohortId,
         outputFolder = outputFolder,
+        noteTitle = noteTitle,
+        noteKeyword = noteKeyword,
         createCohorts = F,
         runPathway = F,
         packageResults = T)

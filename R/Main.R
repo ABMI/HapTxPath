@@ -20,6 +20,8 @@
 #'                             study.
 #' @param cohortId             The number of cohort id                             
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
+#' @param noteTitle            Name of note
+#' @param noteKeyword          Specific keyword in note table for cohort extraction
 #'                             (/)
 #' @param createCohorts        Whether to create the cohorts for the study
 #' @param runPathway           Whether to run the treatment pathway visualization
@@ -34,6 +36,8 @@ execute <- function(connectionDetails,
                     cohortTable,
                     cohortId,
                     outputFolder,
+                    noteTitle,
+                    noteKeyword,
                     createCohorts = T,
                     runPathway = T,
                     packageResults = T){
@@ -44,12 +48,14 @@ execute <- function(connectionDetails,
   ParallelLogger::addDefaultFileLogger(file.path(outputFolder, "log.txt"))
   
   if(createCohorts){
-    ParallelLogger::logInfo("Creating Cohorts")
+    ParallelLogger::logInfo("Creating Cohorts with specific keyword in note table")
     createCohorts(connectionDetails,
                   cdmDatabaseSchema=cdmDatabaseSchema,
                   cohortDatabaseSchema=cohortDatabaseSchema,
                   cohortTable=cohortTable,
-                  outputFolder = outputFolder)
+                  outputFolder = outputFolder, 
+                  noteTitle = noteTitle,
+                  noteKeyword = noteKeyword)
   }
   
   if(runPathway){

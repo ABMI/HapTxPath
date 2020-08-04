@@ -571,10 +571,8 @@ FROM
           (
             SELECT n.* 
               FROM (
-				select * from @cdm_database_schema.note where (note_title like '%Progress note%' or note_title like '%협의진료%' or note_title like '%퇴원%')		
-				and (note_text like '%Pneumonia%' or note_text like '%pneumonia%' or note_text like '%폐렴%' 
-					or note_text like 'HAP' or note_text like '%hospital%acquried%pneumonia%' or note_text like '%병원성%폐렴%'
-					or note_text like '%consolidation%')
+				select * from @cdm_database_schema.note where (@noteTitle)		
+				and (@noteKeyword)
 				) n 
             JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))
           ) C
@@ -594,10 +592,8 @@ FROM
           (
             SELECT n.* 
               FROM (
-				select * from @cdm_database_schema.note where (note_title like '%Progress note%' or note_title like '%협의진료%' or note_title like '%퇴원%')		
-				and (note_text like '%Pneumonia%' or note_text like '%pneumonia%' or note_text like '%폐렴%' 
-					or note_text like 'HAP' or note_text like '%hospital%acquried%pneumonia%' or note_text like '%병원성%폐렴%'
-					or note_text like '%consolidation%')
+				select * from @cdm_database_schema.note where (@noteTitle)		
+				and (@noteKeyword)
 				) n 
             JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))
           ) C

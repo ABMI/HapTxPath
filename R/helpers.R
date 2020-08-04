@@ -35,6 +35,8 @@
 #' @param oracleTempSchema     Should be used in Oracle to specify a schema where the user has write
 #'                             priviliges for storing temporary tables.
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
+#' @param noteTitle            Name of note
+#' @param noteKeyword          Specific keyword in note for cohort extraction
 #'                             (/)
 #'
 #' @export
@@ -44,7 +46,9 @@ createCohorts <- function(connectionDetails,
                           cohortDatabaseSchema,
                           cohortTable = "cohort",
                           oracleTempSchema,
-                          outputFolder) {
+                          outputFolder, 
+                          noteTitle,
+                          noteKeyword) {
   if (!file.exists(outputFolder))
     dir.create(outputFolder)
   
@@ -55,7 +59,9 @@ createCohorts <- function(connectionDetails,
                  cohortDatabaseSchema = cohortDatabaseSchema,
                  cohortTable = cohortTable,
                  oracleTempSchema = oracleTempSchema,
-                 outputFolder = outputFolder)
+                 outputFolder = outputFolder,
+                 noteTitle = noteTitle,
+                 noteKeyword = noteKeyword)
   
   # Check number of subjects per cohort:
   ParallelLogger::logInfo("Counting cohorts")
@@ -99,7 +105,30 @@ addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumn
                            cohortDatabaseSchema,
                            cohortTable,
                            oracleTempSchema,
-                           outputFolder) {
+                           outputFolder,
+                           noteTitle,
+                           noteKeyword) {
+  
+  title <- noteTitle
+  note_title <- vector()
+  for (i in 1:length(title)){
+    if(i==1){note_title <- paste0("note_title like", " '%", title[i], "%'")}
+    else{
+      text <- paste0("or note_title like", " '%", title[i], "%'")
+      note_title <- paste(note_title, text)  
+    }
+  }
+  
+  
+  keyword <- noteKeyword
+  note_keyword <- vector()
+  for (i in 1:length(keyword)){
+    if(i==1){note_keyword <- paste0("note_text like", " '%", keyword[i], "%'")}
+    else{
+      text <- paste0("or note_text like", " '%", keyword[i], "%'")
+      note_keyword <- paste(note_keyword, text)  
+    }
+  }
   
   # Create study cohort table structure:
   sql <- SqlRender::loadRenderTranslateSql(sqlFilename = "CreateCohortTable.sql",
@@ -123,10 +152,11 @@ addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumn
                                              oracleTempSchema = oracleTempSchema,
                                              cdm_database_schema = cdmDatabaseSchema,
                                              vocabulary_database_schema = vocabularyDatabaseSchema,
-                                             
                                              target_database_schema = cohortDatabaseSchema,
                                              target_cohort_table = cohortTable,
-                                             target_cohort_id = cohortsToCreate$cohortId[i])
+                                             target_cohort_id = cohortsToCreate$cohortId[i],
+                                             noteTitle = note_title,
+                                             noteKeyword = note_keyword)
     DatabaseConnector::executeSql(connection, sql)
   }
   

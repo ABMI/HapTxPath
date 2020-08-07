@@ -148,16 +148,16 @@ select C.person_id, C.visit_occurrence_id as event_id, C.visit_start_date as sta
 from 
 (
   select vo.* 
-  FROM @cohort_database_schema.VISIT_OCCURRENCE vo
+  FROM @cdm_database_schema.VISIT_OCCURRENCE vo
 JOIN #Codesets codesets on ((vo.visit_concept_id = codesets.concept_id and codesets.codeset_id = 0))
 ) C
-JOIN @cohort_database_schema.PERSON P on C.person_id = P.person_id
+JOIN @cdm_database_schema.PERSON P on C.person_id = P.person_id
 WHERE DATEDIFF(d,C.visit_start_date, C.visit_end_date) > 7
 AND YEAR(C.visit_start_date) - P.year_of_birth >= 18
 -- End Visit Occurrence Criteria
 
   ) E
-	JOIN @cohort_database_schema.observation_period OP on E.person_id = OP.person_id and E.start_date >=  OP.observation_period_start_date and E.start_date <= op.observation_period_end_date
+	JOIN @cdm_database_schema.observation_period OP on E.person_id = OP.person_id and E.start_date >=  OP.observation_period_start_date and E.start_date <= op.observation_period_end_date
   WHERE DATEADD(day,0,OP.OBSERVATION_PERIOD_START_DATE) <= E.START_DATE AND DATEADD(day,0,E.START_DATE) <= OP.OBSERVATION_PERIOD_END_DATE
 ) P
 
@@ -205,7 +205,7 @@ SELECT C.person_id, C.condition_occurrence_id as event_id, C.condition_start_dat
 FROM 
 (
   SELECT co.* 
-  FROM @cohort_database_schema.CONDITION_OCCURRENCE co
+  FROM @cdm_database_schema.CONDITION_OCCURRENCE co
   JOIN #Codesets codesets on ((co.condition_concept_id = codesets.concept_id and codesets.codeset_id = 15))
 ) C
 
@@ -254,7 +254,7 @@ select C.person_id, C.drug_exposure_id as event_id, C.drug_exposure_start_date a
 from 
 (
   select de.* 
-  FROM @cohort_database_schema.DRUG_EXPOSURE de
+  FROM @cdm_database_schema.DRUG_EXPOSURE de
 JOIN #Codesets codesets on ((de.drug_concept_id = codesets.concept_id and codesets.codeset_id = 27))
 ) C
 
@@ -303,7 +303,7 @@ SELECT C.person_id, C.condition_occurrence_id as event_id, C.condition_start_dat
 FROM 
 (
   SELECT co.* 
-  FROM @cohort_database_schema.CONDITION_OCCURRENCE co
+  FROM @cdm_database_schema.CONDITION_OCCURRENCE co
   JOIN #Codesets codesets on ((co.condition_concept_id = codesets.concept_id and codesets.codeset_id = 21))
 ) C
 
@@ -620,7 +620,7 @@ SELECT C.person_id, C.condition_occurrence_id as event_id, C.condition_start_dat
 FROM 
 (
   SELECT co.* 
-  FROM @cohort_database_schema.CONDITION_OCCURRENCE co
+  FROM @cdm_database_schema.CONDITION_OCCURRENCE co
   JOIN #Codesets codesets on ((co.condition_concept_id = codesets.concept_id and codesets.codeset_id = 26))
 ) C
 
@@ -670,7 +670,7 @@ FROM
           (
             SELECT n.* 
               FROM (
-				select * from @cohort_database_schema.note where (@noteTitle)		
+				select * from @cdm_database_schema.note where (@noteTitle)		
 				and (@noteKeyword)
 				) n 
             JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))
@@ -691,7 +691,7 @@ FROM
           (
             SELECT n.* 
               FROM (
-				select * from @cohort_database_schema.note where (@noteTitle)		
+				select * from @cdm_database_schema.note where (@noteTitle)		
 				and (@noteKeyword)
 				) n 
             JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))

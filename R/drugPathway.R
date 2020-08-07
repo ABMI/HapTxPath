@@ -233,7 +233,7 @@ getSequenceData <- function(cohortDatabaseSchema = cohortDatabaseSchema,
 
 
 totalN <- function(connectionDetails, cohortDatabaseSchema, cohortTable, cohortId){
-  sql <- "select count(*) as n from @cohortDatabaseSchema.@cohortTable where cohort_definition_id = @cohortId"
+  sql <- "select count(*) as eventCount, count(distinct subject_id) as personCount from @cohortDatabaseSchema.@cohortTable where cohort_definition_id = @cohortId"
   sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema, cohortTable = cohortTable, cohortId = cohortId)
   sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
   totalN <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)

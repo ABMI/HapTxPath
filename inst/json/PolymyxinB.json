@@ -2,13 +2,13 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 902722,
-        "CONCEPT_NAME": "Tobramycin",
+        "CONCEPT_ID": 948582,
+        "CONCEPT_NAME": "Polymyxin B",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "10627",
+        "CONCEPT_CODE": "8536",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Ingredient"
@@ -19,13 +19,13 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 40088730,
-        "CONCEPT_NAME": "Tobramycin Ophthalmic Solution",
+        "CONCEPT_ID": 40027153,
+        "CONCEPT_NAME": "Dexamethasone / Neomycin / Polymyxin B Ophthalmic Ointment",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "377400",
+        "CONCEPT_CODE": "374699",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Clinical Drug Form"
@@ -36,13 +36,13 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 40088728,
-        "CONCEPT_NAME": "Tobramycin Ophthalmic Ointment",
+        "CONCEPT_ID": 40027161,
+        "CONCEPT_NAME": "Dexamethasone / Neomycin / Polymyxin B Ophthalmic Solution",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "378998",
+        "CONCEPT_CODE": "377469",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Clinical Drug Form"
@@ -51,15 +51,15 @@
       "includeDescendants": true,
       "includeMapped": false
     },
-        {
+    {
       "concept": {
-        "CONCEPT_ID": 35770401,
-        "CONCEPT_NAME": "Tobramycin Ophthalmic Suspension",
+        "CONCEPT_ID": 43179753,
+        "CONCEPT_NAME": "Neomycin / Nystatin / Polymyxin B Vaginal Suppository",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "OMOP2771862",
+        "CONCEPT_CODE": "OMOP454516",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm Extension",
         "CONCEPT_CLASS_ID": "Clinical Drug Form"
@@ -68,5 +68,5 @@
       "includeDescendants": true,
       "includeMapped": false
     }
-  ]
+    ]
 }

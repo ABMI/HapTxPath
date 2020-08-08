@@ -2,13 +2,13 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 1716903,
-        "CONCEPT_NAME": "moxifloxacin",
+        "CONCEPT_ID": 45892419,
+        "CONCEPT_NAME": "Gentamicin",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "139462",
+        "CONCEPT_CODE": "1596450",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Ingredient"
@@ -19,20 +19,20 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 19102471,
-        "CONCEPT_NAME": "moxifloxacin 5 MG/ML Ophthalmic Solution",
+        "CONCEPT_ID": 1594403,
+        "CONCEPT_NAME": "Gentamicin Topical Cream",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "403818",
+        "CONCEPT_CODE": "1870264",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Clinical Drug"
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
       },
       "isExcluded": true,
       "includeDescendants": true,
       "includeMapped": false
     }
-  ]
+    ]
 }

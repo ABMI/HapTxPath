@@ -47,7 +47,7 @@
               "VOCABULARY_ID": "Visit"
             }
           }
-          ]
+        ]
       }
     },
     {
@@ -310,7 +310,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -1455,7 +1455,7 @@
               "VOCABULARY_ID": "SNOMED"
             }
           }
-          ]
+        ]
       }
     },
     {
@@ -1478,7 +1478,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -1606,7 +1606,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -1620,54 +1620,6 @@
               "CONCEPT_CODE": "OMOP4647602",
               "CONCEPT_ID": 42920760,
               "CONCEPT_NAME": "10 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Topical Solution [CETRAXAL PLUS]",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm Extension"
-            },
-            "isExcluded": true,
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Quant Branded Drug",
-              "CONCEPT_CODE": "OMOP4648313",
-              "CONCEPT_ID": 42921484,
-              "CONCEPT_NAME": "5 ML Levofloxacin 15 MG/ML Ophthalmic Solution [CRAVIT]",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm Extension"
-            },
-            "isExcluded": true,
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Quant Branded Drug",
-              "CONCEPT_CODE": "OMOP4647923",
-              "CONCEPT_ID": 42921086,
-              "CONCEPT_NAME": "5 ML Tobramycin 3 MG/ML Ophthalmic Solution [TORAMICIN]",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm Extension"
-            },
-            "isExcluded": true,
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Quant Branded Drug",
-              "CONCEPT_CODE": "OMOP4644921",
-              "CONCEPT_ID": 42918032,
-              "CONCEPT_NAME": "5000 MG Dexamethasone 0.00100000000000000002 MG/MG / Neomycin 0.00350000000000000007 MG/MG / Polymyxin B 6 UNT/MG Ophthalmic Ointment [NEODEX]",
               "DOMAIN_ID": "Drug",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
@@ -1771,21 +1723,6 @@
           {
             "concept": {
               "CONCEPT_CLASS_ID": "Ingredient",
-              "CONCEPT_CODE": "83682",
-              "CONCEPT_ID": 1747005,
-              "CONCEPT_NAME": "cefditoren",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Ingredient",
               "CONCEPT_CODE": "20481",
               "CONCEPT_ID": 1748975,
               "CONCEPT_NAME": "cefepime",
@@ -1804,21 +1741,6 @@
               "CONCEPT_CODE": "2186",
               "CONCEPT_ID": 1774470,
               "CONCEPT_NAME": "Cefotaxime",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Ingredient",
-              "CONCEPT_CODE": "20489",
-              "CONCEPT_ID": 1749008,
-              "CONCEPT_NAME": "cefpodoxime",
               "DOMAIN_ID": "Drug",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
@@ -1921,38 +1843,6 @@
           },
           {
             "concept": {
-              "CONCEPT_CLASS_ID": "Clinical Drug",
-              "CONCEPT_CODE": "OMOP518069",
-              "CONCEPT_ID": 43166939,
-              "CONCEPT_NAME": "Dexamethasone 0.001 MG/MG / Neomycin 3.5 IU/MG / Polymyxin B 6 IU/MG Ophthalmic Ointment",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm Extension"
-            },
-            "isExcluded": true,
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Clinical Drug",
-              "CONCEPT_CODE": "OMOP518119",
-              "CONCEPT_ID": 43177991,
-              "CONCEPT_NAME": "Dexamethasone 1 MG/ML / Neomycin 3500 IU/ML / Polymyxin B 6000 IU/ML Ophthalmic Solution",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm Extension"
-            },
-            "isExcluded": true,
-            "includeDescendants": true
-          },
-          {
-            "concept": {
               "CONCEPT_CLASS_ID": "Ingredient",
               "CONCEPT_CODE": "3640",
               "CONCEPT_ID": 1738521,
@@ -2024,22 +1914,6 @@
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "RxNorm"
             },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Clinical Drug",
-              "CONCEPT_CODE": "314080",
-              "CONCEPT_ID": 19080152,
-              "CONCEPT_NAME": "Levofloxacin 5 MG/ML Ophthalmic Solution",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm"
-            },
-            "isExcluded": true,
             "includeDescendants": true
           },
           {
@@ -2120,41 +1994,10 @@
           },
           {
             "concept": {
-              "CONCEPT_CLASS_ID": "Branded Drug",
-              "CONCEPT_CODE": "OMOP4698757",
-              "CONCEPT_ID": 42972347,
-              "CONCEPT_NAME": "Neomycin 35000 UNT / Nystatin 100000 UNT / Polymyxin B 35000 UNT Vaginal Suppository [ONG]",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm Extension"
-            },
-            "isExcluded": true,
-            "includeDescendants": true
-          },
-          {
-            "concept": {
               "CONCEPT_CLASS_ID": "Ingredient",
               "CONCEPT_CODE": "7773",
               "CONCEPT_ID": 1724703,
               "CONCEPT_NAME": "Oxacillin",
-              "DOMAIN_ID": "Drug",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "RxNorm"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Ingredient",
-              "CONCEPT_CODE": "8339",
-              "CONCEPT_ID": 1746114,
-              "CONCEPT_NAME": "Piperacillin",
               "DOMAIN_ID": "Drug",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
@@ -2211,10 +2054,226 @@
           },
           {
             "concept": {
-              "CONCEPT_CLASS_ID": "Clinical Drug",
-              "CONCEPT_CODE": "313415",
-              "CONCEPT_ID": 902741,
-              "CONCEPT_NAME": "Tobramycin 3 MG/ML Ophthalmic Solution",
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "11124",
+              "CONCEPT_ID": 1707687,
+              "CONCEPT_NAME": "Vancomycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1040005",
+              "CONCEPT_ID": 40230597,
+              "CONCEPT_NAME": "ceftaroline",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "376884",
+              "CONCEPT_ID": 40001157,
+              "CONCEPT_NAME": "Levofloxacin Ophthalmic Solution",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "1659130",
+              "CONCEPT_ID": 46275426,
+              "CONCEPT_NAME": "Piperacillin / tazobactam Injection",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "377400",
+              "CONCEPT_ID": 40088730,
+              "CONCEPT_NAME": "Tobramycin Ophthalmic Solution",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "OMOP2771862",
+              "CONCEPT_ID": 35770401,
+              "CONCEPT_NAME": "Tobramycin Ophthalmic Suspension",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm Extension"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "378998",
+              "CONCEPT_ID": 40088728,
+              "CONCEPT_NAME": "Tobramycin Ophthalmic Ointment",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "374699",
+              "CONCEPT_ID": 40027153,
+              "CONCEPT_NAME": "Dexamethasone / Neomycin / Polymyxin B Ophthalmic Ointment",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "OMOP454516",
+              "CONCEPT_ID": 43179753,
+              "CONCEPT_NAME": "Neomycin / Nystatin / Polymyxin B Vaginal Suppository",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm Extension"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "83682",
+              "CONCEPT_ID": 1747005,
+              "CONCEPT_NAME": "cefditoren",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "20489",
+              "CONCEPT_ID": 1749008,
+              "CONCEPT_NAME": "cefpodoxime",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2194",
+              "CONCEPT_ID": 1778162,
+              "CONCEPT_NAME": "Cefuroxime",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "18687",
+              "CONCEPT_ID": 1734205,
+              "CONCEPT_NAME": "bacampicillin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1596450",
+              "CONCEPT_ID": 45892419,
+              "CONCEPT_NAME": "Gentamicin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "1870264",
+              "CONCEPT_ID": 1594403,
+              "CONCEPT_NAME": "Gentamicin Topical Cream",
               "DOMAIN_ID": "Drug",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
@@ -2228,9 +2287,145 @@
           {
             "concept": {
               "CONCEPT_CLASS_ID": "Ingredient",
-              "CONCEPT_CODE": "11124",
-              "CONCEPT_ID": 1707687,
-              "CONCEPT_NAME": "Vancomycin",
+              "CONCEPT_CODE": "325642",
+              "CONCEPT_ID": 1717963,
+              "CONCEPT_NAME": "ertapenem",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "1736464",
+              "CONCEPT_ID": 35603858,
+              "CONCEPT_NAME": "Streptomycin Injection",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "6099",
+              "CONCEPT_ID": 1784749,
+              "CONCEPT_NAME": "Kanamycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "7337",
+              "CONCEPT_ID": 19017585,
+              "CONCEPT_NAME": "Netilmicin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "7980",
+              "CONCEPT_ID": 1728416,
+              "CONCEPT_NAME": "Penicillin G",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "25037",
+              "CONCEPT_ID": 1796458,
+              "CONCEPT_NAME": "cefdinir",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "19552",
+              "CONCEPT_ID": 1738366,
+              "CONCEPT_NAME": "cefprozil",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2582",
+              "CONCEPT_ID": 997881,
+              "CONCEPT_NAME": "Clindamycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "377481",
+              "CONCEPT_ID": 40030894,
+              "CONCEPT_NAME": "Clindamycin Topical Solution",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "10395",
+              "CONCEPT_ID": 1836948,
+              "CONCEPT_NAME": "Tetracycline",
               "DOMAIN_ID": "Drug",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
@@ -2240,7 +2435,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2548,7 +2743,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2586,7 +2781,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2639,10 +2834,10 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     }
-    ],
+  ],
   "PrimaryCriteria": {
     "CriteriaList": [
       {
@@ -2653,12 +2848,12 @@
             "Op": "gt"
           },
           "Age": {
-            "Value": 17,
-            "Op": "gt"
+            "Value": 18,
+            "Op": "gte"
           }
         }
       }
-      ],
+    ],
     "ObservationWindow": {
       "PriorDays": 0,
       "PostDays": 0
@@ -2688,7 +2883,7 @@
             "StartWindow": {
               "Start": {
                 "Days": 0,
-                "Coeff": -1
+                "Coeff": 1
               },
               "End": {
                 "Days": 2,
@@ -2701,7 +2896,7 @@
               "Count": 0
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
@@ -2720,7 +2915,7 @@
             "StartWindow": {
               "Start": {
                 "Days": 0,
-                "Coeff": -1
+                "Coeff": 1
               },
               "End": {
                 "Days": 2,
@@ -2733,7 +2928,7 @@
               "Count": 0
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
@@ -2775,15 +2970,15 @@
               "Count": 0
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
     },
     {
-      "name": "chest CT, culture, antibiotics",
+      "name": "chest CT, culture, antibiotics OR pneumonia diagnosis",
       "expression": {
-        "Type": "ALL",
+        "Type": "ANY",
         "CriteriaList": [
           {
             "Criteria": {
@@ -2800,10 +2995,10 @@
                       "StartWindow": {
                         "Start": {
                           "Days": 0,
-                          "Coeff": -1
+                          "Coeff": 1
                         },
                         "End": {
-                          "Days": 2,
+                          "Days": 3,
                           "Coeff": 1
                         },
                         "UseEventEnd": false
@@ -2822,10 +3017,10 @@
                       "StartWindow": {
                         "Start": {
                           "Days": 0,
-                          "Coeff": -1
+                          "Coeff": 1
                         },
                         "End": {
-                          "Days": 2,
+                          "Days": 3,
                           "Coeff": 1
                         },
                         "UseEventEnd": false
@@ -2835,7 +3030,7 @@
                         "Count": 1
                       }
                     }
-                    ],
+                  ],
                   "DemographicCriteriaList": [],
                   "Groups": []
                 },
@@ -2857,7 +3052,68 @@
                 "Coeff": -1
               },
               "End": {
-                "Days": 0,
+                "Days": 3,
+                "Coeff": -1
+              },
+              "UseIndexEnd": true,
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CorrelatedCriteria": {
+                  "Type": "ALL",
+                  "CriteriaList": [
+                    {
+                      "Criteria": {
+                        "DrugExposure": {
+                          "CodesetId": 27
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": 1
+                        },
+                        "End": {
+                          "Days": 3,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 2,
+                        "Count": 3
+                      }
+                    }
+                  ],
+                  "DemographicCriteriaList": [],
+                  "Groups": []
+                },
+                "CodesetId": 15
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 3,
+                "Coeff": 1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "EndWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 3,
                 "Coeff": -1
               },
               "UseIndexEnd": true,
@@ -2868,7 +3124,7 @@
               "Count": 1
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
@@ -2910,12 +3166,12 @@
               "Count": 0
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
     }
-    ],
+  ],
   "EndStrategy": {
     "DateOffset": {
       "DateField": "EndDate",

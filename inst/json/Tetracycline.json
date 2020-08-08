@@ -2,20 +2,20 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 46275426,
-        "CONCEPT_NAME": "Piperacillin / tazobactam Injection",
+        "CONCEPT_ID": 1836948,
+        "CONCEPT_NAME": "Tetracycline",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "1659130",
+        "CONCEPT_CODE": "10395",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+        "CONCEPT_CLASS_ID": "Ingredient"
       },
       "isExcluded": false,
       "includeDescendants": true,
       "includeMapped": false
     }
-  ]
+    ]
 }

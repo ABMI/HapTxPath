@@ -19,47 +19,13 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 19075376,
-        "CONCEPT_NAME": "Ciprofloxacin 2 MG/ML / Hydrocortisone 10 MG/ML Otic Suspension",
+        "CONCEPT_ID": 40028720,
+        "CONCEPT_NAME": "Ciprofloxacin Ophthalmic Solution",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "309305",
-        "DOMAIN_ID": "Drug",
-        "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Clinical Drug"
-      },
-      "isExcluded": true,
-      "includeDescendants": true,
-      "includeMapped": false
-    },
-    {
-      "concept": {
-        "CONCEPT_ID": 19075378,
-        "CONCEPT_NAME": "Ciprofloxacin 3 MG/ML Ophthalmic Solution",
-        "STANDARD_CONCEPT": "S",
-        "STANDARD_CONCEPT_CAPTION": "Standard",
-        "INVALID_REASON": "V",
-        "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "309307",
-        "DOMAIN_ID": "Drug",
-        "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Clinical Drug"
-      },
-      "isExcluded": true,
-      "includeDescendants": true,
-      "includeMapped": false
-    },
-    {
-      "concept": {
-        "CONCEPT_ID": 42629036,
-        "CONCEPT_NAME": "Ciprofloxacin 3 MG/ML / Fluocinolone Acetonide 0.25 MG/ML Otic Solution",
-        "STANDARD_CONCEPT": "S",
-        "STANDARD_CONCEPT_CAPTION": "Standard",
-        "INVALID_REASON": "V",
-        "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "1792386",
+        "CONCEPT_CODE": "376202",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Clinical Drug"

@@ -107,8 +107,6 @@ freqBarPlot <- function(cohortDatabaseSchema,
                         conceptSets,
                         drugExposureData){
   
-  drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
-  
   for(i in 1:length(conceptSets)){
     if(i == 1){
       conceptList <- data.frame(setNum = i,
@@ -122,7 +120,7 @@ freqBarPlot <- function(cohortDatabaseSchema,
     }
   }
   
-  drugExposure <- merge(drugExposureFiltered,
+  drugExposure <- merge(drugExposureData,
                         conceptList,
                         by = "conceptId",
                         all.x = T)
@@ -133,7 +131,7 @@ freqBarPlot <- function(cohortDatabaseSchema,
   drugTable1 <- drugExposure %>%
     group_by(conceptSetName) %>%
     summarise(records = n(), 
-              person = n_distinct(subjectId), 
+              person = n_distinct(SUBJECT_ID), 
               percentile = round(person/N*100,2)) %>% group_by()
   
   drugTable1 <- as.data.frame(drugTable1)
@@ -160,7 +158,7 @@ longitudinalPlot <- function(cohortDatabaseSchema,
                                                   right = T, 
                                                   labels = c(1:(length(seq(StartDays, EndDays, by = 365))-1))-0.5))
   
-  periodN <- drugExposureDataT %>% group_by(timePeriod) %>% summarise(n = n_distinct(subjectId)) %>% group_by()
+  periodN <- drugExposureDataT %>% group_by(timePeriod) %>% summarise(n = n_distinct(SUBJECT_ID)) %>% group_by()
   
   drugExposureFilteredT <- drugExposureDataT %>% filter(conceptId %in% unlist(conceptSets))
   conceptList <- data.frame(setNum = NULL, conceptSetName = NULL, conceptId = NULL)
@@ -181,7 +179,7 @@ longitudinalPlot <- function(cohortDatabaseSchema,
   drugTable1 <- drugExposureT %>%
     group_by(conceptSetName, timePeriod) %>%
     summarise(records = n(), 
-              person = n_distinct(subjectId), 
+              person = n_distinct(SUBJECT_ID), 
               percentile = round(person/N*100,2)) %>% group_by()
   
   drugTable1 <- as.data.frame(drugTable1)
@@ -205,9 +203,7 @@ dailyPlot <-function(cohortDatabaseSchema,
                      conceptSets,
                      drugExposureData){
   
-  periodN <- drugExposureData %>% group_by(time) %>% summarise(n = n_distinct(subjectId)) %>% group_by()
   
-  drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
   
   conceptList <- data.frame(setNum = NULL, conceptSetName = NULL, conceptId = NULL)
   
@@ -219,8 +215,11 @@ dailyPlot <-function(cohortDatabaseSchema,
                                     conceptId = conceptSets[[i]]))
   }
   
+  drugExposureData$time <- drugExposureData$timeFirstId
   
-  drugExposure <- merge(drugExposureFiltered,
+  periodN <- drugExposureData %>% group_by(time) %>% summarise(n = n_distinct(SUBJECT_ID)) %>% group_by()
+  
+  drugExposure <- merge(drugExposureData,
                         conceptList,
                         by = "conceptId",
                         all.x = T)
@@ -228,7 +227,7 @@ dailyPlot <-function(cohortDatabaseSchema,
   drugTable1 <- drugExposure %>%
     group_by(conceptSetName, time) %>%
     summarise(records = n(), 
-              person = n_distinct(subjectId), 
+              person = n_distinct(SUBJECT_ID), 
               percentile = round(person/N*100,2)) %>% group_by()
   
   drugTable1 <- as.data.frame(drugTable1)
@@ -263,6 +262,7 @@ sunburstPlot <- function(sequenceData, pathLevel){
                                                         pattern = "-NA", simplify = T)[,1], "-end")
   
   Plot <- sunburstR::sund2b(sequenceCollapse)
+  #Plot <- sunburstR::sunburst(sequenceCollapse)
   
   return(Plot)
 }

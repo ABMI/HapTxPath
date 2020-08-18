@@ -37,30 +37,20 @@ runDrugPathway <- function(connectionDetails,
                            StartDays = 0,
                            EndDays = 365){
   
-  
-  temporalSettings <- FeatureExtraction::createTemporalCovariateSettings(useDrugExposure = TRUE,
-                                                                         temporalStartDays = StartDays:EndDays,
-                                                                         temporalEndDays = StartDays:EndDays)
-  
-  covariateData <- FeatureExtraction::getDbCovariateData(connectionDetails = connectionDetails,
-                                                         cdmDatabaseSchema = cdmDatabaseSchema,
-                                                         cohortDatabaseSchema = cohortDatabaseSchema,
-                                                         cohortTable = cohortTable,
-                                                         cohortId = cohortId,
-                                                         rowIdField = "subject_id",
-                                                         covariateSettings = temporalSettings)
-  
-  covariateData <- as.data.frame(covariateData$covariates)
-  
-  colnames(covariateData) <- c("subjectId","covariateId","covariateValue","time")
-  
-  drugExposureData <- covariateData %>%
-    dplyr::mutate(cohortId = cohortId) %>%
-    dplyr::mutate(conceptId = substr(covariateId, 1, nchar(covariateId)-3))
-  
   # conceptIds from concept set json files
   conceptSets <- conceptIdfromJson(connectionDetails = connectionDetails, 
                                    cdmDatabaseSchema = cdmDatabaseSchema)
+  
+  
+  #get drug exposure data
+  drugExposureData <- getDrugExposureData(connectionDetails = connectionDetails,
+                                          cdmDatabaseSchema = cdmDatabaseSchema,
+                                          cohortDatabaseSchema = cohortDatabaseSchema,
+                                          cohortTable = cohortTable,
+                                          cohortId = cohortId,
+                                          StartDays = StartDays,
+                                          EndDays = EndDays,
+                                          conceptSets = conceptSets)
   
   #drugExposure data to sequence data
   sequenceData <- getSequenceData(cohortDatabaseSchema = cohortDatabaseSchema,
@@ -179,6 +169,56 @@ conceptIdfromJson <- function(connectionDetails = connectionDetails,
   
 }
 
+
+getDrugExposureData <- function(connectionDetails = connectionDetails,
+                                cdmDatabaseSchema = cdmDatabaseSchema,
+                                cohortDatabaseSchema = cohortDatabaseSchema,
+                                cohortTable = cohortTable,
+                                cohortId = cohortId,
+                                StartDays = StartDays,
+                                EndDays = EndDays,
+                                conceptSets = conceptSets){
+  
+  temporalSettings <- FeatureExtraction::createTemporalCovariateSettings(useDrugExposure = TRUE,
+                                                                         temporalStartDays = StartDays:EndDays,
+                                                                         temporalEndDays = StartDays:EndDays)
+  
+  covariateData <- FeatureExtraction::getDbCovariateData(connectionDetails = connectionDetails,
+                                                         cdmDatabaseSchema = cdmDatabaseSchema,
+                                                         cohortDatabaseSchema = cohortDatabaseSchema,
+                                                         cohortTable = cohortTable,
+                                                         cohortId = cohortId,
+                                                         rowIdField = "subject_id",
+                                                         covariateSettings = temporalSettings)
+  
+  covariateData <- as.data.frame(covariateData$covariates)
+  
+  colnames(covariateData) <- c("subjectId","covariateId","covariateValue","time")
+  
+  drugExposureData <- covariateData %>%
+    dplyr::mutate(cohortId = cohortId) %>%
+    dplyr::mutate(conceptId = substr(covariateId, 1, nchar(covariateId)-3))
+  
+  sql <- "select * from @cohort_database_schema.@cohort_table where cohort_definition_id = @cohort_id"
+  sql <- SqlRender::render(sql, cohort_database_schema = cohortDatabaseSchema, cohort_table = cohortTable, cohort_id = cohortId)
+  cohort <- querySql(connection = conn, sql = sql)
+  cohort <- cohort %>% mutate(timePeriod = as.integer(COHORT_END_DATE - COHORT_START_DATE))
+  
+  drugExposureData <- merge(x = cohort, y = drugExposureData, by.x = "SUBJECT_ID", by.y = "subjectId", all.x = T) %>% filter (time <= timePeriod)
+  
+  drugExposureData <- drugExposureData %>%
+    filter(conceptId %in% unlist(conceptSets))
+  
+  drugExposureData <- drugExposureData %>%
+    group_by(SUBJECT_ID, COHORT_START_DATE) %>%
+    mutate(timeFirst = min(time)) %>%
+    group_by() %>%
+    mutate(timeFirstId = time - timeFirst +1)
+  
+  return(drugExposureData)
+  
+}
+
 getSequenceData <- function(cohortDatabaseSchema = cohortDatabaseSchema,
                             cohortTable = cohortTable,
                             cohortId = cohortId){
@@ -248,8 +288,6 @@ drugTable1 <- function(drugExposureData = drugExposureData,
                        cohortId = cohortId,
                        conceptSets = conceptSets){
   
-  drugExposureFiltered <- drugExposureData %>% filter(conceptId %in% unlist(conceptSets))
-  
   conceptList <- data.frame(setNum = NULL, conceptSetName = NULL, conceptId = NULL)
   
   for(i in 1:length(conceptSets)){
@@ -258,7 +296,7 @@ drugTable1 <- function(drugExposureData = drugExposureData,
                                                             conceptId = conceptSets[[i]])))
   }
   
-  drugExposure <- merge(drugExposureFiltered,
+  drugExposure <- merge(drugExposureData,
                         conceptList,
                         by = "conceptId",
                         all.x = T)
@@ -269,7 +307,7 @@ drugTable1 <- function(drugExposureData = drugExposureData,
   drugTable1 <- drugExposure %>%
     group_by(conceptSetName) %>%
     summarise(recordCount = n(), 
-              personCount = paste0(n_distinct(subjectId), " (", round(n_distinct(subjectId)/N*100,2),"%",")"))
+              personCount = paste0(n_distinct(SUBJECT_ID), " (", round(n_distinct(SUBJECT_ID)/N*100,2),"%",")"))
   
   drugTable1 <- as.data.frame(drugTable1)
   

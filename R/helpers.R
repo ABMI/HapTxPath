@@ -157,7 +157,7 @@ addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumn
                                              target_database_schema = cohortDatabaseSchema,
                                              target_cohort_table = cohortTable,
                                              target_cohort_id = cohortsToCreate$cohortId[i],
-                                             keywordSearch = keywordSearch,
+                                             keywordSearch = shQuote(substr(keywordSearch,1,1)),
                                              noteTitle = note_title,
                                              noteKeyword = note_keyword)
     DatabaseConnector::executeSql(connection, sql)

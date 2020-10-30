@@ -642,7 +642,7 @@ HAVING COUNT(A.TARGET_CONCEPT_ID) <= 0
 ) Results
 ;
 
-IF @keywordSearch = T
+IF @keywordSearch = 'T'
 BEGIN
   select 5 as inclusion_rule_id, person_id, event_id
   INTO #Inclusion_5

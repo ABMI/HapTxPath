@@ -559,7 +559,7 @@ FROM
 
 create table #inclusion_4 (inclusion_rule_id int NULL, person_id int  NULL, event_id int NULL)
 
-IF @keywordSearch = T
+IF @keywordSearch = 'T'
 BEGIN
 insert into #inclusion_4 select 4 as inclusion_rule_id, person_id, event_id
 FROM 

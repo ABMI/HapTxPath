@@ -18,10 +18,11 @@
 #' @param cohortTable          The name of the table that will be created in the work database schema.
 #'                             This table will hold the exposure and outcome cohorts used in this
 #'                             study.
-#' @param cohortId             The number of cohort id                             
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #' @param noteTitle            Name of note
 #' @param noteKeyword          Specific keyword in note table for cohort extraction
+#'                             (/)
+#' @param keywordSearch        turn on the keyword search function in patient note table.
 #'                             (/)
 #' @param createCohorts        Whether to create the cohorts for the study
 #' @param runPathway           Whether to run the treatment pathway visualization
@@ -34,10 +35,10 @@ execute <- function(connectionDetails,
                     cohortDatabaseSchema,
                     oracleTempSchema,
                     cohortTable,
-                    cohortId,
                     outputFolder,
                     noteTitle,
                     noteKeyword,
+                    keywordSearch = F,
                     createCohorts = T,
                     runPathway = T,
                     packageResults = T){
@@ -53,18 +54,18 @@ execute <- function(connectionDetails,
                   cdmDatabaseSchema=cdmDatabaseSchema,
                   cohortDatabaseSchema=cohortDatabaseSchema,
                   cohortTable=cohortTable,
-                  outputFolder = outputFolder, 
+                  outputFolder = outputFolder,
+                  keywordSearch = keywordSearch,
                   noteTitle = noteTitle,
                   noteKeyword = noteKeyword)
   }
   
   if(runPathway){
-    ParallelLogger::logInfo("Run analysis of HAP medication pathway")
+    ParallelLogger::logInfo("Run analysis of Pneumonia medication pathway")
     runDrugPathway(connectionDetails,
                    cdmDatabaseSchema,
                    cohortDatabaseSchema,
                    cohortTable,
-                   cohortId,
                    outputFolder,
                    savePlot = T,
                    StartDays = 0,

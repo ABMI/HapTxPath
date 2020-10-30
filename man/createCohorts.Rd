@@ -11,6 +11,7 @@ createCohorts(
   cohortTable = "cohort",
   oracleTempSchema,
   outputFolder,
+  keywordSearch,
   noteTitle,
   noteKeyword
 )

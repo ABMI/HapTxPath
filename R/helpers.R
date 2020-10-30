@@ -47,6 +47,7 @@ createCohorts <- function(connectionDetails,
                           cohortTable = "cohort",
                           oracleTempSchema,
                           outputFolder, 
+                          keywordSearch,
                           noteTitle,
                           noteKeyword) {
   if (!file.exists(outputFolder))
@@ -60,6 +61,7 @@ createCohorts <- function(connectionDetails,
                  cohortTable = cohortTable,
                  oracleTempSchema = oracleTempSchema,
                  outputFolder = outputFolder,
+                 keywordSearch = keywordSearch,
                  noteTitle = noteTitle,
                  noteKeyword = noteKeyword)
   
@@ -106,30 +108,30 @@ addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumn
                            cohortTable,
                            oracleTempSchema,
                            outputFolder,
+                           keywordSearch,
                            noteTitle,
                            noteKeyword) {
   
-  title <- noteTitle
-  note_title <- vector()
-  for (i in 1:length(title)){
-    if(i==1){note_title <- paste0("note_title like", " '%", title[i], "%'")}
-    else{
-      text <- paste0("or note_title like", " '%", title[i], "%'")
-      note_title <- paste(note_title, text)  
+    title <- noteTitle
+    note_title <- vector()
+    for (i in 1:length(title)){
+      if(i==1){note_title <- paste0("note_title like", " '%", title[i], "%'")}
+      else{
+        text <- paste0("or note_title like", " '%", title[i], "%'")
+        note_title <- paste(note_title, text)  
+      }
+
+    keyword <- noteKeyword
+    note_keyword <- vector()
+    for (i in 1:length(keyword)){
+      if(i==1){note_keyword <- paste0("note_text like", " '%", keyword[i], "%'")}
+      else{
+        text <- paste0("or note_text like", " '%", keyword[i], "%'")
+        note_keyword <- paste(note_keyword, text)  
+      }
     }
+    
   }
-  
-  
-  keyword <- noteKeyword
-  note_keyword <- vector()
-  for (i in 1:length(keyword)){
-    if(i==1){note_keyword <- paste0("note_text like", " '%", keyword[i], "%'")}
-    else{
-      text <- paste0("or note_text like", " '%", keyword[i], "%'")
-      note_keyword <- paste(note_keyword, text)  
-    }
-  }
-  
   # Create study cohort table structure:
   sql <- SqlRender::loadRenderTranslateSql(sqlFilename = "CreateCohortTable.sql",
                                            packageName = "HapTxPath",
@@ -155,6 +157,7 @@ addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumn
                                              target_database_schema = cohortDatabaseSchema,
                                              target_cohort_table = cohortTable,
                                              target_cohort_id = cohortsToCreate$cohortId[i],
+                                             keywordSearch = keywordSearch,
                                              noteTitle = note_title,
                                              noteKeyword = note_keyword)
     DatabaseConnector::executeSql(connection, sql)

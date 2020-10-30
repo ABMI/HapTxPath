@@ -31,7 +31,6 @@ runDrugPathway <- function(connectionDetails,
                            cdmDatabaseSchema,
                            cohortDatabaseSchema,
                            cohortTable,
-                           cohortId,
                            outputFolder,
                            savePlot = T,
                            StartDays = 0,
@@ -41,51 +40,59 @@ runDrugPathway <- function(connectionDetails,
   conceptSets <- conceptIdfromJson(connectionDetails = connectionDetails, 
                                    cdmDatabaseSchema = cdmDatabaseSchema)
   
+  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "HapTxPath")
+  cohortsToCreate <- read.csv(pathToCsv)
   
-  #get drug exposure data
-  drugExposureData <- getDrugExposureData(connectionDetails = connectionDetails,
-                                          cdmDatabaseSchema = cdmDatabaseSchema,
-                                          cohortDatabaseSchema = cohortDatabaseSchema,
-                                          cohortTable = cohortTable,
-                                          cohortId = cohortId,
-                                          StartDays = StartDays,
-                                          EndDays = EndDays,
-                                          conceptSets = conceptSets)
-  
-  #drugExposure data to sequence data
-  sequenceData <- getSequenceData(cohortDatabaseSchema = cohortDatabaseSchema,
-                                  cohortTable = cohortTable,
-                                  cohortId = cohortId)
-  
-  #Results
-  n <- totalN(connectionDetails = connectionDetails, 
-              cohortDatabaseSchema = cohortDatabaseSchema,
-              cohortTable = cohortTable,
-              cohortId = cohortId)
-  
-  drugTable1 <- drugTable1(cohortDatabaseSchema = cohortDatabaseSchema,
-                           cohortTable = cohortTable, 
-                           cohortId = cohortId,
-                           drugExposureData = drugExposureData,
-                           conceptSets = conceptSets)
-  
-  ParallelLogger::logInfo("Saving the table and pathway plots")
-  
-  #Save
-  write.csv(n, file = file.path(outputFolder, "totalN.csv"))
-  write.csv(drugTable1, file = file.path(outputFolder, "table1.csv"))
-  
-  if(savePlot == T) PlotTxPathway(cohortDatabaseSchema,
-                                  cohortTable,
-                                  cohortId,
-                                  conceptSets,
-                                  drugExposureData,
-                                  sequenceData,
-                                  outputFolder,
-                                  StartDays = 0,
-                                  EndDays = 365,
-                                  pathLevel = 3)
-  
+  for(cohortId in cohortsToCreate[3]){
+    #get drug exposure data
+    drugExposureData <- getDrugExposureData(connectionDetails = connectionDetails,
+                                            cdmDatabaseSchema = cdmDatabaseSchema,
+                                            cohortDatabaseSchema = cohortDatabaseSchema,
+                                            cohortTable = cohortTable,
+                                            cohortId = cohortId,
+                                            StartDays = StartDays,
+                                            EndDays = EndDays,
+                                            conceptSets = conceptSets)
+    
+    #drugExposure data to sequence data
+    sequenceData <- getSequenceData(cohortDatabaseSchema = cohortDatabaseSchema,
+                                    cohortTable = cohortTable,
+                                    cohortId = cohortId)
+    
+    #Results
+    n <- totalN(connectionDetails = connectionDetails, 
+                cohortDatabaseSchema = cohortDatabaseSchema,
+                cohortTable = cohortTable,
+                cohortId = cohortId)
+    
+    drugTable1 <- drugTable1(cohortDatabaseSchema = cohortDatabaseSchema,
+                             cohortTable = cohortTable, 
+                             cohortId = cohortId,
+                             drugExposureData = drugExposureData,
+                             conceptSets = conceptSets)
+    
+    ParallelLogger::logInfo("Saving the table and pathway plots")
+    
+    #Save
+    
+    savefolder <- file.path(outputFolder, "drugPathway", cohortId)
+    if (!file.exists(savefolder))
+      dir.create(savefolder, recursive = TRUE)
+    
+    write.csv(n, file = file.path(savefolder, "totalN.csv"))
+    write.csv(drugTable1, file = file.path(savefolder, "table1.csv"))
+    
+    if(savePlot == T) PlotTxPathway(cohortDatabaseSchema,
+                                    cohortTable,
+                                    cohortId,
+                                    conceptSets,
+                                    drugExposureData,
+                                    sequenceData,
+                                    savefolder,
+                                    StartDays = 0,
+                                    EndDays = 365,
+                                    pathLevel = 3)
+  }
 }
 
 

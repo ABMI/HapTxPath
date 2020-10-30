@@ -11,10 +11,10 @@ execute(
   cohortDatabaseSchema,
   oracleTempSchema,
   cohortTable,
-  cohortId,
   outputFolder,
   noteTitle,
   noteKeyword,
+  keywordSearch = F,
   createCohorts = T,
   runPathway = T,
   packageResults = T
@@ -42,13 +42,14 @@ priviliges for storing temporary tables.}
 This table will hold the exposure and outcome cohorts used in this
 study.}
 
-\item{cohortId}{The number of cohort id}
-
 \item{outputFolder}{Name of local folder to place results; make sure to use forward slashes}
 
 \item{noteTitle}{Name of note}
 
 \item{noteKeyword}{Specific keyword in note table for cohort extraction
+(/)}
+
+\item{keywordSearch}{turn on the keyword search function in patient note table.
 (/)}
 
 \item{createCohorts}{Whether to create the cohorts for the study}

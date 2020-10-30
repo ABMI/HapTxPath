@@ -9,7 +9,6 @@ runDrugPathway(
   cdmDatabaseSchema,
   cohortDatabaseSchema,
   cohortTable,
-  cohortId,
   outputFolder,
   savePlot = T,
   StartDays = 0,

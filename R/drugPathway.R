@@ -43,7 +43,7 @@ runDrugPathway <- function(connectionDetails,
   pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "HapTxPath")
   cohortsToCreate <- read.csv(pathToCsv)
   
-  for(cohortId in cohortsToCreate[3]){
+  for(cohortId in cohortsToCreate[1:4,3]){
     #get drug exposure data
     drugExposureData <- getDrugExposureData(connectionDetails = connectionDetails,
                                             cdmDatabaseSchema = cdmDatabaseSchema,
@@ -211,7 +211,7 @@ getDrugExposureData <- function(connectionDetails = connectionDetails,
   cohort <- querySql(connection = conn, sql = sql)
   cohort <- cohort %>% mutate(timePeriod = as.integer(COHORT_END_DATE - COHORT_START_DATE))
   
-  drugExposureData <- merge(x = cohort, y = drugExposureData, by.x = "SUBJECT_ID", by.y = "subjectId", all.x = T) %>% filter (time <= timePeriod)
+  drugExposureData <- merge(x = cohort, y = drugExposureData, by.x = "SUBJECT_ID", by.y = "subjectId", all.x = T) %>% filter (time-1 <= timePeriod)
   
   drugExposureData <- drugExposureData %>%
     filter(conceptId %in% unlist(conceptSets))

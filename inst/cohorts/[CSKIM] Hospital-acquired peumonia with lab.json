@@ -47,7 +47,7 @@
               "CONCEPT_CLASS_ID": "Visit"
             }
           }
-          ]
+        ]
       }
     },
     {
@@ -310,7 +310,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -1553,30 +1553,7 @@
               "CONCEPT_CLASS_ID": "Clinical Finding"
             }
           }
-          ]
-      }
-    },
-    {
-      "id": 24,
-      "name": "[CSKIM] Chest X ray",
-      "expression": {
-        "items": [
-          {
-            "concept": {
-              "CONCEPT_ID": 4163872,
-              "CONCEPT_NAME": "Plain chest X-ray",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "399208008",
-              "DOMAIN_ID": "Procedure",
-              "VOCABULARY_ID": "SNOMED",
-              "CONCEPT_CLASS_ID": "Procedure"
-            },
-            "includeDescendants": true
-          }
-          ]
+        ]
       }
     },
     {
@@ -1704,7 +1681,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2533,7 +2510,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2553,8 +2530,7 @@
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2568,8 +2544,7 @@
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2583,8 +2558,7 @@
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2598,8 +2572,7 @@
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2613,48 +2586,37 @@
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          }
-          ]
-      }
-    },
-    {
-      "id": 32,
-      "name": "[CSKIM] Chest CT",
-      "expression": {
-        "items": [
-          {
-            "concept": {
-              "CONCEPT_ID": 44797583,
-              "CONCEPT_NAME": "Computerized tomography of chest with high resolution",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "315941000000105",
-              "DOMAIN_ID": "Procedure",
-              "VOCABULARY_ID": "SNOMED",
-              "CONCEPT_CLASS_ID": "Procedure"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
-              "CONCEPT_ID": 4058335,
-              "CONCEPT_NAME": "CT of chest",
+              "CONCEPT_ID": 3038328,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Sputum by Rhodamine-auramine fluorochrome stain",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "169069000",
-              "DOMAIN_ID": "Procedure",
-              "VOCABULARY_ID": "SNOMED",
-              "CONCEPT_CLASS_ID": "Procedure"
-            },
-            "includeDescendants": true
+              "CONCEPT_CODE": "53904-9",
+              "DOMAIN_ID": "Measurement",
+              "VOCABULARY_ID": "LOINC",
+              "CONCEPT_CLASS_ID": "Lab Test"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_ID": 3051269,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Bronchial specimen by Rhodamine-auramine fluorochrome stain",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "CONCEPT_CODE": "53522-9",
+              "DOMAIN_ID": "Measurement",
+              "VOCABULARY_ID": "LOINC",
+              "CONCEPT_CLASS_ID": "Lab Test"
+            }
           }
-          ]
+        ]
       }
     },
     {
@@ -2707,7 +2669,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2730,7 +2692,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2750,9 +2712,10 @@
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Clinical Observation"
-            }
+            },
+            "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2774,7 +2737,7 @@
               "CONCEPT_CLASS_ID": "Lab Test"
             }
           }
-          ]
+        ]
       }
     },
     {
@@ -2784,23 +2747,23 @@
         "items": [
           {
             "concept": {
-              "CONCEPT_ID": 45768200,
-              "CONCEPT_NAME": "Ventilator breathing circuit",
+              "CONCEPT_ID": 4230167,
+              "CONCEPT_NAME": "Artificial respiration",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "706175007",
-              "DOMAIN_ID": "Device",
+              "CONCEPT_CODE": "40617009",
+              "DOMAIN_ID": "Procedure",
               "VOCABULARY_ID": "SNOMED",
-              "CONCEPT_CLASS_ID": "Physical Object"
+              "CONCEPT_CLASS_ID": "Procedure"
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     }
-    ],
+  ],
   "PrimaryCriteria": {
     "CriteriaList": [
       {
@@ -2816,7 +2779,7 @@
           }
         }
       }
-      ],
+    ],
     "ObservationWindow": {
       "PriorDays": 0,
       "PostDays": 0
@@ -2833,7 +2796,7 @@
   },
   "InclusionRules": [
     {
-      "name": "No pneumonia in first position condition",
+      "name": "No pneumonia in first 2 days",
       "expression": {
         "Type": "ALL",
         "CriteriaList": [
@@ -2851,34 +2814,88 @@
                     "STANDARD_CONCEPT_CAPTION": "Unknown",
                     "VOCABULARY_ID": "Condition Type"
                   }
-                  ]
+                ]
               }
             },
             "StartWindow": {
               "Start": {
-                "Coeff": -1
+                "Days": 0,
+                "Coeff": 1
               },
               "End": {
                 "Coeff": 1
               },
               "UseEventEnd": false
             },
-            "RestrictVisit": true,
+            "EndWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "UseIndexEnd": true,
+              "UseEventEnd": false
+            },
             "Occurrence": {
               "Type": 0,
               "Count": 0
             }
-          }
-          ],
-        "DemographicCriteriaList": [],
-        "Groups": []
-      }
-    },
-    {
-      "name": "No anti first 2 days",
-      "expression": {
-        "Type": "ALL",
-        "CriteriaList": [
+          },
+          {
+            "Criteria": {
+              "Measurement": {
+                "CodesetId": 35,
+                "ValueAsNumber": {
+                  "Value": 37.5,
+                  "Op": "gte"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Days": 2,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 0,
+              "Count": 0
+            }
+          },
+          {
+            "Criteria": {
+              "Measurement": {
+                "CodesetId": 36,
+                "ValueAsNumber": {
+                  "Value": 4,
+                  "Extent": 10,
+                  "Op": "!bt"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Days": 2,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 0,
+              "Count": 0
+            }
+          },
           {
             "Criteria": {
               "DrugExposure": {
@@ -2897,11 +2914,11 @@
               "UseEventEnd": false
             },
             "Occurrence": {
-              "Type": 1,
+              "Type": 0,
               "Count": 0
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
@@ -2919,82 +2936,31 @@
             },
             "StartWindow": {
               "Start": {
-                "Coeff": -1
+                "Days": 0,
+                "Coeff": 1
               },
               "End": {
                 "Coeff": 1
               },
               "UseEventEnd": false
             },
-            "RestrictVisit": true,
-            "Occurrence": {
-              "Type": 1,
-              "Count": 0
-            }
-          }
-          ],
-        "DemographicCriteriaList": [],
-        "Groups": []
-      }
-    },
-    {
-      "name": "No COPD, TB, HF, Lung ca, H.pylori",
-      "expression": {
-        "Type": "ALL",
-        "CriteriaList": [
-          {
-            "Criteria": {
-              "ConditionOccurrence": {
-                "CodesetId": 26
-              }
-            },
-            "StartWindow": {
+            "EndWindow": {
               "Start": {
                 "Coeff": -1
               },
               "End": {
+                "Days": 0,
                 "Coeff": 1
               },
+              "UseIndexEnd": true,
               "UseEventEnd": false
             },
-            "RestrictVisit": true,
             "Occurrence": {
               "Type": 1,
               "Count": 0
             }
           }
-          ],
-        "DemographicCriteriaList": [],
-        "Groups": []
-      }
-    },
-    {
-      "name": "No ventilator",
-      "expression": {
-        "Type": "ALL",
-        "CriteriaList": [
-          {
-            "Criteria": {
-              "DeviceExposure": {
-                "CodesetId": 37
-              }
-            },
-            "StartWindow": {
-              "Start": {
-                "Coeff": -1
-              },
-              "End": {
-                "Coeff": 1
-              },
-              "UseEventEnd": false
-            },
-            "RestrictVisit": true,
-            "Occurrence": {
-              "Type": 1,
-              "Count": 0
-            }
-          }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
@@ -3009,7 +2975,7 @@
               "Measurement": {
                 "CodesetId": 35,
                 "ValueAsNumber": {
-                  "Value": 38,
+                  "Value": 37.5,
                   "Op": "gte"
                 }
               }
@@ -3035,7 +3001,6 @@
               "UseIndexEnd": true,
               "UseEventEnd": false
             },
-            "RestrictVisit": true,
             "Occurrence": {
               "Type": 2,
               "Count": 1
@@ -3073,22 +3038,103 @@
               "UseIndexEnd": true,
               "UseEventEnd": false
             },
-            "RestrictVisit": true,
             "Occurrence": {
               "Type": 2,
               "Count": 1
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
     },
     {
-      "name": "chest CT, culture, antibiotics",
+      "name": "chest CT, culture, antibiotics and fever before ",
       "expression": {
         "Type": "ANY",
         "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CorrelatedCriteria": {
+                  "Type": "ALL",
+                  "CriteriaList": [
+                    {
+                      "Criteria": {
+                        "ProcedureOccurrence": {
+                          "CodesetId": 37
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": 1
+                        },
+                        "End": {
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "EndWindow": {
+                        "Start": {
+                          "Coeff": -1
+                        },
+                        "End": {
+                          "Days": 0,
+                          "Coeff": -1
+                        },
+                        "UseIndexEnd": true,
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 0,
+                        "Count": 0
+                      }
+                    }
+                  ],
+                  "DemographicCriteriaList": [],
+                  "Groups": []
+                },
+                "CodesetId": 15,
+                "ConditionType": [
+                  {
+                    "CONCEPT_CODE": "OMOP generated",
+                    "CONCEPT_ID": 44786629,
+                    "CONCEPT_NAME": "Secondary Condition",
+                    "DOMAIN_ID": "Type Concept",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "Condition Type"
+                  }
+                ]
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "EndWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "UseIndexEnd": true,
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
           {
             "Criteria": {
               "ProcedureOccurrence": {
@@ -3141,27 +3187,53 @@
                     },
                     {
                       "Criteria": {
-                        "ProcedureOccurrence": {
-                          "CodesetId": 33
+                        "Measurement": {
+                          "CodesetId": 35,
+                          "ValueAsNumber": {
+                            "Value": 37.5,
+                            "Op": "gte"
+                          }
                         }
                       },
                       "StartWindow": {
                         "Start": {
                           "Days": 3,
-                          "Coeff": 1
+                          "Coeff": -1
                         },
                         "End": {
-                          "Coeff": 1
+                          "Days": 0,
+                          "Coeff": -1
                         },
                         "UseEventEnd": false
                       },
-                      "RestrictVisit": true,
                       "Occurrence": {
                         "Type": 2,
                         "Count": 1
                       }
+                    },
+                    {
+                      "Criteria": {
+                        "ProcedureOccurrence": {
+                          "CodesetId": 37
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 3,
+                          "Coeff": -1
+                        },
+                        "End": {
+                          "Days": 0,
+                          "Coeff": -1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 0,
+                        "Count": 0
+                      }
                     }
-                    ],
+                  ],
                   "DemographicCriteriaList": [],
                   "Groups": []
                 },
@@ -3189,18 +3261,17 @@
               "UseIndexEnd": true,
               "UseEventEnd": false
             },
-            "RestrictVisit": true,
             "Occurrence": {
               "Type": 2,
               "Count": 1
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
     }
-    ],
+  ],
   "EndStrategy": {
     "DateOffset": {
       "DateField": "EndDate",

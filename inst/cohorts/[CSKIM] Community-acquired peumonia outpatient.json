@@ -47,7 +47,7 @@
               "CONCEPT_CLASS_ID": "Visit"
             }
           }
-          ]
+        ]
       }
     },
     {
@@ -310,7 +310,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -1455,7 +1455,7 @@
               "CONCEPT_CLASS_ID": "Clinical Finding"
             }
           }
-          ]
+        ]
       }
     },
     {
@@ -1478,7 +1478,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -1606,7 +1606,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2435,7 +2435,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2445,63 +2445,59 @@
         "items": [
           {
             "concept": {
-              "CONCEPT_ID": 3023368,
-              "CONCEPT_NAME": "Bacteria identified in Blood by Culture",
+              "CONCEPT_ID": 3016485,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Bronchial specimen by Acid fast stain",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "600-7",
+              "CONCEPT_CODE": "24002-8",
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
-              "CONCEPT_ID": 3026008,
-              "CONCEPT_NAME": "Bacteria identified in Urine by Culture",
+              "CONCEPT_ID": 3025346,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Bronchial specimen by Gram stain",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "630-4",
+              "CONCEPT_CODE": "21021-1",
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
-              "CONCEPT_ID": 3002619,
-              "CONCEPT_NAME": "Bacteria identified in Unspecified specimen by Culture",
+              "CONCEPT_ID": 3011588,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Sputum by Acid fast stain",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "6463-4",
+              "CONCEPT_CODE": "11477-7",
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
-              "CONCEPT_ID": 3025941,
-              "CONCEPT_NAME": "Bacteria identified in Stool by Culture",
+              "CONCEPT_ID": 3002516,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Sputum by Gram stain",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "625-4",
+              "CONCEPT_CODE": "648-6",
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
@@ -2515,235 +2511,37 @@
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
-              "CONCEPT_ID": 3009986,
-              "CONCEPT_NAME": "Bacteria identified in Catheter tip by Culture",
+              "CONCEPT_ID": 3051269,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Bronchial specimen by Rhodamine-auramine fluorochrome stain",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "19128-8",
+              "CONCEPT_CODE": "53522-9",
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           },
           {
             "concept": {
-              "CONCEPT_ID": 3003714,
-              "CONCEPT_NAME": "Bacteria identified in Wound by Culture",
+              "CONCEPT_ID": 3038328,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Sputum by Rhodamine-auramine fluorochrome stain",
               "STANDARD_CONCEPT": "S",
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "6462-6",
+              "CONCEPT_CODE": "53904-9",
               "DOMAIN_ID": "Measurement",
               "VOCABULARY_ID": "LOINC",
               "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3016914,
-              "CONCEPT_NAME": "Bacteria identified in Cerebral spinal fluid by Culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "606-4",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3025037,
-              "CONCEPT_NAME": "Bacteria identified in Peritoneal fluid by Culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "619-7",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3045330,
-              "CONCEPT_NAME": "Bacteria identified in Cervix by Culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "43410-0",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3024194,
-              "CONCEPT_NAME": "Bacteria identified in Pleural fluid by Culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "618-9",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3012475,
-              "CONCEPT_NAME": "Bacteria identified in Throat by Culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "626-2",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3011797,
-              "CONCEPT_NAME": "Bacteria identified in Abscess by Aerobe culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "595-9",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3007234,
-              "CONCEPT_NAME": "Bacteria identified in Ear by Aerobe culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "608-0",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_CLASS_ID": "Lab Test",
-              "CONCEPT_CODE": "87942-9",
-              "CONCEPT_ID": 36303793,
-              "CONCEPT_NAME": "Bacteria identified in Pleural fluid by Anaerobe culture",
-              "DOMAIN_ID": "Measurement",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "VOCABULARY_ID": "LOINC"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3039448,
-              "CONCEPT_NAME": "Bacteria identified in Bile fluid by Culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "53911-4",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3015778,
-              "CONCEPT_NAME": "Bacteria identified in Cannula specimen by Aerobe culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "605-6",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3008334,
-              "CONCEPT_NAME": "Bacteria identified in Drain by Aerobe culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "607-2",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3040827,
-              "CONCEPT_NAME": "Bacteria identified in Anal by Culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "52966-9",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
-          },
-          {
-            "concept": {
-              "CONCEPT_ID": 3006761,
-              "CONCEPT_NAME": "Bacteria identified in Synovial fluid by Culture",
-              "STANDARD_CONCEPT": "S",
-              "STANDARD_CONCEPT_CAPTION": "Standard",
-              "INVALID_REASON": "V",
-              "INVALID_REASON_CAPTION": "Valid",
-              "CONCEPT_CODE": "621-3",
-              "DOMAIN_ID": "Measurement",
-              "VOCABULARY_ID": "LOINC",
-              "CONCEPT_CLASS_ID": "Lab Test"
-            },
-            "includeDescendants": true
+            }
           }
-          ]
+        ]
       }
     },
     {
@@ -2781,7 +2579,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2834,7 +2632,7 @@
             },
             "includeDescendants": true
           }
-          ]
+        ]
       }
     },
     {
@@ -2856,7 +2654,7 @@
               "CONCEPT_CLASS_ID": "Clinical Observation"
             }
           }
-          ]
+        ]
       }
     },
     {
@@ -2878,31 +2676,45 @@
               "CONCEPT_CLASS_ID": "Lab Test"
             }
           }
-          ]
+        ]
+      }
+    },
+    {
+      "id": 36,
+      "name": "Outpatient",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_ID": 9202,
+              "CONCEPT_NAME": "Outpatient Visit",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "CONCEPT_CODE": "OP",
+              "DOMAIN_ID": "Visit",
+              "VOCABULARY_ID": "Visit",
+              "CONCEPT_CLASS_ID": "Visit"
+            },
+            "includeDescendants": true
+          }
+        ]
       }
     }
-    ],
+  ],
   "PrimaryCriteria": {
     "CriteriaList": [
       {
         "VisitOccurrence": {
-          "CodesetId": 0,
-          "OccurrenceStartDate": {
-            "Value": "2008-01-01",
-            "Extent": "2018-12-30",
-            "Op": "bt"
-          },
-          "VisitLength": {
-            "Value": 7,
-            "Op": "gte"
-          },
+          "CodesetId": 36,
           "Age": {
             "Value": 18,
             "Op": "gte"
           }
         }
       }
-      ],
+    ],
     "ObservationWindow": {
       "PriorDays": 0,
       "PostDays": 0
@@ -2926,6 +2738,57 @@
           {
             "Criteria": {
               "ConditionOccurrence": {
+                "CorrelatedCriteria": {
+                  "Type": "ALL",
+                  "CriteriaList": [
+                    {
+                      "Criteria": {
+                        "DrugExposure": {
+                          "CodesetId": 27
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": -1
+                        },
+                        "End": {
+                          "Days": 0,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 2,
+                        "Count": 1
+                      }
+                    },
+                    {
+                      "Criteria": {
+                        "ProcedureOccurrence": {
+                          "CodesetId": 33
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": -1
+                        },
+                        "End": {
+                          "Days": 0,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 2,
+                        "Count": 1
+                      }
+                    }
+                  ],
+                  "DemographicCriteriaList": [],
+                  "Groups": []
+                },
                 "CodesetId": 15,
                 "ConditionType": [
                   {
@@ -2937,81 +2800,7 @@
                     "STANDARD_CONCEPT_CAPTION": "Unknown",
                     "VOCABULARY_ID": "Condition Type"
                   }
-                  ]
-              }
-            },
-            "StartWindow": {
-              "Start": {
-                "Coeff": -1
-              },
-              "End": {
-                "Coeff": 1
-              },
-              "UseEventEnd": false
-            },
-            "RestrictVisit": true,
-            "Occurrence": {
-              "Type": 2,
-              "Count": 1
-            }
-          },
-          {
-            "Criteria": {
-              "ProcedureOccurrence": {
-                "CorrelatedCriteria": {
-                  "Type": "ALL",
-                  "CriteriaList": [
-                    {
-                      "Criteria": {
-                        "Measurement": {
-                          "CodesetId": 28
-                        }
-                      },
-                      "StartWindow": {
-                        "Start": {
-                          "Days": 3,
-                          "Coeff": -1
-                        },
-                        "End": {
-                          "Days": 3,
-                          "Coeff": 1
-                        },
-                        "UseEventEnd": false
-                      },
-                      "RestrictVisit": true,
-                      "Occurrence": {
-                        "Type": 2,
-                        "Count": 1
-                      }
-                    },
-                    {
-                      "Criteria": {
-                        "DrugExposure": {
-                          "CodesetId": 27
-                        }
-                      },
-                      "StartWindow": {
-                        "Start": {
-                          "Days": 2,
-                          "Coeff": -1
-                        },
-                        "End": {
-                          "Days": 7,
-                          "Coeff": 1
-                        },
-                        "UseEventEnd": false
-                      },
-                      "RestrictVisit": true,
-                      "Occurrence": {
-                        "Type": 2,
-                        "Count": 5
-                      }
-                    }
-                    ],
-                  "DemographicCriteriaList": [],
-                  "Groups": []
-                },
-                "CodesetId": 33
+                ]
               }
             },
             "StartWindow": {
@@ -3020,7 +2809,7 @@
                 "Coeff": -1
               },
               "End": {
-                "Days": 2,
+                "Days": 0,
                 "Coeff": 1
               },
               "UseEventEnd": false
@@ -3030,7 +2819,7 @@
               "Count": 1
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
@@ -3040,32 +2829,6 @@
       "expression": {
         "Type": "ANY",
         "CriteriaList": [
-          {
-            "Criteria": {
-              "Observation": {
-                "CodesetId": 34,
-                "ValueAsNumber": {
-                  "Value": 37.5,
-                  "Op": "gt"
-                }
-              }
-            },
-            "StartWindow": {
-              "Start": {
-                "Days": 0,
-                "Coeff": 1
-              },
-              "End": {
-                "Days": 2,
-                "Coeff": 1
-              },
-              "UseEventEnd": false
-            },
-            "Occurrence": {
-              "Type": 2,
-              "Count": 1
-            }
-          },
           {
             "Criteria": {
               "Measurement": {
@@ -3080,10 +2843,36 @@
             "StartWindow": {
               "Start": {
                 "Days": 0,
-                "Coeff": -1
+                "Coeff": 1
               },
               "End": {
-                "Days": 2,
+                "Days": 0,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Measurement": {
+                "CodesetId": 34,
+                "ValueAsNumber": {
+                  "Value": 38,
+                  "Op": "gte"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Days": 0,
                 "Coeff": 1
               },
               "UseEventEnd": false
@@ -3093,7 +2882,7 @@
               "Count": 1
             }
           }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
@@ -3111,56 +2900,26 @@
             },
             "StartWindow": {
               "Start": {
+                "Days": 0,
                 "Coeff": -1
               },
               "End": {
+                "Days": 0,
                 "Coeff": 1
               },
               "UseEventEnd": false
             },
-            "RestrictVisit": true,
             "Occurrence": {
               "Type": 1,
               "Count": 0
             }
           }
-          ],
-        "DemographicCriteriaList": [],
-        "Groups": []
-      }
-    },
-    {
-      "name": "No COPD, TB, HF, Lung ca, H.pylori",
-      "expression": {
-        "Type": "ALL",
-        "CriteriaList": [
-          {
-            "Criteria": {
-              "ConditionOccurrence": {
-                "CodesetId": 26
-              }
-            },
-            "StartWindow": {
-              "Start": {
-                "Coeff": -1
-              },
-              "End": {
-                "Coeff": 1
-              },
-              "UseEventEnd": false
-            },
-            "RestrictVisit": true,
-            "Occurrence": {
-              "Type": 1,
-              "Count": 0
-            }
-          }
-          ],
+        ],
         "DemographicCriteriaList": [],
         "Groups": []
       }
     }
-    ],
+  ],
   "EndStrategy": {
     "DateOffset": {
       "DateField": "EndDate",

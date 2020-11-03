@@ -1,0 +1,2955 @@
+{
+  "ConceptSets": [
+    {
+      "id": 0,
+      "name": "inpatient visit",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Visit",
+              "CONCEPT_CODE": "IP",
+              "CONCEPT_ID": 9201,
+              "CONCEPT_NAME": "Inpatient Visit",
+              "DOMAIN_ID": "Visit",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "Visit"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Visit",
+              "CONCEPT_CODE": "ERIP",
+              "CONCEPT_ID": 262,
+              "CONCEPT_NAME": "Emergency Room and Inpatient Visit",
+              "DOMAIN_ID": "Visit",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "Visit"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Visit",
+              "CONCEPT_CODE": "ER",
+              "CONCEPT_ID": 9203,
+              "CONCEPT_NAME": "Emergency Room Visit",
+              "DOMAIN_ID": "Visit",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "Visit"
+            }
+          }
+          ]
+      }
+    },
+    {
+      "id": 15,
+      "name": "[rhie]pneumonia ",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "53084003",
+              "CONCEPT_ID": 257315,
+              "CONCEPT_NAME": "Bacterial pneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "396285007",
+              "CONCEPT_ID": 256722,
+              "CONCEPT_NAME": "Bronchopneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "233609002",
+              "CONCEPT_ID": 254066,
+              "CONCEPT_NAME": "Chlamydial pneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "195886008",
+              "CONCEPT_ID": 252655,
+              "CONCEPT_NAME": "Group B streptococcal pneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "70036007",
+              "CONCEPT_ID": 260754,
+              "CONCEPT_NAME": "Haemophilus influenzae pneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "406595002",
+              "CONCEPT_ID": 4231983,
+              "CONCEPT_NAME": "Infection due to Mycoplasma pneumoniae",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312342009",
+              "CONCEPT_ID": 443410,
+              "CONCEPT_NAME": "Infective pneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "46970008",
+              "CONCEPT_ID": 440431,
+              "CONCEPT_NAME": "Mycoplasma pneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "233604007",
+              "CONCEPT_ID": 255848,
+              "CONCEPT_NAME": "Pneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "195878008",
+              "CONCEPT_ID": 256723,
+              "CONCEPT_NAME": "Pneumonia and influenza",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "409665004",
+              "CONCEPT_ID": 4256236,
+              "CONCEPT_NAME": "Pneumonia due to aerobic bacteria",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "51530003",
+              "CONCEPT_ID": 260430,
+              "CONCEPT_NAME": "Pneumonia due to Escherichia coli",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "430395005",
+              "CONCEPT_ID": 258180,
+              "CONCEPT_NAME": "Pneumonia due to Gram negative bacteria",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "64479007",
+              "CONCEPT_ID": 253790,
+              "CONCEPT_NAME": "Pneumonia due to Klebsiella pneumoniae",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "41381004",
+              "CONCEPT_ID": 252351,
+              "CONCEPT_NAME": "Pneumonia due to Pseudomonas",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "34020007",
+              "CONCEPT_ID": 261324,
+              "CONCEPT_NAME": "Pneumonia due to Streptococcus",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "22754005",
+              "CONCEPT_ID": 259852,
+              "CONCEPT_NAME": "Staphylococcal pneumonia",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+          ]
+      }
+    },
+    {
+      "id": 21,
+      "name": "[rhie]bacterial infections other than pneumonia with str lung dz",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "409779000",
+              "CONCEPT_ID": 4253010,
+              "CONCEPT_NAME": "Acute infection of bone",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "54398005",
+              "CONCEPT_ID": 257011,
+              "CONCEPT_NAME": "Acute upper respiratory infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312122008",
+              "CONCEPT_ID": 4208663,
+              "CONCEPT_NAME": "Bacterial cardiovascular infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "95882006",
+              "CONCEPT_ID": 4319156,
+              "CONCEPT_NAME": "Bacterial ear infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312125005",
+              "CONCEPT_ID": 4208665,
+              "CONCEPT_NAME": "Bacterial genital infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "128119004",
+              "CONCEPT_ID": 4027381,
+              "CONCEPT_NAME": "Bacterial infection of central nervous system",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "128936008",
+              "CONCEPT_ID": 4029803,
+              "CONCEPT_NAME": "Bacterial infection of skin",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312129004",
+              "CONCEPT_ID": 4193874,
+              "CONCEPT_NAME": "Bacterial infection of the digestive tract",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312116004",
+              "CONCEPT_ID": 4208661,
+              "CONCEPT_NAME": "Bacterial infection of the nervous system",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312126006",
+              "CONCEPT_ID": 4193873,
+              "CONCEPT_NAME": "Bacterial musculoskeletal infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312128007",
+              "CONCEPT_ID": 4193168,
+              "CONCEPT_NAME": "Bacterial oral infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312118003",
+              "CONCEPT_ID": 4207185,
+              "CONCEPT_NAME": "Bacterial upper respiratory infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312124009",
+              "CONCEPT_ID": 4208664,
+              "CONCEPT_NAME": "Bacterial urinary infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312123003",
+              "CONCEPT_ID": 4193167,
+              "CONCEPT_NAME": "Bacterial urogenital infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "240272004",
+              "CONCEPT_ID": 4345338,
+              "CONCEPT_NAME": "Bone fixation device infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "198108005",
+              "CONCEPT_ID": 4056769,
+              "CONCEPT_NAME": "Breast infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "12295008",
+              "CONCEPT_ID": 256449,
+              "CONCEPT_NAME": "Bronchiectasis",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "713312005",
+              "CONCEPT_ID": 37017103,
+              "CONCEPT_NAME": "Bursitis caused by bacterial infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "105629000",
+              "CONCEPT_ID": 438066,
+              "CONCEPT_NAME": "Chlamydial infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "186729003",
+              "CONCEPT_ID": 72245,
+              "CONCEPT_NAME": "Chlamydial infection of lower genitourinary tract",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "429586004",
+              "CONCEPT_ID": 4323897,
+              "CONCEPT_NAME": "Chlamydophila psittaci infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "197928006",
+              "CONCEPT_ID": 4056622,
+              "CONCEPT_NAME": "Chronic urinary tract infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "186431008",
+              "CONCEPT_ID": 193688,
+              "CONCEPT_NAME": "Clostridium difficile infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "190905008",
+              "CONCEPT_ID": 441267,
+              "CONCEPT_NAME": "Cystic fibrosis",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "240356009",
+              "CONCEPT_ID": 4345208,
+              "CONCEPT_NAME": "Enteroadherent Escherichia coli gastrointestinal tract infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "240353001",
+              "CONCEPT_ID": 4345206,
+              "CONCEPT_NAME": "Enteropathogenic Escherichia coli gastrointestinal tract infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "128351009",
+              "CONCEPT_ID": 4134613,
+              "CONCEPT_NAME": "Eye infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312196000",
+              "CONCEPT_ID": 4193182,
+              "CONCEPT_NAME": "Female genital infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "125585007",
+              "CONCEPT_ID": 4129391,
+              "CONCEPT_NAME": "Female genital tract infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "715852004",
+              "CONCEPT_ID": 37396146,
+              "CONCEPT_NAME": "Gastrointestinal infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312155003",
+              "CONCEPT_ID": 4193988,
+              "CONCEPT_NAME": "Genital infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312099009",
+              "CONCEPT_ID": 79732,
+              "CONCEPT_NAME": "Genitourinary chlamydia infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "35876006",
+              "CONCEPT_ID": 374283,
+              "CONCEPT_NAME": "Gonococcal infection of eye",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "275273001",
+              "CONCEPT_ID": 4170296,
+              "CONCEPT_NAME": "Graft infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "41659003",
+              "CONCEPT_ID": 4211821,
+              "CONCEPT_NAME": "Haemophilus infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "307759003",
+              "CONCEPT_ID": 4146776,
+              "CONCEPT_NAME": "Helicobacter pylori gastrointestinal tract infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "473060006",
+              "CONCEPT_ID": 43021267,
+              "CONCEPT_NAME": "Infection associated with cardiac implant",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "473049002",
+              "CONCEPT_ID": 43021980,
+              "CONCEPT_NAME": "Infection associated with musculoskeletal implant",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "56335008",
+              "CONCEPT_ID": 434872,
+              "CONCEPT_NAME": "Infection by Trichomonas",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "721730009",
+              "CONCEPT_ID": 36717498,
+              "CONCEPT_NAME": "Infection caused by Helicobacter pylori",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "397434007",
+              "CONCEPT_ID": 4265729,
+              "CONCEPT_NAME": "Infection due to Corynebacterium",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "71057007",
+              "CONCEPT_ID": 440320,
+              "CONCEPT_NAME": "Infection due to Escherichia coli",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "66301008",
+              "CONCEPT_ID": 4282310,
+              "CONCEPT_NAME": "Infection due to Group A Shigella",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "69794009",
+              "CONCEPT_ID": 4321384,
+              "CONCEPT_NAME": "Infection due to Group D Shigella",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "406595002",
+              "CONCEPT_ID": 4231983,
+              "CONCEPT_NAME": "Infection due to Mycoplasma pneumoniae",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "111253001",
+              "CONCEPT_ID": 72410,
+              "CONCEPT_NAME": "Infection of bone",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "213126000",
+              "CONCEPT_ID": 4309315,
+              "CONCEPT_NAME": "Infection of bone graft",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "721254003",
+              "CONCEPT_ID": 36715546,
+              "CONCEPT_NAME": "Infection of cranial nerve",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312158001",
+              "CONCEPT_ID": 4193990,
+              "CONCEPT_NAME": "Infection of digestive system",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "129127001",
+              "CONCEPT_ID": 4044878,
+              "CONCEPT_NAME": "Infection of ear",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "95810005",
+              "CONCEPT_ID": 4317993,
+              "CONCEPT_NAME": "Infection of external auditory canal",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "402697000",
+              "CONCEPT_ID": 4298713,
+              "CONCEPT_NAME": "Infection of external ear",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "299990002",
+              "CONCEPT_ID": 4102735,
+              "CONCEPT_NAME": "Infection of foot",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "202756004",
+              "CONCEPT_ID": 4067312,
+              "CONCEPT_NAME": "Infection of intervertebral disc - pyogenic",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "200125006",
+              "CONCEPT_ID": 4062133,
+              "CONCEPT_NAME": "Infection of obstetric surgical wound",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "108365000",
+              "CONCEPT_ID": 4029043,
+              "CONCEPT_NAME": "Infection of skin",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "19824006",
+              "CONCEPT_ID": 201093,
+              "CONCEPT_NAME": "Infection of skin AND/OR subcutaneous tissue",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "427898007",
+              "CONCEPT_ID": 4322737,
+              "CONCEPT_NAME": "Infection of tooth",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "721273004",
+              "CONCEPT_ID": 36715562,
+              "CONCEPT_NAME": "Infection of vertebra",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "111839008",
+              "CONCEPT_ID": 192815,
+              "CONCEPT_NAME": "Intestinal infection due to E. coli",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "76844004",
+              "CONCEPT_ID": 4297984,
+              "CONCEPT_NAME": "Local infection of wound",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "430348006",
+              "CONCEPT_ID": 443600,
+              "CONCEPT_NAME": "Localized infection of skin AND/OR subcutaneous tissue",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "4009004",
+              "CONCEPT_ID": 4220328,
+              "CONCEPT_NAME": "Lower urinary tract infectious disease",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "312195001",
+              "CONCEPT_ID": 4207302,
+              "CONCEPT_NAME": "Male genital infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "406594003",
+              "CONCEPT_ID": 4231982,
+              "CONCEPT_NAME": "Mycobacterial infection of the central nervous system",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "186464008",
+              "CONCEPT_ID": 436900,
+              "CONCEPT_NAME": "Mycoplasma infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "237462004",
+              "CONCEPT_ID": 4130007,
+              "CONCEPT_NAME": "Nipple infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "200364001",
+              "CONCEPT_ID": 4063697,
+              "CONCEPT_NAME": "Obstetric breast infections",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "267289003",
+              "CONCEPT_ID": 441925,
+              "CONCEPT_NAME": "Obstetric nipple infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "33910007",
+              "CONCEPT_ID": 437474,
+              "CONCEPT_NAME": "Postoperative infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "58126003",
+              "CONCEPT_ID": 4237450,
+              "CONCEPT_NAME": "Postoperative wound infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "269406001",
+              "CONCEPT_ID": 4153877,
+              "CONCEPT_NAME": "Post-traumatic wound infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "275274007",
+              "CONCEPT_ID": 4173660,
+              "CONCEPT_NAME": "Prosthetic infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "721267000",
+              "CONCEPT_ID": 36715557,
+              "CONCEPT_NAME": "Pyogenic infection of skin and subcutaneous tissues caused by bacterium",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "8098009",
+              "CONCEPT_ID": 440647,
+              "CONCEPT_NAME": "Sexually transmitted infectious disease",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "95880003",
+              "CONCEPT_ID": 4320030,
+              "CONCEPT_NAME": "Soft tissue infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "402938009",
+              "CONCEPT_ID": 4294446,
+              "CONCEPT_NAME": "Staphylococcal infection of skin",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "433202001",
+              "CONCEPT_ID": 4334801,
+              "CONCEPT_NAME": "Surgical site infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "422747000",
+              "CONCEPT_ID": 4311853,
+              "CONCEPT_NAME": "Upper urinary tract infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "68566005",
+              "CONCEPT_ID": 81902,
+              "CONCEPT_NAME": "Urinary tract infectious disease",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "240354007",
+              "CONCEPT_ID": 4345207,
+              "CONCEPT_NAME": "Verotoxigenic Escherichia coli gastrointestinal tract infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            }
+          }
+          ]
+      }
+    },
+    {
+      "id": 24,
+      "name": "[CSKIM] Chest X ray",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "399208008",
+              "CONCEPT_ID": 4163872,
+              "CONCEPT_NAME": "Plain chest X-ray",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+          ]
+      }
+    },
+    {
+      "id": 26,
+      "name": "[CSKIM] COPD , TB, HF, Lung ca, H.pylori, Gastritis",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "13645005",
+              "CONCEPT_ID": 255573,
+              "CONCEPT_NAME": "Chronic obstructive lung disease",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "56717001",
+              "CONCEPT_ID": 434557,
+              "CONCEPT_NAME": "Tuberculosis",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "84114007",
+              "CONCEPT_ID": 316139,
+              "CONCEPT_NAME": "Heart failure",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "126713003",
+              "CONCEPT_ID": 4128888,
+              "CONCEPT_NAME": "Neoplasm of lung",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "307759003",
+              "CONCEPT_ID": 4146776,
+              "CONCEPT_NAME": "Helicobacter pylori gastrointestinal tract infection",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "4556007",
+              "CONCEPT_ID": 201340,
+              "CONCEPT_NAME": "Gastritis",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "49436004",
+              "CONCEPT_ID": 313217,
+              "CONCEPT_NAME": "Atrial fibrillation",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Finding",
+              "CONCEPT_CODE": "328383001",
+              "CONCEPT_ID": 4212540,
+              "CONCEPT_NAME": "Chronic liver disease",
+              "DOMAIN_ID": "Condition",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+          ]
+      }
+    },
+    {
+      "id": 27,
+      "name": "[CSKIM] Antipneumonial antibiotics",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Quant Branded Drug",
+              "CONCEPT_CODE": "OMOP4647602",
+              "CONCEPT_ID": 42920760,
+              "CONCEPT_NAME": "10 ML Ciprofloxacin 3 MG/ML / fluocinolone 0.25 MG/ML Topical Solution [CETRAXAL PLUS]",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm Extension"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "641",
+              "CONCEPT_ID": 1790868,
+              "CONCEPT_NAME": "Amikacin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "723",
+              "CONCEPT_ID": 1713332,
+              "CONCEPT_NAME": "Amoxicillin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "733",
+              "CONCEPT_ID": 1717327,
+              "CONCEPT_NAME": "Ampicillin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "18631",
+              "CONCEPT_ID": 1734104,
+              "CONCEPT_NAME": "Azithromycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1272",
+              "CONCEPT_ID": 1715117,
+              "CONCEPT_NAME": "Aztreonam",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2180",
+              "CONCEPT_ID": 1771162,
+              "CONCEPT_NAME": "Cefazolin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "20481",
+              "CONCEPT_ID": 1748975,
+              "CONCEPT_NAME": "cefepime",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2186",
+              "CONCEPT_ID": 1774470,
+              "CONCEPT_NAME": "Cefotaxime",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2191",
+              "CONCEPT_ID": 1776684,
+              "CONCEPT_NAME": "Ceftazidime",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2193",
+              "CONCEPT_ID": 1777806,
+              "CONCEPT_NAME": "Ceftriaxone",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2551",
+              "CONCEPT_ID": 1797513,
+              "CONCEPT_NAME": "Ciprofloxacin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug",
+              "CONCEPT_CODE": "309307",
+              "CONCEPT_ID": 19075378,
+              "CONCEPT_NAME": "Ciprofloxacin 3 MG/ML Ophthalmic Solution",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "21212",
+              "CONCEPT_ID": 1750500,
+              "CONCEPT_NAME": "Clarithromycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2709",
+              "CONCEPT_ID": 901845,
+              "CONCEPT_NAME": "Colistin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "3640",
+              "CONCEPT_ID": 1738521,
+              "CONCEPT_NAME": "Doxycycline",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "4053",
+              "CONCEPT_ID": 1746940,
+              "CONCEPT_NAME": "Erythromycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "138099",
+              "CONCEPT_ID": 1716721,
+              "CONCEPT_NAME": "gemifloxacin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "5690",
+              "CONCEPT_ID": 1778262,
+              "CONCEPT_NAME": "Imipenem",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "82122",
+              "CONCEPT_ID": 1742253,
+              "CONCEPT_NAME": "Levofloxacin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "190376",
+              "CONCEPT_ID": 1736887,
+              "CONCEPT_NAME": "linezolid",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "29561",
+              "CONCEPT_ID": 1709170,
+              "CONCEPT_NAME": "meropenem",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "139462",
+              "CONCEPT_ID": 1716903,
+              "CONCEPT_NAME": "moxifloxacin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug",
+              "CONCEPT_CODE": "403818",
+              "CONCEPT_ID": 19102471,
+              "CONCEPT_NAME": "moxifloxacin 5 MG/ML Ophthalmic Solution",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "7233",
+              "CONCEPT_ID": 1713930,
+              "CONCEPT_NAME": "Nafcillin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "7773",
+              "CONCEPT_ID": 1724703,
+              "CONCEPT_NAME": "Oxacillin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "8536",
+              "CONCEPT_ID": 948582,
+              "CONCEPT_NAME": "Polymyxin B",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "9478",
+              "CONCEPT_ID": 19063874,
+              "CONCEPT_NAME": "Roxithromycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "10627",
+              "CONCEPT_ID": 902722,
+              "CONCEPT_NAME": "Tobramycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "11124",
+              "CONCEPT_ID": 1707687,
+              "CONCEPT_NAME": "Vancomycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1040005",
+              "CONCEPT_ID": 40230597,
+              "CONCEPT_NAME": "ceftaroline",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "376884",
+              "CONCEPT_ID": 40001157,
+              "CONCEPT_NAME": "Levofloxacin Ophthalmic Solution",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "1659130",
+              "CONCEPT_ID": 46275426,
+              "CONCEPT_NAME": "Piperacillin / tazobactam Injection",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "378998",
+              "CONCEPT_ID": 40088728,
+              "CONCEPT_NAME": "Tobramycin Ophthalmic Ointment",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "377400",
+              "CONCEPT_ID": 40088730,
+              "CONCEPT_NAME": "Tobramycin Ophthalmic Solution",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "OMOP2771862",
+              "CONCEPT_ID": 35770401,
+              "CONCEPT_NAME": "Tobramycin Ophthalmic Suspension",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm Extension"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "374699",
+              "CONCEPT_ID": 40027153,
+              "CONCEPT_NAME": "Dexamethasone / Neomycin / Polymyxin B Ophthalmic Ointment",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "OMOP454516",
+              "CONCEPT_ID": 43179753,
+              "CONCEPT_NAME": "Neomycin / Nystatin / Polymyxin B Vaginal Suppository",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm Extension"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "18687",
+              "CONCEPT_ID": 1734205,
+              "CONCEPT_NAME": "bacampicillin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "25037",
+              "CONCEPT_ID": 1796458,
+              "CONCEPT_NAME": "cefdinir",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "83682",
+              "CONCEPT_ID": 1747005,
+              "CONCEPT_NAME": "cefditoren",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "20489",
+              "CONCEPT_ID": 1749008,
+              "CONCEPT_NAME": "cefpodoxime",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "19552",
+              "CONCEPT_ID": 1738366,
+              "CONCEPT_NAME": "cefprozil",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2194",
+              "CONCEPT_ID": 1778162,
+              "CONCEPT_NAME": "Cefuroxime",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "2582",
+              "CONCEPT_ID": 997881,
+              "CONCEPT_NAME": "Clindamycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "377481",
+              "CONCEPT_ID": 40030894,
+              "CONCEPT_NAME": "Clindamycin Topical Solution",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "325642",
+              "CONCEPT_ID": 1717963,
+              "CONCEPT_NAME": "ertapenem",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "1596450",
+              "CONCEPT_ID": 45892419,
+              "CONCEPT_NAME": "Gentamicin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "1870264",
+              "CONCEPT_ID": 1594403,
+              "CONCEPT_NAME": "Gentamicin Topical Cream",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "isExcluded": true,
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "6099",
+              "CONCEPT_ID": 1784749,
+              "CONCEPT_NAME": "Kanamycin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "7337",
+              "CONCEPT_ID": 19017585,
+              "CONCEPT_NAME": "Netilmicin",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "7980",
+              "CONCEPT_ID": 1728416,
+              "CONCEPT_NAME": "Penicillin G",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Drug Form",
+              "CONCEPT_CODE": "1736464",
+              "CONCEPT_ID": 35603858,
+              "CONCEPT_NAME": "Streptomycin Injection",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Ingredient",
+              "CONCEPT_CODE": "10395",
+              "CONCEPT_ID": 1836948,
+              "CONCEPT_NAME": "Tetracycline",
+              "DOMAIN_ID": "Drug",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "RxNorm"
+            },
+            "includeDescendants": true
+          }
+          ]
+      }
+    },
+    {
+      "id": 28,
+      "name": "[CSKIM] culture",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "24002-8",
+              "CONCEPT_ID": 3016485,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Bronchial specimen by Acid fast stain",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "21021-1",
+              "CONCEPT_ID": 3025346,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Bronchial specimen by Gram stain",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "11477-7",
+              "CONCEPT_ID": 3011588,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Sputum by Acid fast stain",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "648-6",
+              "CONCEPT_ID": 3002516,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Sputum by Gram stain",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "6460-0",
+              "CONCEPT_ID": 3023419,
+              "CONCEPT_NAME": "Bacteria identified in Sputum by Culture",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "53522-9",
+              "CONCEPT_ID": 3051269,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Bronchial specimen by Rhodamine-auramine fluorochrome stain",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "53904-9",
+              "CONCEPT_ID": 3038328,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Sputum by Rhodamine-auramine fluorochrome stain",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          }
+          ]
+      }
+    },
+    {
+      "id": 32,
+      "name": "[CSKIM] Chest CT",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "315941000000105",
+              "CONCEPT_ID": 44797583,
+              "CONCEPT_NAME": "Computerized tomography of chest with high resolution",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "169069000",
+              "CONCEPT_ID": 4058335,
+              "CONCEPT_NAME": "CT of chest",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+          ]
+      }
+    },
+    {
+      "id": 33,
+      "name": "[CSKIM] Chest CT or Chest X ray",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "169069000",
+              "CONCEPT_ID": 4058335,
+              "CONCEPT_NAME": "CT of chest",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "315941000000105",
+              "CONCEPT_ID": 44797583,
+              "CONCEPT_NAME": "Computerized tomography of chest with high resolution",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Procedure",
+              "CONCEPT_CODE": "399208008",
+              "CONCEPT_ID": 4163872,
+              "CONCEPT_NAME": "Plain chest X-ray",
+              "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+          ]
+      }
+    },
+    {
+      "id": 34,
+      "name": "body temp",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Clinical Observation",
+              "CONCEPT_CODE": "8310-5",
+              "CONCEPT_ID": 3020891,
+              "CONCEPT_NAME": "Body temperature",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          }
+          ]
+      }
+    },
+    {
+      "id": 35,
+      "name": "WBC",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "26464-8",
+              "CONCEPT_ID": 3010813,
+              "CONCEPT_NAME": "White Blood cell (WBC) count (leukocyte)",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
+          }
+          ]
+      }
+    }
+    ],
+  "PrimaryCriteria": {
+    "CriteriaList": [
+      {
+        "VisitOccurrence": {
+          "CodesetId": 0,
+          "Age": {
+            "Value": 18,
+            "Op": "gte"
+          }
+        }
+      }
+      ],
+    "ObservationWindow": {
+      "PriorDays": 0,
+      "PostDays": 0
+    },
+    "PrimaryCriteriaLimit": {
+      "Type": "All"
+    }
+  },
+  "QualifiedLimit": {
+    "Type": "All"
+  },
+  "ExpressionLimit": {
+    "Type": "All"
+  },
+  "InclusionRules": [
+    {
+      "name": "Pneumonia",
+      "expression": {
+        "Type": "ANY",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CorrelatedCriteria": {
+                  "Type": "ALL",
+                  "CriteriaList": [
+                    {
+                      "Criteria": {
+                        "Measurement": {
+                          "CodesetId": 28
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": 1
+                        },
+                        "End": {
+                          "Days": 2,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 2,
+                        "Count": 1
+                      }
+                    },
+                    {
+                      "Criteria": {
+                        "DrugExposure": {
+                          "CodesetId": 27
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": 1
+                        },
+                        "End": {
+                          "Days": 2,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 2,
+                        "Count": 1
+                      }
+                    },
+                    {
+                      "Criteria": {
+                        "ProcedureOccurrence": {
+                          "CodesetId": 33
+                        }
+                      },
+                      "StartWindow": {
+                        "Start": {
+                          "Days": 0,
+                          "Coeff": 1
+                        },
+                        "End": {
+                          "Days": 2,
+                          "Coeff": 1
+                        },
+                        "UseEventEnd": false
+                      },
+                      "Occurrence": {
+                        "Type": 2,
+                        "Count": 1
+                      }
+                    }
+                    ],
+                  "DemographicCriteriaList": [],
+                  "Groups": []
+                },
+                "CodesetId": 15,
+                "ConditionType": [
+                  {
+                    "CONCEPT_CODE": "OMOP generated",
+                    "CONCEPT_ID": 44786628,
+                    "CONCEPT_NAME": "First Position Condition",
+                    "DOMAIN_ID": "Type Concept",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "Condition Type"
+                  }
+                  ]
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "EndWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "UseIndexEnd": true,
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+          ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "Fever or leukocytosis",
+      "expression": {
+        "Type": "ANY",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "Measurement": {
+                "CodesetId": 35,
+                "ValueAsNumber": {
+                  "Value": 4,
+                  "Extent": 10,
+                  "Op": "!bt"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Days": 2,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          },
+          {
+            "Criteria": {
+              "Measurement": {
+                "CodesetId": 34,
+                "ValueAsNumber": {
+                  "Value": 38,
+                  "Op": "gte"
+                }
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Days": 2,
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 2,
+              "Count": 1
+            }
+          }
+          ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    },
+    {
+      "name": "No other infection",
+      "expression": {
+        "Type": "ALL",
+        "CriteriaList": [
+          {
+            "Criteria": {
+              "ConditionOccurrence": {
+                "CodesetId": 21
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "EndWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "UseIndexEnd": true,
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 1,
+              "Count": 0
+            }
+          }
+          ],
+        "DemographicCriteriaList": [],
+        "Groups": []
+      }
+    }
+    ],
+  "EndStrategy": {
+    "DateOffset": {
+      "DateField": "EndDate",
+      "Offset": 0
+    }
+  },
+  "CensoringCriteria": [],
+  "CollapseSettings": {
+    "CollapseType": "ERA",
+    "EraPad": 0
+  },
+  "CensorWindow": {},
+  "cdmVersionRange": ">=5.0.0"
+}

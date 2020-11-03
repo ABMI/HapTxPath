@@ -132,10 +132,10 @@ SELECT 99 as codeset_id, c.concept_id
 FROM (
   select distinct I.concept_id 
   FROM (
-    select concept_id from CDMPv531.dbo.CONCEPT c
+    select concept_id from @vocabulary_database_schema.CONCEPT c
     where concept_id in (44814638,44814637,44814646, 44814639, 44814645, 44814644, 44814642, 44814641)
-        and c.invalid_reason is null
-        ) I
+    and c.invalid_reason is null
+  ) I
 ) C;
 
 
@@ -518,13 +518,11 @@ HAVING COUNT(A.TARGET_CONCEPT_ID) <= 0
 ) Results
 ;
 
-
-
 create table #inclusion_3 (inclusion_rule_id int NULL, person_id int  NULL, event_id int NULL)
 
 IF @keywordSearch = 'T'
 BEGIN
-INSERT INTO #Inclusion_3 select 3 as inclusion_rule_id, person_id, event_id
+insert into #inclusion_3 select 3 as inclusion_rule_id, person_id, event_id
 FROM 
 (
   select pe.person_id, pe.event_id
@@ -552,8 +550,8 @@ FROM
           (
             SELECT n.* 
               FROM (
-                  select * from @cdm_database_schema.note where (@noteTitle)    
-                  and (@noteKeyword)
+                select * from @cdm_database_schema.note where (@noteTitle)    
+                and (@noteKeyword)
               ) n 
             JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))
           ) C
@@ -591,11 +589,12 @@ FROM
   ) AC on AC.person_id = pe.person_id AND AC.event_id = pe.event_id
 ) Results
 END
-ELSE 
+ELSE
 BEGIN
-insert INTO #inclusion_3 select * from #inclusion_0 where 1 = 0
+INSERT INTO #inclusion_3 select * from #inclusion_0 where 1 = 0
 END
 ;
+
 
 SELECT inclusion_rule_id, person_id, event_id
 INTO #inclusion_events
@@ -607,8 +606,8 @@ select inclusion_rule_id, person_id, event_id from #Inclusion_2) I;
 
 if (select count(*) from #inclusion_3) >0
 BEGIN 
-  insert into #inclusion_events select * from #Inclusion_3
-END;
+insert into #inclusion_events select * from #Inclusion_3
+END;  
 
 TRUNCATE TABLE #Inclusion_0;
 DROP TABLE #Inclusion_0;
@@ -621,6 +620,7 @@ DROP TABLE #Inclusion_2;
 
 TRUNCATE TABLE #Inclusion_3;
 DROP TABLE #Inclusion_3;
+
 
 with cteIncludedEvents(event_id, person_id, start_date, end_date, op_start_date, op_end_date, ordinal) as
 (

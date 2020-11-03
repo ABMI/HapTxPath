@@ -574,8 +574,8 @@ select inclusion_rule_id, person_id, event_id from #Inclusion_2) I;
 
 if (select count(*) from #inclusion_3) >0
 BEGIN 
-  insert into #inclusion_events select * from #Inclusion_3
-END;   
+insert into #inclusion_events select * from #Inclusion_3
+END; 
 
 TRUNCATE TABLE #Inclusion_0;
 DROP TABLE #Inclusion_0;

@@ -43,7 +43,7 @@ runDrugPathway <- function(connectionDetails,
   pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "HapTxPath")
   cohortsToCreate <- read.csv(pathToCsv)
   
-  for(cohortId in cohortsToCreate[1:4,3]){
+  for(cohortId in cohortsToCreate[1:5,3]){
     #get drug exposure data
     drugExposureData <- getDrugExposureData(connectionDetails = connectionDetails,
                                             cdmDatabaseSchema = cdmDatabaseSchema,

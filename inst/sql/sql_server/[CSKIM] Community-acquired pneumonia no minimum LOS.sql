@@ -240,7 +240,7 @@ FROM
                             JOIN #Codesets codesets on ((co.condition_concept_id = codesets.concept_id and codesets.codeset_id = 15))
                           ) C
                           
-                          WHERE C.condition_type_concept_id  in (44786628)
+                          WHERE C.condition_type_concept_id  in (44786628,44786627)
                           -- End Condition Occurrence Criteria
                     ) Q
                     JOIN @cdm_database_schema.OBSERVATION_PERIOD OP on Q.person_id = OP.person_id 
@@ -262,7 +262,7 @@ FROM
                               JOIN #Codesets codesets on ((co.condition_concept_id = codesets.concept_id and codesets.codeset_id = 15))
                             ) C
                             
-                            WHERE C.condition_type_concept_id  in (44786628)
+                            WHERE C.condition_type_concept_id  in (44786628,44786627)
                             -- End Condition Occurrence Criteria
                       ) Q
                       JOIN @cdm_database_schema.OBSERVATION_PERIOD OP on Q.person_id = OP.person_id 
@@ -304,7 +304,7 @@ FROM
                               JOIN #Codesets codesets on ((co.condition_concept_id = codesets.concept_id and codesets.codeset_id = 15))
                             ) C
                             
-                            WHERE C.condition_type_concept_id  in (44786628)
+                            WHERE C.condition_type_concept_id  in (44786628,44786627)
                             -- End Condition Occurrence Criteria
                       ) Q
                       JOIN @cdm_database_schema.OBSERVATION_PERIOD OP on Q.person_id = OP.person_id 
@@ -346,7 +346,7 @@ FROM
                               JOIN #Codesets codesets on ((co.condition_concept_id = codesets.concept_id and codesets.codeset_id = 15))
                             ) C
                             
-                            WHERE C.condition_type_concept_id  in (44786628)
+                            WHERE C.condition_type_concept_id  in (44786628,44786627)
                             -- End Condition Occurrence Criteria
                       ) Q
                       JOIN @cdm_database_schema.OBSERVATION_PERIOD OP on Q.person_id = OP.person_id 

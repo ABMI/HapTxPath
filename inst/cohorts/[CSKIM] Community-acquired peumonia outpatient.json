@@ -2799,6 +2799,15 @@
                     "INVALID_REASON_CAPTION": "Unknown",
                     "STANDARD_CONCEPT_CAPTION": "Unknown",
                     "VOCABULARY_ID": "Condition Type"
+                  },
+                  {
+                    "CONCEPT_CODE": "OMOP4822127",
+                    "CONCEPT_ID": 44786627,
+                    "CONCEPT_NAME": "Primary Condition",
+                    "DOMAIN_ID": "Type Concept",
+                    "INVALID_REASON_CAPTION": "Unknown",
+                    "STANDARD_CONCEPT_CAPTION": "Unknown",
+                    "VOCABULARY_ID": "Condition Type"
                   }
                 ]
               }
@@ -2861,7 +2870,7 @@
               "Measurement": {
                 "CodesetId": 34,
                 "ValueAsNumber": {
-                  "Value": 38,
+                  "Value": 37.5,
                   "Op": "gte"
                 }
               }

@@ -84,10 +84,10 @@ SELECT 27 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
 ) C;
 INSERT INTO #Codesets (codeset_id, concept_id)
 SELECT 28 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM
-                                            ( 
-                                              select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (3016485,3025346,3011588,3002516,3023419,3051269,3038328)
-                                              
-                                            ) I
+( 
+  select concept_id from @vocabulary_database_schema.CONCEPT where concept_id in (3016485,3025346,3011588,3002516,3023419,3051269,3038328,3029151)
+
+) I
 ) C;
 INSERT INTO #Codesets (codeset_id, concept_id)
 SELECT 32 as codeset_id, c.concept_id FROM (select distinct I.concept_id FROM

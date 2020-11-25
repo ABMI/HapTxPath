@@ -139,16 +139,7 @@ UNION  select c.concept_id
 
 ) I
 ) C;
-INSERT INTO #Codesets (codeset_id, concept_id)
-SELECT 99 as codeset_id, c.concept_id 
-FROM (
-  select distinct I.concept_id 
-  FROM (
-    select concept_id from @vocabulary_database_schema.CONCEPT c
-    where concept_id in (44814638,44814637,44814646, 44814639, 44814645, 44814644, 44814642, 44814641)
-    and c.invalid_reason is null
-  ) I
-) C;
+
 
 
 with primary_events (event_id, person_id, start_date, end_date, op_start_date, op_end_date, visit_occurrence_id) as
@@ -522,7 +513,6 @@ FROM
                 select * from @cdm_database_schema.note where (@noteTitle)    
                 and (@noteKeyword)
               ) n 
-            JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))
           ) C
           
           -- End Note Criteria
@@ -543,7 +533,6 @@ FROM
                   select * from @cdm_database_schema.note where (@noteTitle)    
                   and (@noteKeyword)
                 ) n 
-              JOIN #Codesets codesets on ((n.note_type_concept_id = codesets.concept_id and codesets.codeset_id = 99))
             ) C
           ) D on D.person_id = P.person_id and D.visit_occurrence_id = P.visit_occurrence_id where datediff(dd, P.start_date, D.start_date) < 3
         )

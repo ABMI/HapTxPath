@@ -25,21 +25,25 @@
 #' @param keywordSearch        turn on the keyword search function in patient note table.
 #'                             (/)
 #' @param createCohorts        Whether to create the cohorts for the study
+#' @param cohortDiagnostics
 #' @param runPathway           Whether to run the treatment pathway visualization
 #' @param packageResults       Whether to package the results (after removing sensitive details)
 
 #' @export
 execute <- function(connectionDetails,
+                    databaseId,
                     databaseName,
+                    databaseDescription,
                     cdmDatabaseSchema,
                     cohortDatabaseSchema,
                     oracleTempSchema,
                     cohortTable,
                     outputFolder,
-                    noteTitle,
-                    noteKeyword,
+                    noteTitle = NULL,
+                    noteKeyword = NULL,
                     keywordSearch = F,
                     createCohorts = T,
+                    cohortDiagnostics = T,
                     runPathway = T,
                     packageResults = T){
   
@@ -48,16 +52,54 @@ execute <- function(connectionDetails,
   
   ParallelLogger::addDefaultFileLogger(file.path(outputFolder, "log.txt"))
   
-  if(createCohorts){
+  if(createCohorts & (!is.null(noteTitle) & !is.null(noteKeyword))){
     ParallelLogger::logInfo("Creating Cohorts with specific keyword in note table")
     createCohorts(connectionDetails,
                   cdmDatabaseSchema=cdmDatabaseSchema,
                   cohortDatabaseSchema=cohortDatabaseSchema,
                   cohortTable=cohortTable,
                   outputFolder = outputFolder,
-                  keywordSearch = keywordSearch,
+                  keywordSearch = T,
                   noteTitle = noteTitle,
                   noteKeyword = noteKeyword)
+  }else if(createCohorts & (!is.null(noteTitle) || !is.null(noteKeyword))){
+    ParallelLogger::logInfo("Please check the noteTitle or noteKeyword")
+  }
+  
+  if(createCohorts & (is.null(noteTitle) & is.null(noteKeyword))){
+    ParallelLogger::logInfo("Creating Cohorts")
+    createCohorts(connectionDetails,
+                  cdmDatabaseSchema=cdmDatabaseSchema,
+                  cohortDatabaseSchema=cohortDatabaseSchema,
+                  cohortTable=cohortTable,
+                  outputFolder = outputFolder,
+                  keywordSearch = F)
+  }else if(createCohorts & (is.null(noteTitle) || is.null(noteKeyword))){
+    ParallelLogger::logInfo("Please check the noteTitle or noteKeyword")
+  }
+  
+  if(cohortDiagnostics){
+    ParallelLogger::logInfo("Run cohort diagnostics")
+    runCohortDiagnostics(connectionDetails,
+                        cdmDatabaseSchema,
+                        cohortDatabaseSchema = cohortDatabaseSchema,
+                        cohortTable = cohortTable,
+                        oracleTempSchema = oracleTempSchema,
+                        outputFolder,
+                        databaseId = databaseId,
+                        databaseName = databaseName,
+                        databaseDescription = databaseDescription,
+                        createCohorts = FALSE,
+                        runInclusionStatistics = FALSE,
+                        runIncludedSourceConcepts = TRUE,
+                        runOrphanConcepts = FALSE,
+                        runTimeDistributions = FALSE,
+                        runBreakdownIndexEvents = FALSE,
+                        runIncidenceRates = TRUE,
+                        runCohortOverlap = FALSE,
+                        runCohortCharacterization = TRUE,
+                        runTemporalCohortCharacterization = FALSE,
+                        minCellCount = 5)
   }
   
   if(runPathway){
@@ -69,7 +111,8 @@ execute <- function(connectionDetails,
                    outputFolder,
                    savePlot = T,
                    StartDays = 0,
-                   EndDays = 365)
+                   EndDays = 3650,
+                   minCellCount = 5)
   }
   
   if (packageResults) {

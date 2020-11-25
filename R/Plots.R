@@ -2,7 +2,7 @@
 #
 # Copyright 2020 Observational Health Data Sciences and Informatics
 #
-# This file is part of HapTxPath
+# This file is part of PneumoniaTxPath
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -54,7 +54,7 @@ PlotTxPathway <- function(cohortDatabaseSchema,
                           outputFolder,
                           StartDays = 0,
                           EndDays = 365,
-                          pathLevel = 3){
+                          pathLevel = 2){
   
   saveFolder <- file.path(outputFolder, "plots")
   

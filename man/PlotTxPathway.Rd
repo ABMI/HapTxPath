@@ -14,7 +14,7 @@ PlotTxPathway(
   outputFolder,
   StartDays = 0,
   EndDays = 365,
-  pathLevel = 3
+  pathLevel = 2
 )
 }
 \arguments{

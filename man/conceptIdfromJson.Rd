@@ -26,9 +26,9 @@ include both the database and schema name, for example 'cdm_data.dbo'.}
 This table will hold the exposure and outcome cohorts used in this
 study.}
 
-\item{outputFolder}{Name of local folder where the results were generated; make sure to use forward slashes
-(/). Do not use a folder on a network drive since this greatly impacts
-performance.}
+\item{conceptSets}{concept sets}
+
+\item{conceptList}{concept list}
 }
 \description{
 conceptSet to conceptId

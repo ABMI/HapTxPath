@@ -6,16 +6,19 @@
 \usage{
 execute(
   connectionDetails,
+  databaseId,
   databaseName,
+  databaseDescription,
   cdmDatabaseSchema,
   cohortDatabaseSchema,
   oracleTempSchema,
   cohortTable,
   outputFolder,
-  noteTitle,
-  noteKeyword,
+  noteTitle = NULL,
+  noteKeyword = NULL,
   keywordSearch = F,
   createCohorts = T,
+  cohortDiagnostics = T,
   runPathway = T,
   packageResults = T
 )

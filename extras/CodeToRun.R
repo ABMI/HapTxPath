@@ -1,12 +1,28 @@
-library(HapTxPath)
+# Make sure to install all dependencies (not needed if already done):
+# install.packages("SqlRender")
+# install.packages("DatabaseConnector")
+# install.packages("ggplot2")
+# install.packages("ParallelLogger")
+# install.packages("readr")
+# install.packages("tibble")
+# install.packages("dplyr")
+# install.packages("RJSONIO")
+# install.packages("devtools")
+# devtools::install_github("FeatureExtraction")
+# devtools::install_github("ROhdsiWebApi")
+# devtools::install_github("CohortDiagnostics")
+
+
+library(PneumoniaTxPath)
 
 # USER INPUTS
 #=======================
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "./HapTxPath"
+outputFolder <- "./PneumoniaTxPath"
 
-# Specify where the temporary files (used by the ff package) will be created:
-options(fftempdir = "temp directory")
+# Optional: specify where the temporary files will be created:
+options(andromedaTempFolder = file.path("andromedaTemp"))
+
 
 # Details for connecting to the server:
 dbms <- Sys.getenv("dbms")
@@ -28,28 +44,42 @@ cdmDatabaseSchema <- 'cdmDatabaseSchema'
 # Add a database with read/write access as this is where the cohorts will be generated
 cohortDatabaseSchema <- 'cohortDatabaseSchema'
 
+databaseId <- "your Database ID"
+databaseName <- "your Database Name"
+databaseDescription <- "your Database Description"
+
 oracleTempSchema <- NULL
 
 # table name where the cohorts will be generated
 cohortTable <- 'cohortTable'
 
-# Use note table for searching right people
-noteTitle <- 'note title that you want to search keyword'
-noteKeyword <- 'Specific keyword in note_text column'
+# When you need to use the note table for searching right people
+# noteTitle <- 'note title that you want to search keyword'
+# noteKeyword <- 'Specific keyword in note_text column'
 
 #=======================
 
-execute(connectionDetails = connectionDetails,
-        cdmDatabaseSchema = cdmDatabaseSchema,
-        cohortDatabaseSchema = cohortDatabaseSchema,
-        cohortTable = cohortTable,
-        outputFolder = outputFolder,
-        keywordSearch = F,
-        noteTitle = noteTitle,
-        noteKeyword = noteKeyword,
-        createCohorts = F,
-        runPathway = F,
+execute(connectionDetails,
+        databaseId,
+        databaseName,
+        databaseDescription,
+        cdmDatabaseSchema,
+        cohortDatabaseSchema,
+        oracleTempSchema,
+        cohortTable,
+        outputFolder,
+        createCohorts = T,
+        cohortDiagnostics = T,
+        runPathway = T,
         packageResults = T)
+
+
+# To view the cohortDiagnostics results:
+# Optional: if there are results zip files from multiple sites in a folder, this merges them, which will speed up starting the viewer:
+CohortDiagnostics::preMergeDiagnosticsFiles(file.path(outputFolder, "diagnosticsExport"))
+
+# Use this to view the results. Multiple zip files can be in the same folder. If the files were pre-merged, this is automatically detected: 
+CohortDiagnostics::launchDiagnosticsExplorer(file.path(outputFolder, "diagnosticsExport"))
 
 # Please send the result zip file to ted9219@ajou.ac.kr
 

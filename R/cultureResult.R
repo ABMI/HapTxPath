@@ -21,12 +21,11 @@
 
 createCultureResultTable <- function(cdmDatabaseSchema,
                           cohortDatabaseSchema,
+                          cohortTable,
+                          cohortId,
                           minCellCount = 5){
   
-  pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "PneumoniaTxPath")
-  cohortsToCreate <- read.csv(pathToCsv)
-  cohortIds <- cohortsToCreate$cohortId
-  
+
   path <- system.file(package = "PneumoniaTxPath", "sql", "sql_server", "BacteriaCulture.sql")
   sql <- SqlRender::readSql(path)
   sql <- SqlRender::render(sql, 
@@ -34,7 +33,7 @@ createCultureResultTable <- function(cdmDatabaseSchema,
                            cohort_database_schema = cohortDatabaseSchema,
                            vocabulary_database_schema = cdmDatabaseSchema,
                            cohort_table = cohortTable,
-                           cohortId = cohortIds,
+                           cohort_definition_id = cohortId,
                            minCount = minCellCount)
   
   cultureResult <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)

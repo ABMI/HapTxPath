@@ -1,0 +1,5 @@
+cohortName,ruleSequence,ruleName,cohortId
+[CSKIM] Hospital-acquired pneumonia with lab,0,No pneumonia in first 2 days,1163
+[CSKIM] Hospital-acquired pneumonia with lab,1,No other infection,1163
+[CSKIM] Hospital-acquired pneumonia with lab,2,No ventilator,1163
+[CSKIM] Hospital-acquired pneumonia with lab,3,HAP diagnosis OR chest CT_culture_antibiotics and fever & abnormal leukocytes,1163

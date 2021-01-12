@@ -1,0 +1,33 @@
+Package: HAP
+Type: Package
+Title: Treatment pathway of HAP (One Line, Title Case)
+Version: 0.0.0.9
+Author: Chungsoo Kim [aut, cre] 
+Maintainer: Chungsoo Kim <ted9219@ajou.ac.kr>
+Description: Investigating the treatment pathway of antibiotics for pneumoina patients.
+License: Copyright to ABMI (Department of biomedical informatics, Ajou university school of medicine)
+Depends:
+    R(>= 3.5.0),
+    DatabaseConnector (>= 2.4.1)
+Imports:
+    SqlRender (>= 1.6.3),
+    FeatureExtraction (>= 2.2.5),
+    ggplot2,
+    plotly,
+    ff,
+    htmlwidgets,
+    ffbase,
+    OhdsiSharing (>= 0.1.3),
+	ParallelLogger (>= 1.1.1),
+	dplyr,
+	survival,
+	plyr
+Suggests:
+    knitr,
+    rmarkdown,
+    DT,
+    shiny,
+    OhdsiRTools
+Encoding: UTF-8
+LazyData: TRUE
+RoxygenNote: 7.0.2

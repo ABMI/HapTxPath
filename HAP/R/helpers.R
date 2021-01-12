@@ -120,11 +120,11 @@ addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumn
                                rule_sequence = inclusionRules$ruleSequence,
                                name = inclusionRules$ruleName)
   DatabaseConnector::insertTable(connection = connection,
-                                 tableName = "#cohort_inclusion",
+                                 tableName = "cohortDb.dbo.cohort_inclusion",
                                  data = inclusionRules,
                                  dropTableIfExists = TRUE,
                                  createTable = TRUE,
-                                 tempTable = TRUE,
+                                 tempTable = FALSE,
                                  oracleTempSchema = oracleTempSchema)
   
   

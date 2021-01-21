@@ -120,11 +120,11 @@ addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumn
                                rule_sequence = inclusionRules$ruleSequence,
                                name = inclusionRules$ruleName)
   DatabaseConnector::insertTable(connection = connection,
-                                 tableName = "cohortDb.dbo.cohort_inclusion",
+                                 tableName = "#cohort_inclusion",
                                  data = inclusionRules,
                                  dropTableIfExists = TRUE,
                                  createTable = TRUE,
-                                 tempTable = FALSE,
+                                 tempTable = TRUE,
                                  oracleTempSchema = oracleTempSchema)
   
   
@@ -139,15 +139,12 @@ addCohortNames <- function(data, IdColumnName = "cohortDefinitionId", nameColumn
                                              oracleTempSchema = oracleTempSchema,
                                              cdm_database_schema = cdmDatabaseSchema,
                                              vocabulary_database_schema = vocabularyDatabaseSchema,
-                                             
-                                             results_database_schema.cohort_inclusion = "#cohort_inclusion",  
-                                             results_database_schema.cohort_inclusion_result = "#cohort_inc_result",  
-                                             results_database_schema.cohort_inclusion_stats = "#cohort_inc_stats",  
-                                             results_database_schema.cohort_summary_stats = "#cohort_summary_stats",  
-                                             
                                              target_database_schema = cohortDatabaseSchema,
                                              target_cohort_table = cohortTable,
-                                             target_cohort_id = cohortsToCreate$cohortId[i])
+                                             target_cohort_id = cohortsToCreate$cohortId[i],
+                                             keywordSearch = shQuote(substr(keywordSearch,1,1)),
+                                             noteTitle = note_title,
+                                             noteKeyword = note_keyword)
     DatabaseConnector::executeSql(connection, sql)
   }
   

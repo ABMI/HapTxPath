@@ -2437,6 +2437,20 @@
               "STANDARD_CONCEPT_CAPTION": "Standard",
               "VOCABULARY_ID": "LOINC"
             }
+          },
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Lab Test",
+              "CONCEPT_CODE": "89662-1",
+              "CONCEPT_ID": 1176246,
+              "CONCEPT_NAME": "Microscopic observation [Identifier] in Lower respiratory specimen by Acid fast stain",
+              "DOMAIN_ID": "Measurement",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "LOINC"
+            }
           }
         ]
       }
@@ -2565,6 +2579,29 @@
               "CONCEPT_ID": 4230167,
               "CONCEPT_NAME": "Artificial respiration",
               "DOMAIN_ID": "Procedure",
+              "INVALID_REASON": "V",
+              "INVALID_REASON_CAPTION": "Valid",
+              "STANDARD_CONCEPT": "S",
+              "STANDARD_CONCEPT_CAPTION": "Standard",
+              "VOCABULARY_ID": "SNOMED"
+            },
+            "includeDescendants": true
+          }
+        ]
+      }
+    },
+    {
+      "id": 38,
+      "name": "Ventilator device",
+      "expression": {
+        "items": [
+          {
+            "concept": {
+              "CONCEPT_CLASS_ID": "Physical Object",
+              "CONCEPT_CODE": "706175007",
+              "CONCEPT_ID": 45768200,
+              "CONCEPT_NAME": "Ventilator breathing circuit",
+              "DOMAIN_ID": "Device",
               "INVALID_REASON": "V",
               "INVALID_REASON_CAPTION": "Valid",
               "STANDARD_CONCEPT": "S",
@@ -2796,6 +2833,38 @@
             "Criteria": {
               "ProcedureOccurrence": {
                 "CodesetId": 37
+              }
+            },
+            "StartWindow": {
+              "Start": {
+                "Days": 0,
+                "Coeff": 1
+              },
+              "End": {
+                "Coeff": 1
+              },
+              "UseEventEnd": false
+            },
+            "EndWindow": {
+              "Start": {
+                "Coeff": -1
+              },
+              "End": {
+                "Days": 0,
+                "Coeff": -1
+              },
+              "UseIndexEnd": true,
+              "UseEventEnd": false
+            },
+            "Occurrence": {
+              "Type": 1,
+              "Count": 0
+            }
+          },
+          {
+            "Criteria": {
+              "DeviceExposure": {
+                "CodesetId": 38
               }
             },
             "StartWindow": {

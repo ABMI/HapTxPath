@@ -2,13 +2,30 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 1717327,
-        "CONCEPT_NAME": "Ampicillin",
+        "CONCEPT_ID": 40721707,
+        "CONCEPT_NAME": "Amikacin Ophthalmic Solution",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "733",
+        "CONCEPT_CODE": "OMOP4735435",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 1790868,
+        "CONCEPT_NAME": "amikacin",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "641",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Ingredient"
@@ -19,20 +36,37 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 1734205,
-        "CONCEPT_NAME": "bacampicillin",
+        "CONCEPT_ID": 37499288,
+        "CONCEPT_NAME": "amikacin Inhalation Suspension",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "18687",
+        "CONCEPT_CODE": "2285804",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Ingredient"
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
       },
-      "isExcluded": false,
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 2047724,
+        "CONCEPT_NAME": "amikacin Topical Gel",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP4948055",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
       "includeDescendants": true,
       "includeMapped": false
     }
-    ]
+  ]
 }

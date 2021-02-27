@@ -2,20 +2,88 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 35603858,
-        "CONCEPT_NAME": "Streptomycin Injection",
+        "CONCEPT_ID": 1836191,
+        "CONCEPT_NAME": "streptomycin",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "1736464",
+        "CONCEPT_CODE": "10109",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+        "CONCEPT_CLASS_ID": "Ingredient"
       },
       "isExcluded": false,
       "includeDescendants": true,
       "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 42970795,
+        "CONCEPT_NAME": "Gentamicin / Streptomycin Topical Solution",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP4697219",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 41017781,
+        "CONCEPT_NAME": "Benzalkonium / Dihydrostreptomycin / Tyrothricin Ophthalmic Ointment",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP2215743",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40924077,
+        "CONCEPT_NAME": "Dihydrostreptomycin / Hesperidin / Penicillin G Topical Ointment",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP2122039",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40893009,
+        "CONCEPT_NAME": "Dihydrostreptomycin / Hesperidin / Penicillin G Topical Powder",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP2090971",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
     }
-    ]
+  ]
 }

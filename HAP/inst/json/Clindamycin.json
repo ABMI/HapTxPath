@@ -2,8 +2,280 @@
   "items": [
     {
       "concept": {
+        "CONCEPT_ID": 41111768,
+        "CONCEPT_NAME": "Benzoyl Peroxide / Clindamycin / Gentamicin / polyacrylate / Zirconium Cement",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP2309730",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 41267731,
+        "CONCEPT_NAME": "Benzoyl Peroxide / Clindamycin / Gentamicin Cement",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP2465693",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40830871,
+        "CONCEPT_NAME": "Benzoyl Peroxide / Clindamycin Topical Solution",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP2028833",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 21160318,
+        "CONCEPT_NAME": "Benzoyl Peroxide / Clindamycin Vaginal Gel",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP358740",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 35154146,
+        "CONCEPT_NAME": "Benzoyl Peroxide / clindamycin phosphate hydrate Topical Gel",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP4811173",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 36409570,
+        "CONCEPT_NAME": "Clindamycin / Hydrocortisone Topical Cream",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP3101612",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 21140538,
+        "CONCEPT_NAME": "Clindamycin / Hydrocortisone Topical Ointment",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP358737",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 21111150,
+        "CONCEPT_NAME": "Clindamycin / Tretinoin Vaginal Gel",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP358730",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 41143146,
+        "CONCEPT_NAME": "Clindamycin Medicated Shampoo",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP2341108",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 42479727,
+        "CONCEPT_NAME": "Clindamycin Topical Ointment",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP419332",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 44055989,
+        "CONCEPT_NAME": "Clindamycin Transdermal System",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP1050620",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 42480297,
+        "CONCEPT_NAME": "Clindamycin Vaginal Gel",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP419331",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 43603372,
+        "CONCEPT_NAME": "Clindamycin Vaginal Ring",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP951777",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 44187011,
+        "CONCEPT_NAME": "Clindamycin Vaginal Tablet",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP3063734",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 44043303,
+        "CONCEPT_NAME": "avobenzone / Clindamycin / Octinoxate Topical Cream",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP1037934",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40015664,
+        "CONCEPT_NAME": "benzoyl peroxide / clindamycin Topical Gel",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "379074",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
         "CONCEPT_ID": 997881,
-        "CONCEPT_NAME": "Clindamycin",
+        "CONCEPT_NAME": "clindamycin",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
@@ -19,8 +291,110 @@
     },
     {
       "concept": {
+        "CONCEPT_ID": 40136419,
+        "CONCEPT_NAME": "clindamycin / tretinoin Topical Gel",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "668329",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40150582,
+        "CONCEPT_NAME": "clindamycin Medicated Pad",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "797273",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40030884,
+        "CONCEPT_NAME": "clindamycin Topical Cream",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "379276",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40030885,
+        "CONCEPT_NAME": "clindamycin Topical Foam",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "477452",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40030886,
+        "CONCEPT_NAME": "clindamycin Topical Gel",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "377968",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40030890,
+        "CONCEPT_NAME": "clindamycin Topical Lotion",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "377650",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
         "CONCEPT_ID": 40030894,
-        "CONCEPT_NAME": "Clindamycin Topical Solution",
+        "CONCEPT_NAME": "clindamycin Topical Solution",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
@@ -33,6 +407,40 @@
       "isExcluded": true,
       "includeDescendants": true,
       "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 40030899,
+        "CONCEPT_NAME": "clindamycin Vaginal Cream",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "377651",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 1356390,
+        "CONCEPT_NAME": "clindamycin Vaginal Insert",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "2109113",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
     }
-    ]
+  ]
 }

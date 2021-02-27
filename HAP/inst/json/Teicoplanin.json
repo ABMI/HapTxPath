@@ -2,13 +2,13 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 1742253,
-        "CONCEPT_NAME": "levofloxacin",
+        "CONCEPT_ID": 19078399,
+        "CONCEPT_NAME": "teicoplanin",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "82122",
+        "CONCEPT_CODE": "57021",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Ingredient"
@@ -19,30 +19,13 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 40001157,
-        "CONCEPT_NAME": "levofloxacin Ophthalmic Solution",
+        "CONCEPT_ID": 41173786,
+        "CONCEPT_NAME": "Teicoplanin Cement",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "376884",
-        "DOMAIN_ID": "Drug",
-        "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Clinical Drug Form"
-      },
-      "isExcluded": true,
-      "includeDescendants": true,
-      "includeMapped": false
-    },
-    {
-      "concept": {
-        "CONCEPT_ID": 44120448,
-        "CONCEPT_NAME": "Levofloxacin Inhalant Solution",
-        "STANDARD_CONCEPT": "S",
-        "STANDARD_CONCEPT_CAPTION": "Standard",
-        "INVALID_REASON": "V",
-        "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "OMOP1115079",
+        "CONCEPT_CODE": "OMOP2371748",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm Extension",
         "CONCEPT_CLASS_ID": "Clinical Drug Form"
@@ -51,5 +34,5 @@
       "includeDescendants": true,
       "includeMapped": false
     }
-  ]
+    ]
 }

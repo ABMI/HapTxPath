@@ -3,7 +3,7 @@
     {
       "concept": {
         "CONCEPT_ID": 1750500,
-        "CONCEPT_NAME": "Clarithromycin",
+        "CONCEPT_NAME": "clarithromycin",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
@@ -16,6 +16,23 @@
       "isExcluded": false,
       "includeDescendants": true,
       "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 21084208,
+        "CONCEPT_NAME": "Clarithromycin Ophthalmic Solution",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP403669",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
     }
-    ]
+  ]
 }

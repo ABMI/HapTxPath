@@ -3,7 +3,7 @@
     {
       "concept": {
         "CONCEPT_ID": 901845,
-        "CONCEPT_NAME": "Colistin",
+        "CONCEPT_NAME": "colistin",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
@@ -16,6 +16,40 @@
       "isExcluded": false,
       "includeDescendants": true,
       "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 42948109,
+        "CONCEPT_NAME": "Colistin / Erythromycin Ophthalmic Solution",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP4674699",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 41111587,
+        "CONCEPT_NAME": "Colistin / Erythromycin Ophthalmic Ointment",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP2309549",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
     }
-    ]
+  ]
 }

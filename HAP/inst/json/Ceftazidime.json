@@ -3,7 +3,7 @@
     {
       "concept": {
         "CONCEPT_ID": 1776684,
-        "CONCEPT_NAME": "Ceftazidime",
+        "CONCEPT_NAME": "ceftazidime",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
@@ -16,6 +16,23 @@
       "isExcluded": false,
       "includeDescendants": true,
       "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 21132307,
+        "CONCEPT_NAME": "Ceftazidime Ophthalmic Solution",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "OMOP388743",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
     }
-    ]
+  ]
 }

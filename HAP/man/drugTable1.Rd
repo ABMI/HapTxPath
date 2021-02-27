@@ -13,6 +13,8 @@ drugTable1(
 )
 }
 \arguments{
+\item{drugExposureData}{Data extracted from drug exposure table}
+
 \item{cohortDatabaseSchema}{Schema name where intermediate data can be stored. You will need to have
 write priviliges in this schema. Note that for SQL Server, this should
 include both the database and schema name, for example 'cdm_data.dbo'.}
@@ -21,7 +23,9 @@ include both the database and schema name, for example 'cdm_data.dbo'.}
 This table will hold the exposure and outcome cohorts used in this
 study.}
 
-\item{conceptSets}{}
+\item{cohortId}{cohort Ids}
+
+\item{conceptSets}{concept set json files}
 }
 \description{
 get table1 about drug exposure

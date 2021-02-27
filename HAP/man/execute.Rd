@@ -15,7 +15,6 @@ execute(
   cohortTable,
   outputFolder,
   createCohorts = T,
-  cohortDiagnostics = T,
   runPathway = T,
   packageResults = T
 )
@@ -49,6 +48,8 @@ study.}
 \item{runPathway}{Whether to run the treatment pathway visualization}
 
 \item{packageResults}{Whether to package the results (after removing sensitive details)}
+
+\item{cohortDiagnostics}{Whether to run cohortDiagnostics package}
 }
 \description{
 Execute the cohort pathway study

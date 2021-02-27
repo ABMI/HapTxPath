@@ -1,0 +1,5 @@
+2021-02-27 07:18:11	[Main thread]	INFO	HAP	execute	Run analysis of Pneumonia medication pathway
+2021-02-27 07:18:44	[Main thread]	INFO	HAP	execute	Run analysis of Pneumonia medication pathway
+2021-02-27 07:18:45	[Main thread]	INFO	FeatureExtraction		Sending temp tables to server
+2021-02-27 07:18:45	[Main thread]	INFO	FeatureExtraction		Constructing features on server
+2021-02-27 07:18:53	[Main thread]	INFO	FeatureExtraction		Fetching data from server

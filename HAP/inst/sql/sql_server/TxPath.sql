@@ -259,7 +259,7 @@ group by
 	 d19.ingredient_name,
 	 d20.ingredient_name;
 
-select * into @cohortDatabaseSchema.event from #final order by num_persons desc;
+select * into @cohortDatabaseSchema.@tempTable from #final order by num_persons desc;
 
 
 truncate table #Tx_cohort;

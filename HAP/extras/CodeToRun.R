@@ -54,6 +54,46 @@ oracleTempSchema <- NULL
 cohortTable <- 'cohortTable'
 
 #=======================
+# Use this to run the cohorttDiagnostics. The results will be stored in the diagnosticsExport subfolder of the outputFolder. This can be shared between sites.
+HAP::runCohortDiagnostics(connectionDetails = connectionDetails,
+                                     cdmDatabaseSchema = cdmDatabaseSchema,
+                                     cohortDatabaseSchema = cohortDatabaseSchema,
+                                     cohortTable = cohortTable,
+                                     oracleTempSchema = oracleTempSchema,
+                                     outputFolder = outputFolder,
+                                     databaseId = databaseId,
+                                     databaseName = databaseName,
+                                     databaseDescription = databaseDescription,
+                                     createCohorts = TRUE,
+                                     runInclusionStatistics = TRUE,
+                                     runIncludedSourceConcepts = TRUE,
+                                     runOrphanConcepts = TRUE,
+                                     runTimeDistributions = TRUE,
+                                     runBreakdownIndexEvents = TRUE,
+                                     runIncidenceRates = TRUE,
+                                     runCohortOverlap = TRUE,
+                                     runCohortCharacterization = TRUE,
+                                     runTemporalCohortCharacterization = TRUE,
+                                     minCellCount = 5)
+
+# To view the results:
+# Optional: if there are results zip files from multiple sites in a folder, this merges them, which will speed up starting the viewer:
+CohortDiagnostics::preMergeDiagnosticsFiles(file.path(outputFolder, "diagnosticsExport"))
+
+# Use this to view the results. Multiple zip files can be in the same folder. If the files were pre-merged, this is automatically detected: 
+CohortDiagnostics::launchDiagnosticsExplorer(file.path(outputFolder, "diagnosticsExport"))
+
+
+# To explore a specific cohort in the local database, viewing patient profiles:
+# CohortDiagnostics::launchCohortExplorer(connectionDetails = connectionDetails,
+#                                         cdmDatabaseSchema = cdmDatabaseSchema,
+#                                         cohortDatabaseSchema = cohortDatabaseSchema,
+#                                         cohortTable = cohortTable,
+#                                         cohortId = 123)
+# Where 123 is the ID of the cohort you wish to inspect.
+
+
+#========================
 
 execute(connectionDetails,
         databaseId,
@@ -64,18 +104,9 @@ execute(connectionDetails,
         oracleTempSchema,
         cohortTable,
         outputFolder,
-        createCohorts = T,
-        cohortDiagnostics = T,
+        createCohorts = F,
         runPathway = T,
-        packageResults = T)
-
-
-# To view the cohortDiagnostics results:
-# Optional: if there are results zip files from multiple sites in a folder, this merges them, which will speed up starting the viewer:
-CohortDiagnostics::preMergeDiagnosticsFiles(file.path(outputFolder, "diagnosticsExport"))
-
-# Use this to view the results. Multiple zip files can be in the same folder. If the files were pre-merged, this is automatically detected: 
-CohortDiagnostics::launchDiagnosticsExplorer(file.path(outputFolder, "diagnosticsExport"))
+        packageResults = F)
 
 # Please send the result zip file to ted9219@ajou.ac.kr
 

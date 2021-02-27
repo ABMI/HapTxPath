@@ -20,7 +20,7 @@
 #'                             study.
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
 #' @param createCohorts        Whether to create the cohorts for the study
-#' @param cohortDiagnostics
+#' @param cohortDiagnostics    Whether to run cohortDiagnostics package
 #' @param runPathway           Whether to run the treatment pathway visualization
 #' @param packageResults       Whether to package the results (after removing sensitive details)
 
@@ -35,7 +35,6 @@ execute <- function(connectionDetails,
                     cohortTable,
                     outputFolder,
                     createCohorts = T,
-                    cohortDiagnostics = T,
                     runPathway = T,
                     packageResults = T){
   
@@ -54,30 +53,6 @@ execute <- function(connectionDetails,
                   outputFolder = outputFolder)
   }
   
-  if(cohortDiagnostics){
-    ParallelLogger::logInfo("Run cohort diagnostics")
-    runCohortDiagnostics(connectionDetails,
-                        cdmDatabaseSchema,
-                        cohortDatabaseSchema = cohortDatabaseSchema,
-                        cohortTable = cohortTable,
-                        oracleTempSchema = oracleTempSchema,
-                        outputFolder,
-                        databaseId = databaseId,
-                        databaseName = databaseName,
-                        databaseDescription = databaseDescription,
-                        createCohorts = FALSE,
-                        runInclusionStatistics = TRUE,
-                        runIncludedSourceConcepts = TRUE,
-                        runOrphanConcepts = TRUE,
-                        runTimeDistributions = TRUE,
-                        runBreakdownIndexEvents = TRUE,
-                        runIncidenceRates = TRUE,
-                        runCohortOverlap = TRUE,
-                        runCohortCharacterization = TRUE,
-                        runTemporalCohortCharacterization = TRUE,
-                        minCellCount = 5)
-  }
-  
   if(runPathway){
     ParallelLogger::logInfo("Run analysis of Pneumonia medication pathway")
     runDrugPathway(connectionDetails,
@@ -87,7 +62,7 @@ execute <- function(connectionDetails,
                    outputFolder,
                    savePlot = T,
                    StartDays = 0,
-                   EndDays = 3650,
+                   EndDays = 365,
                    minCellCount = 5)
   }
   

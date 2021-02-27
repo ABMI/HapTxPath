@@ -37,10 +37,6 @@ runDrugPathway <- function(connectionDetails,
                            EndDays = 365,
                            minCellCount = 5){
   
-  # conceptIds from concept set json files
-  conceptSets <- conceptIdfromJson(connectionDetails = connectionDetails, 
-                                   cdmDatabaseSchema = cdmDatabaseSchema)
-  
   pathToCsv <- system.file("settings", "CohortsToCreate.csv", package = "HAP")
   cohortsToCreate <- read.csv(pathToCsv)
   
@@ -53,6 +49,8 @@ runDrugPathway <- function(connectionDetails,
                                             cohortId = cohortId,
                                             StartDays = StartDays,
                                             EndDays = EndDays)
+    
+    conceptSets <- drugExposureData %>% select (conceptId, CONCEPT_NAME) %>% distinct()
     
     #drugExposure data to sequence data
     sequenceData <- getSequenceData(cohortDatabaseSchema = cohortDatabaseSchema,
@@ -74,8 +72,7 @@ runDrugPathway <- function(connectionDetails,
     drugTable1 <- drugTable1(cohortDatabaseSchema = cohortDatabaseSchema,
                              cohortTable = cohortTable, 
                              cohortId = cohortId,
-                             drugExposureData = drugExposureData,
-                             conceptSets = conceptSets)
+                             drugExposureData = drugExposureData)
     
     ParallelLogger::logInfo("Saving the table and pathway plots")
     
@@ -258,11 +255,22 @@ getDrugExposureData <- function(connectionDetails = connectionDetails,
     dplyr::mutate(conceptId = substr(covariateId, 1, nchar(covariateId)-3))
   
   sql <- "select * from @cohort_database_schema.@cohort_table where cohort_definition_id = @cohort_id"
-  sql <- SqlRender::render(sql, cohort_database_schema = cohortDatabaseSchema, cohort_table = cohortTable, cohort_id = cohortId)
-  cohort <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql = sql)
+  sql <- SqlRender::render(sql, 
+                           cohort_database_schema = cohortDatabaseSchema, 
+                           cohort_table = cohortTable, 
+                           cohort_id = cohortId)
+  
+  cohort <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails),
+                                        sql = sql)
+  
   cohort <- cohort %>% mutate(timePeriod = as.integer(COHORT_END_DATE - COHORT_START_DATE)+1)
   
-  drugExposureData <- merge(x = cohort, y = drugExposureData, by.x = "SUBJECT_ID", by.y = "subjectId", all.x = T) %>% filter (time <= timePeriod)
+  drugExposureData <- merge(x = cohort,
+                            y = drugExposureData,
+                            by.x = "SUBJECT_ID",
+                            by.y = "subjectId",
+                            all.x = T) %>%
+    filter (time <= timePeriod)
   
   drugExposureData <- drugExposureData %>%
     group_by(SUBJECT_ID, COHORT_START_DATE) %>%
@@ -271,7 +279,12 @@ getDrugExposureData <- function(connectionDetails = connectionDetails,
     mutate(timeFirstId = time - timeFirst +1)
   
   
-  drugExposure <- drugExposureData %>% group_by(SUBJECT_ID, COHORT_DEFINITION_ID, COHORT_START_DATE) %>% summarise(conceptId = unique(conceptId)) 
+  drugExposure <- drugExposureData %>%
+    group_by(SUBJECT_ID,
+             COHORT_DEFINITION_ID,
+             COHORT_START_DATE) %>%
+    summarise(conceptId = unique(conceptId)) 
+  
   usedConceptId <- unique(drugExposureData$conceptId)
   
   sql <- "select c.concept_name, a.descendant_concept_id as conceptId from (select * from @vocabulary_database_schema.concept_ancestor where descendant_concept_id in (@conceptId) ) a
@@ -281,9 +294,14 @@ getDrugExposureData <- function(connectionDetails = connectionDetails,
                            vocabulary_database_schema = cdmDatabaseSchema,
                            conceptId = usedConceptId)
   
-  sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
-  usedConceptIds <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
-  drugExposureData <- merge(drugExposureData, usedConceptIds, by.x = "conceptId", by.y = "CONCEPTID")
+  sql <- SqlRender::translate(sql,
+                              targetDialect = connectionDetails$dbms)
+  usedConceptIds <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails),
+                                                sql)
+  drugExposureData <- merge(drugExposureData,
+                            usedConceptIds,
+                            by.x = "conceptId",
+                            by.y = "CONCEPTID")
   
   return(drugExposureData)
 }
@@ -319,12 +337,16 @@ getSequenceData <- function(cohortDatabaseSchema = cohortDatabaseSchema,
     conceptSet <- conceptSets[[i]]$items
     #Included concepts
     
-    includedConcept <- c(includedConcept, conceptSet$concept$CONCEPT_ID[!conceptSet$includeDescendants])
-    includedDescendantConcept <- c(includedDescendantConcept, conceptSet$concept$CONCEPT_ID[conceptSet$includeDescendants])
+    includedConcept <- c(includedConcept,
+                         conceptSet$concept$CONCEPT_ID[!conceptSet$includeDescendants])
+    includedDescendantConcept <- c(includedDescendantConcept,
+                                   conceptSet$concept$CONCEPT_ID[conceptSet$includeDescendants])
     
     #Excluded concepts
-    excludedConcept <- c(excludedConcept, conceptSet$concept$CONCEPT_ID[conceptSet$isExcluded & !conceptSet$includeDescendants])
-    excludedDescendantConcept <-c(excludedDescendantConcept, conceptSet$concept$CONCEPT_ID[conceptSet$isExcluded & conceptSet$includeDescendants])
+    excludedConcept <- c(excludedConcept,
+                         conceptSet$concept$CONCEPT_ID[conceptSet$isExcluded & !conceptSet$includeDescendants])
+    excludedDescendantConcept <-c(excludedDescendantConcept,
+                                  conceptSet$concept$CONCEPT_ID[conceptSet$isExcluded & conceptSet$includeDescendants])
     
   }
   
@@ -335,20 +357,38 @@ getSequenceData <- function(cohortDatabaseSchema = cohortDatabaseSchema,
   
   path <- system.file(package = "HAP", "sql", "sql_server", "TxPath.sql")
   sql <- SqlRender::readSql(path)
-  sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema, vocabularyDatabaseSchema = cdmDatabaseSchema,
+  
+  sql <- SqlRender::render(sql,
+                           cohortDatabaseSchema = cohortDatabaseSchema,
+                           vocabularyDatabaseSchema = cdmDatabaseSchema,
                            cdmDatabaseSchema = cdmDatabaseSchema, 
-                           includedConcept = includedConcept, includedDescendantConcept = includedDescendantConcept, 
-                           excludedConcept = excludedConcept, excludedDescendantConcept = excludedDescendantConcept,
-                           cohortTable = cohortTable, cohortId = cohortId, minCollapseDays = 2)
-  sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
+                           includedConcept = includedConcept,
+                           includedDescendantConcept = includedDescendantConcept, 
+                           excludedConcept = excludedConcept,
+                           excludedDescendantConcept = excludedDescendantConcept,
+                           cohortTable = cohortTable,
+                           cohortId = cohortId,
+                           tempTable = "HapTempEvent",
+                           minCollapseDays = 2)
+  
+  sql <- SqlRender::translate(sql,
+                              targetDialect = connectionDetails$dbms)
+  
   DatabaseConnector::executeSql(connection = DatabaseConnector::connect(connectionDetails), sql)
   
-  sql <- "select * from @cohortDatabaseSchema.event"
-  sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema)
+  sql <- "select * from @cohortDatabaseSchema.@tempTable"
+  sql <- SqlRender::render(sql,
+                           cohortDatabaseSchema = cohortDatabaseSchema,
+                           tempTable = "HapTempEvent")
+  
   table <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
   
-  sql <- "drop table @cohortDatabaseSchema.event"
-  sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema)
+  sql <- "drop table @cohortDatabaseSchema.@tempTable"
+  
+  sql <- SqlRender::render(sql,
+                           cohortDatabaseSchema = cohortDatabaseSchema,
+                           tempTable = "HapTempEvent")
+  
   DatabaseConnector::executeSql(connection = DatabaseConnector::connect(connectionDetails), sql)
   
   return(table)
@@ -373,9 +413,14 @@ totalN <- function(connectionDetails,
                    cohortTable,
                    cohortId){
   sql <- "select count(*) as eventCount, count(distinct subject_id) as personCount from @cohortDatabaseSchema.@cohortTable where cohort_definition_id = @cohortId"
-  sql <- SqlRender::render(sql, cohortDatabaseSchema = cohortDatabaseSchema, cohortTable = cohortTable, cohortId = cohortId)
-  sql <- SqlRender::translate(sql, targetDialect = connectionDetails$dbms)
-  totalN <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
+  sql <- SqlRender::render(sql,
+                           cohortDatabaseSchema = cohortDatabaseSchema,
+                           cohortTable = cohortTable,
+                           cohortId = cohortId)
+  sql <- SqlRender::translate(sql,
+                              targetDialect = connectionDetails$dbms)
+  totalN <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails),
+                                        sql)
   totalN <- totalN[1,1]
   
   return(totalN)
@@ -387,23 +432,22 @@ totalN <- function(connectionDetails,
 #' @details
 #' Extract concept_id from the json file of concept set
 #'
-#' @param drugExposureData
+#' @param drugExposureData     Data extracted from drug exposure table
 #' @param cohortDatabaseSchema Schema name where intermediate data can be stored. You will need to have
 #'                             write priviliges in this schema. Note that for SQL Server, this should
 #'                             include both the database and schema name, for example 'cdm_data.dbo'.
 #' @param cohortTable          The name of the table that will be created in the work database schema.
 #'                             This table will hold the exposure and outcome cohorts used in this
 #'                             study.
-#' @param cohortId
-#' @param conceptSets
+#' @param cohortId             cohort Ids
+#' @param conceptSets          concept set json files
 #' 
 #' @export
 #' 
 drugTable1 <- function(drugExposureData = drugExposureData,
                        cohortDatabaseSchema = cohortDatabaseSchema,
                        cohortTable = cohortTable,
-                       cohortId = cohortId,
-                       conceptSets = conceptSets){
+                       cohortId = cohortId){
   
   drugExposure <- drugExposureData 
 

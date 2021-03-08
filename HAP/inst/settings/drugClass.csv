@@ -1,43 +1,47 @@
-setNum,conceptSetName,drugClass
-1,amikacin,Aminoglycoside
-2,amoxicillin,Penicillin
-3,ampicillin,Penicillin
-4,azetreonam,Monobactam
-5,azithromycin,Macrolide
-6,cefazolin,Cephalosporin 1st
-7,cefdinir,Cephalosporin 3rd
-8,cefditoren,Cephalosporin 3rd
-9,cefepime,Cephalosporin 4th
-10,cefotaxime,Cephalosporin 3rd
-11,cefpodoxime,Cephalosporin 3rd
-12,cefprozil,Cephalosporin 2nd
-13,ceftaroline,Cephalosporin 5th
-14,ceftazidime,Cephalosporin 3rd
-15,ceftriaxone,Cephalosporin 3rd
-16,cefuroxime,Cephalosporin 2nd
-17,ciprofloxacin,Fluoroquinolone
-18,clarithromycin,Macrolide
-19,clindamycin,Lincosamide
-20,colistin,polymyxin
-21,doxycycline,Tetracycline
-22,ertapenem,Carbapenem
-23,erythromycin,Macrolide
-24,gemifloxacin,Fluoroquinolone
-25,gentamicin,Aminoglycoside
-26,imipenem,Carbapenem
-27,kanamycin,Aminoglycoside
-28,levofloxacin,Fluoroquinolone
-29,linezolid,Oxazolidinone
-30,meropenem,Carbapenem
-31,moxifloxacin,Fluoroquinolone
-32,nafcillin,Penicillin
-33,netilmicin,Aminoglycoside
-34,oxacillin,Penicillin
-35,penicillin G,Penicillin
-36,piptazo,Anti-pseudomonal penicillin
-37,polymyxinB,polymyxin
-38,roxithromycin,Macrolide
-39,sterptomycin,Aminoglycoside
-40,tetracycline,Tetracycline
-41,tobramycin,Aminoglycoside
-42,vancomycin,Glycopeptide
+setNum,conceptSetName,conceptName,drugClass
+1,amikacin,amikacin,Aminoglycoside
+2,amoxicillin,amoxicillin,Penicillin
+2,amoxicillin,clavulanate,Penicillin
+3,ampicillin,ampicillin,Penicillin
+4,azetreonam,azetreonam,Monobactam
+5,azithromycin,azithromycin,Macrolide
+6,cefazolin,cefazolin,Cephalosporin 1st
+7,cefdinir,cefdinir,Cephalosporin 3rd
+8,cefditoren,cefditoren,Cephalosporin 3rd
+9,cefepime,cefepime,Cephalosporin 4th
+10,cefotaxime,cefotaxime,Cephalosporin 3rd
+11,cefpodoxime,cefpodoxime,Cephalosporin 3rd
+12,cefprozil,cefprozil,Cephalosporin 2nd
+13,ceftaroline,ceftaroline,Cephalosporin 5th
+14,ceftazidime,ceftazidime,Cephalosporin 3rd
+15,ceftriaxone,ceftriaxone,Cephalosporin 3rd
+16,cefuroxime,cefuroxime,Cephalosporin 2nd
+17,ciprofloxacin,ciprofloxacin,Fluoroquinolone
+18,clarithromycin,clarithromycin,Macrolide
+19,clindamycin,clindamycin,Lincosamide
+20,colistin,colistin,polymyxin
+21,doxycycline,doxycycline,Tetracycline
+22,ertapenem,ertapenem,Carbapenem
+23,erythromycin,erythromycin,Macrolide
+24,gemifloxacin,gemifloxacin,Fluoroquinolone
+25,gentamicin,gentamicin,Aminoglycoside
+26,imipenem,imipenem,Carbapenem
+26,imipenem,cilastatin,Carbapenem
+27,kanamycin,kanamycin,Aminoglycoside
+28,levofloxacin,levofloxacin,Fluoroquinolone
+29,linezolid,linezolid,Oxazolidinone
+30,meropenem,meropenem,Carbapenem
+31,moxifloxacin,moxifloxacin,Fluoroquinolone
+32,nafcillin,nafcillin,Penicillin
+33,netilmicin,netilmicin,Aminoglycoside
+34,oxacillin,oxacillin,Penicillin
+35,penicillin G,penicillin G,Penicillin
+36,piptazo,piperacillin,Anti-pseudomonal penicillin
+36,piptazo,tazobactam,Anti-pseudomonal penicillin
+37,polymyxinB,polymyxinB,polymyxin
+38,roxithromycin,roxithromycin,Macrolide
+39,sterptomycin,sterptomycin,Aminoglycoside
+40,tetracycline,tetracycline,Tetracycline
+41,tobramycin,tobramycin,Aminoglycoside
+42,vancomycin,vancomycin,Glycopeptide
+43,tiocoplanin,teicoplanin,Glycopeptide

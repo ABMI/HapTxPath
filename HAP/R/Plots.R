@@ -86,6 +86,14 @@ PlotTxPathway <- function(cohortDatabaseSchema,
   
   htmlwidgets::saveWidget(dailyPlot, file = file.path(saveFolder, "dailyPlot.html"))
   
+  dailyGroupPlot <- dailyGroupPlot(cohortDatabaseSchema = cohortDatabaseSchema,
+                         cohortTable = cohortTable,
+                         cohortId = cohortId,
+                         conceptSets = conceptSets,
+                         drugExposureData = drugExposureData)
+  
+  htmlwidgets::saveWidget(dailyGroupPlot, file = file.path(saveFolder, "dailyGroupPlot.html"))
+  
   sunburstPlot <- sunburstPlot(sequenceData = sequenceData,
                                pathLevel = pathLevel)
   htmlwidgets::saveWidget(sunburstPlot, file = file.path(saveFolder, "sunburst.html"))
@@ -214,6 +222,50 @@ dailyPlot <-function(cohortDatabaseSchema,
   
   Plot <- plotly::plot_ly(drugTable1, x = ~timeFirstId, y = ~period_percentile,
                           color = ~CONCEPT_NAME, type = 'scatter', mode = 'lines+markers') %>% 
+    plotly::layout(xaxis = list(title = "Follow-up time"), 
+                   yaxis = list(title = "Percentage", 
+                                ticktext = seq(0, 100, by = 20)))  
+  
+  return(Plot)
+  
+}
+
+dailyGroupPlot <-function(cohortDatabaseSchema,
+                     cohortTable,
+                     cohortId,
+                     conceptSets,
+                     drugExposureData){
+  
+  
+  # 
+  # conceptList <- data.frame(setNum = NULL, conceptSetName = NULL, conceptId = NULL)
+  # 
+  # for(i in 1:length(conceptSets)){
+  #   
+  #   conceptList <- rbind(conceptList, 
+  #                        data.frame(setNum = i,
+  #                                   conceptSetName = names(conceptSets[i]),
+  #                                   conceptId = conceptSets[[i]]))
+  # }
+  pathToCsv <- system.file("settings", "drugClass.csv", package = "HAP")
+  drugClass <- read.csv(pathToCsv)
+  drugExposure <- merge(drugExposureData, drugClass, by.x = "CONCEPT_NAME", by.y = "conceptName")
+  
+  periodN <- drugExposure %>% group_by(timeFirstId) %>% summarise(n = n_distinct(SUBJECT_ID)) %>% group_by()
+  
+  N <- totalN(connectionDetails, cohortDatabaseSchema, cohortTable, cohortId)
+  drugTable1 <- drugExposure %>%
+    group_by(drugClass, timeFirstId) %>%
+    summarise(records = n(), 
+              person = n_distinct(SUBJECT_ID), 
+              percentile = round(person/N*100,2)) %>% group_by()
+  
+  drugTable1 <- as.data.frame(drugTable1)
+  drugTable1 <- merge(drugTable1, periodN, by= "timeFirstId", all.x = T) %>%
+    mutate(period_percentile = round(person/n*100,2))
+  
+  Plot <- plotly::plot_ly(drugTable1, x = ~timeFirstId, y = ~period_percentile,
+                          color = ~drugClass, type = 'scatter', mode = 'lines+markers') %>% 
     plotly::layout(xaxis = list(title = "Follow-up time"), 
                    yaxis = list(title = "Percentage", 
                                 ticktext = seq(0, 100, by = 20)))  

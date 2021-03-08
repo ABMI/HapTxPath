@@ -2,7 +2,6 @@
 
 export(PlotTxPathway)
 export(conceptIdfromJson)
-export(createCohorts)
 export(createCultureResultTable)
 export(drugTable1)
 export(execute)

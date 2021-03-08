@@ -8,8 +8,7 @@ drugTable1(
   drugExposureData = drugExposureData,
   cohortDatabaseSchema = cohortDatabaseSchema,
   cohortTable = cohortTable,
-  cohortId = cohortId,
-  conceptSets = conceptSets
+  cohortId = cohortId
 )
 }
 \arguments{

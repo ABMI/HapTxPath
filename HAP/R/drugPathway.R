@@ -97,9 +97,7 @@ runDrugPathway <- function(connectionDetails,
                                     StartDays = 0,
                                     EndDays = 365,
                                     pathLevel = 2)
-    
-    
-    
+
   }
 }
 

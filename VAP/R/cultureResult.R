@@ -26,7 +26,7 @@ createCultureResultTable <- function(cdmDatabaseSchema,
                           minCellCount = 5){
   
 
-  path <- system.file(package = "PneumoniaTxPath", "sql", "sql_server", "BacteriaCulture.sql")
+  path <- system.file(package = "VAP", "sql", "sql_server", "BacteriaCulture.sql")
   sql <- SqlRender::readSql(path)
   sql <- SqlRender::render(sql, 
                            cdm_database_schema = cdmDatabaseSchema,
@@ -37,7 +37,7 @@ createCultureResultTable <- function(cdmDatabaseSchema,
                            minCount = minCellCount)
   
   cultureResult <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
-  cultureResult <- reshape2::dcast(data = cultureResult, COHORT_DEFINITION_ID + CONCEPT_NAME ~ MEASUREMENT_CONCEPT_ID, value.var = c("PERSONCOUNTS"))
+  cultureResult <- resVAPe2::dcast(data = cultureResult, COHORT_DEFINITION_ID + CONCEPT_NAME ~ MEASUREMENT_CONCEPT_ID, value.var = c("PERSONCOUNTS"))
   cultureResult[is.na(cultureResult)] <- 0
   
   return(cultureResult)

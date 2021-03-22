@@ -19,13 +19,8 @@
 #'                             This table will hold the exposure and outcome cohorts used in this
 #'                             study.
 #' @param outputFolder         Name of local folder to place results; make sure to use forward slashes
-#' @param noteTitle            Name of note
-#' @param noteKeyword          Specific keyword in note table for cohort extraction
-#'                             (/)
-#' @param keywordSearch        turn on the keyword search function in patient note table.
-#'                             (/)
 #' @param createCohorts        Whether to create the cohorts for the study
-#' @param cohortDiagnostics
+#' @param cohortDiagnostics    Whether to run cohortDiagnostics package
 #' @param runPathway           Whether to run the treatment pathway visualization
 #' @param packageResults       Whether to package the results (after removing sensitive details)
 
@@ -39,11 +34,7 @@ execute <- function(connectionDetails,
                     oracleTempSchema,
                     cohortTable,
                     outputFolder,
-                    noteTitle = NULL,
-                    noteKeyword = NULL,
-                    keywordSearch = F,
                     createCohorts = T,
-                    cohortDiagnostics = T,
                     runPathway = T,
                     packageResults = T){
   
@@ -52,54 +43,14 @@ execute <- function(connectionDetails,
   
   ParallelLogger::addDefaultFileLogger(file.path(outputFolder, "log.txt"))
   
-  if(createCohorts & (!is.null(noteTitle) & !is.null(noteKeyword))){
-    ParallelLogger::logInfo("Creating Cohorts with specific keyword in note table")
-    createCohorts(connectionDetails,
-                  cdmDatabaseSchema=cdmDatabaseSchema,
-                  cohortDatabaseSchema=cohortDatabaseSchema,
-                  cohortTable=cohortTable,
-                  outputFolder = outputFolder,
-                  keywordSearch = T,
-                  noteTitle = noteTitle,
-                  noteKeyword = noteKeyword)
-  }else if(createCohorts & (!is.null(noteTitle) || !is.null(noteKeyword))){
-    ParallelLogger::logInfo("Please check the noteTitle or noteKeyword")
-  }
-  
-  if(createCohorts & (is.null(noteTitle) & is.null(noteKeyword))){
-    ParallelLogger::logInfo("Creating Cohorts")
-    createCohorts(connectionDetails,
-                  cdmDatabaseSchema=cdmDatabaseSchema,
-                  cohortDatabaseSchema=cohortDatabaseSchema,
-                  cohortTable=cohortTable,
-                  outputFolder = outputFolder,
-                  keywordSearch = F)
-  }else if(createCohorts & (is.null(noteTitle) || is.null(noteKeyword))){
-    ParallelLogger::logInfo("Please check the noteTitle or noteKeyword")
-  }
-  
-  if(cohortDiagnostics){
-    ParallelLogger::logInfo("Run cohort diagnostics")
-    runCohortDiagnostics(connectionDetails,
-                        cdmDatabaseSchema,
-                        cohortDatabaseSchema = cohortDatabaseSchema,
-                        cohortTable = cohortTable,
-                        oracleTempSchema = oracleTempSchema,
-                        outputFolder,
-                        databaseId = databaseId,
-                        databaseName = databaseName,
-                        databaseDescription = databaseDescription,
-                        createCohorts = FALSE,
-                        runInclusionStatistics = FALSE,
-                        runIncludedSourceConcepts = TRUE,
-                        runOrphanConcepts = FALSE,
-                        runTimeDistributions = FALSE,
-                        runBreakdownIndexEvents = FALSE,
-                        runIncidenceRates = TRUE,
-                        runCohortOverlap = FALSE,
-                        runCohortCharacterization = TRUE,
-                        runTemporalCohortCharacterization = FALSE,
-                        minCellCount = 5)
+  if (createCohorts) {
+    ParallelLogger::logInfo("Creating cohorts")
+    createCohorts(connectionDetails = connectionDetails,
+                  cdmDatabaseSchema = cdmDatabaseSchema,
+                  cohortDatabaseSchema = cohortDatabaseSchema,
+                  cohortTable = cohortTable,
+                  oracleTempSchema = oracleTempSchema,
+                  outputFolder = outputFolder)
   }
   
   if(runPathway){
@@ -111,7 +62,7 @@ execute <- function(connectionDetails,
                    outputFolder,
                    savePlot = T,
                    StartDays = 0,
-                   EndDays = 3650,
+                   EndDays = 365,
                    minCellCount = 5)
   }
   

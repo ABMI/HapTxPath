@@ -1,6 +1,6 @@
-Package: PneumoniaTxPath
+Package: VAP
 Type: Package
-Title: Treatment pathway of Pneumonia (One Line, Title Case)
+Title: Treatment pathway of ventilator assocaited pneumonia (One Line, Title Case)
 Version: 0.0.0.9
 Author: Chungsoo Kim [aut, cre] 
 Maintainer: Chungsoo Kim <ted9219@ajou.ac.kr>

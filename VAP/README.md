@@ -1,5 +1,5 @@
 
-# PneumoniaTxPath
+# Ventilator associated pneumonia
 
 <!-- badges: start -->
 <img src="https://img.shields.io/badge/Study%20Status-Started-blue.svg" alt="Study Status: Started">
@@ -18,14 +18,14 @@
 
 <!-- badges: end -->
 
-The goal of PneumoniaTxPath is to identify the treatment pattern of antibiotics used for the hospital-acquired pneumonia patients.
+The goal of Ventilator associated pneumonia is to identify the treatment pattern of antibiotics used for the hospital-acquired pneumonia patients.
 
 ## Installation
 
-You can install the released version of PneumoniaTxPath from with:
+You can install the released version of Ventilator associated pneumonia from with:
 
 ``` r
-devtools::install_github("ABMI/PneumoniaTxPath")
+devtools::install_github("ABMI/VAP")
 ```
 
 ## Example
@@ -33,12 +33,12 @@ devtools::install_github("ABMI/PneumoniaTxPath")
 This is a basic example which shows you how to solve a common problem:
 
 ``` r
-library(PneumoniaTxPath)
+library(VAP)
 
 # USER INPUTS
 #=======================
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "./PneumoniaTxPath"
+outputFolder <- "./VAP"
 
 # Specify where the temporary files (used by the ff package) will be created:
 options(fftempdir = "temp directory")

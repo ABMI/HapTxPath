@@ -2,13 +2,30 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 948582,
-        "CONCEPT_NAME": "Polymyxin B",
+        "CONCEPT_ID": 40721707,
+        "CONCEPT_NAME": "Amikacin Ophthalmic Solution",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "8536",
+        "CONCEPT_CODE": "OMOP4735435",
+        "DOMAIN_ID": "Drug",
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
+      },
+      "isExcluded": true,
+      "includeDescendants": true,
+      "includeMapped": false
+    },
+    {
+      "concept": {
+        "CONCEPT_ID": 1790868,
+        "CONCEPT_NAME": "amikacin",
+        "STANDARD_CONCEPT": "S",
+        "STANDARD_CONCEPT_CAPTION": "Standard",
+        "INVALID_REASON": "V",
+        "INVALID_REASON_CAPTION": "Valid",
+        "CONCEPT_CODE": "641",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Ingredient"
@@ -19,13 +36,13 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 40027153,
-        "CONCEPT_NAME": "Dexamethasone / Neomycin / Polymyxin B Ophthalmic Ointment",
+        "CONCEPT_ID": 37499288,
+        "CONCEPT_NAME": "amikacin Inhalation Suspension",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "374699",
+        "CONCEPT_CODE": "2285804",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Clinical Drug Form"
@@ -36,13 +53,13 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 43179753,
-        "CONCEPT_NAME": "Neomycin / Nystatin / Polymyxin B Vaginal Suppository",
+        "CONCEPT_ID": 2047724,
+        "CONCEPT_NAME": "amikacin Topical Gel",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "OMOP454516",
+        "CONCEPT_CODE": "OMOP4948055",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm Extension",
         "CONCEPT_CLASS_ID": "Clinical Drug Form"
@@ -51,5 +68,5 @@
       "includeDescendants": true,
       "includeMapped": false
     }
-    ]
+  ]
 }

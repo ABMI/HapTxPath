@@ -14,11 +14,7 @@ execute(
   oracleTempSchema,
   cohortTable,
   outputFolder,
-  noteTitle = NULL,
-  noteKeyword = NULL,
-  keywordSearch = F,
   createCohorts = T,
-  cohortDiagnostics = T,
   runPathway = T,
   packageResults = T
 )
@@ -47,19 +43,13 @@ study.}
 
 \item{outputFolder}{Name of local folder to place results; make sure to use forward slashes}
 
-\item{noteTitle}{Name of note}
-
-\item{noteKeyword}{Specific keyword in note table for cohort extraction
-(/)}
-
-\item{keywordSearch}{turn on the keyword search function in patient note table.
-(/)}
-
 \item{createCohorts}{Whether to create the cohorts for the study}
 
 \item{runPathway}{Whether to run the treatment pathway visualization}
 
 \item{packageResults}{Whether to package the results (after removing sensitive details)}
+
+\item{cohortDiagnostics}{Whether to run cohortDiagnostics package}
 }
 \description{
 Execute the cohort pathway study

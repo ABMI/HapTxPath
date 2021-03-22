@@ -2,13 +2,13 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 1717327,
-        "CONCEPT_NAME": "Ampicillin",
+        "CONCEPT_ID": 1750500,
+        "CONCEPT_NAME": "clarithromycin",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "733",
+        "CONCEPT_CODE": "21212",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Ingredient"
@@ -19,20 +19,20 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 1734205,
-        "CONCEPT_NAME": "bacampicillin",
+        "CONCEPT_ID": 21084208,
+        "CONCEPT_NAME": "Clarithromycin Ophthalmic Solution",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "18687",
+        "CONCEPT_CODE": "OMOP403669",
         "DOMAIN_ID": "Drug",
-        "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Ingredient"
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
       },
-      "isExcluded": false,
+      "isExcluded": true,
       "includeDescendants": true,
       "includeMapped": false
     }
-    ]
+  ]
 }

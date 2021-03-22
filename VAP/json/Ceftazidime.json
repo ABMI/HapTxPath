@@ -2,13 +2,13 @@
   "items": [
     {
       "concept": {
-        "CONCEPT_ID": 1797513,
-        "CONCEPT_NAME": "Ciprofloxacin",
+        "CONCEPT_ID": 1776684,
+        "CONCEPT_NAME": "ceftazidime",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "2551",
+        "CONCEPT_CODE": "2191",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
         "CONCEPT_CLASS_ID": "Ingredient"
@@ -19,16 +19,16 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 40028720,
-        "CONCEPT_NAME": "Ciprofloxacin Ophthalmic Solution",
+        "CONCEPT_ID": 21132307,
+        "CONCEPT_NAME": "Ceftazidime Ophthalmic Solution",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "376202",
+        "CONCEPT_CODE": "OMOP388743",
         "DOMAIN_ID": "Drug",
-        "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Clinical Drug"
+        "VOCABULARY_ID": "RxNorm Extension",
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
       },
       "isExcluded": true,
       "includeDescendants": true,

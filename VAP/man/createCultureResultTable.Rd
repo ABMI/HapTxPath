@@ -7,6 +7,8 @@
 createCultureResultTable(
   cdmDatabaseSchema,
   cohortDatabaseSchema,
+  cohortTable,
+  cohortId,
   minCellCount = 5
 )
 }

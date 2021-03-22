@@ -11,8 +11,7 @@ getDrugExposureData(
   cohortTable = cohortTable,
   cohortId = cohortId,
   StartDays = StartDays,
-  EndDays = EndDays,
-  conceptSets = conceptSets
+  EndDays = EndDays
 )
 }
 \arguments{

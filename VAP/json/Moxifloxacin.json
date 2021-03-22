@@ -19,16 +19,16 @@
     },
     {
       "concept": {
-        "CONCEPT_ID": 19102471,
-        "CONCEPT_NAME": "moxifloxacin 5 MG/ML Ophthalmic Solution",
+        "CONCEPT_ID": 40057467,
+        "CONCEPT_NAME": "moxifloxacin Ophthalmic Solution",
         "STANDARD_CONCEPT": "S",
         "STANDARD_CONCEPT_CAPTION": "Standard",
         "INVALID_REASON": "V",
         "INVALID_REASON_CAPTION": "Valid",
-        "CONCEPT_CODE": "403818",
+        "CONCEPT_CODE": "406106",
         "DOMAIN_ID": "Drug",
         "VOCABULARY_ID": "RxNorm",
-        "CONCEPT_CLASS_ID": "Clinical Drug"
+        "CONCEPT_CLASS_ID": "Clinical Drug Form"
       },
       "isExcluded": true,
       "includeDescendants": true,

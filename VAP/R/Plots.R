@@ -237,19 +237,9 @@ dailyGroupPlot <-function(cohortDatabaseSchema,
                      drugExposureData){
   
   
-  # 
-  # conceptList <- data.frame(setNum = NULL, conceptSetName = NULL, conceptId = NULL)
-  # 
-  # for(i in 1:length(conceptSets)){
-  #   
-  #   conceptList <- rbind(conceptList, 
-  #                        data.frame(setNum = i,
-  #                                   conceptSetName = names(conceptSets[i]),
-  #                                   conceptId = conceptSets[[i]]))
-  # }
   pathToCsv <- system.file("settings", "drugClass.csv", package = "VAP")
   drugClass <- read.csv(pathToCsv)
-  drugExposure <- merge(drugExposureData, drugClass, by.x = "CONCEPT_NAME", by.y = "conceptName")
+  drugExposure <- merge(drugExposureData, drugClass, by.x = "CONCEPT_NAME", by.y = "conceptSetName")
   
   periodN <- drugExposure %>% group_by(timeFirstId) %>% summarise(n = n_distinct(SUBJECT_ID)) %>% group_by()
   

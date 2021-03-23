@@ -37,7 +37,7 @@ createCultureResultTable <- function(cdmDatabaseSchema,
                            minCount = minCellCount)
   
   cultureResult <- DatabaseConnector::querySql(connection = DatabaseConnector::connect(connectionDetails), sql)
-  cultureResult <- resVAPe2::dcast(data = cultureResult, COHORT_DEFINITION_ID + CONCEPT_NAME ~ MEASUREMENT_CONCEPT_ID, value.var = c("PERSONCOUNTS"))
+  cultureResult <- reshape2::dcast(data = cultureResult, COHORT_DEFINITION_ID + CONCEPT_NAME ~ MEASUREMENT_CONCEPT_ID, value.var = c("PERSONCOUNTS"))
   cultureResult[is.na(cultureResult)] <- 0
   
   return(cultureResult)
